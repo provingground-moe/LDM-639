@@ -1,0 +1,21 @@
+sudo: true
+dist: trusty
+services:
+  - docker
+language: python
+python:
+  - '3.5'
+before_install:
+  - "pip install 'lander>=0.1.0,<0.2'"
+script:
+  # Compile PDF using containerized lsst-texmf
+  - "docker run --rm -v `pwd`:/workspace -w /workspace lsstsqre/lsst-texmf:latest sh -c 'make'"
+  # Deploy website. See https://github.com/lsst-sqre/lander for CLI options
+  - "lander --pdf LDM-639.pdf --upload --lsstdoc LDM-639.tex --env=travis --ltd-product ldm-639"
+env:
+  global:
+    - LTD_MASON_BUILD=false  # disable builds in regular text matrix
+    - LTD_MASON_PRODUCT="ldm-639"
+    # AWS and LTD Keeper credentials as encrypted secrets here
+    - secure: "VTkzl/w36LllPqmFOOtGLhNDcdT99rPz0LVrlJwy0WpqhPvfXS8+NERAhL2tLtHcAtyIbVA360d8poEAvnH6rGsdQ/QONGKMuRMZ3rukkS9/cr5voSuPOHv+Afhe+oqUa3in+03Q8v0gBzayRK0C5nV5ezYZBhPVqUK5kz9jw+0D4k7vNcqTNgau90qk0u+sNIqDXUFLpLTnRTsfRIuy7d9K7tjhJ/l/go2qdhwf/sA6v3MF1PXw6WZquA22/4j3PXPlUK4w5K7eBbOnSepUb28uHbWe/wE1kjf119oydYWX8ZEyqH/lajuJRQIbQ35Dcb/T99mts2u4k4Jz7sjSNqLG3wJV/Xmimp2u21LieTMnbFYHbFPXu0Ooj71xVCIm9+/qB/D0Fe1hiqeG3+0FNzVQMCoeAJ4F7cHhrymKeiqHKiu7vU0DgArzUWnALLFEWOeC2kBYZIA+q/uYlVWToKQ097uqboLmNM565KtWvqazw3XZd9e5kGJnNJCgjtBD8GPGm5O28uCjDT/bgCYt/wOJLyHL8j+1GGn4ULLtP4pasEwNx3tkCTfPXUoYwF9/7gWnQLGfHZVoZK0WBQL+YuBSB8UXtBiBo0UkDYo0UE3DXabXBL79/ivqg7RFoObCzT75pIqD7kljBc2EUimzBfh1utklLbGuDKSBr863Kbs="
+    - secure: "oI291d3hSvrw637/a4eSdmQBNSQyrrEBZXNQhAuL3d7RnRCwaX5MPht9IPlblm0jGJ+Qvo1QSvr/xrSTuhgThy2pVe8w3A6oT8meOOu3kU4dELrZxQkbct01Bzp21z+Xk9WfBibSlHNELmq7d97gNd0YVNiieP/uMDsVTztLlVWL+Lg1QF1VS1N+PbntNmhJ/rp2LH+z2HvpPm09C0LmNIFOTPUDMdVJ9f1tyzdDUrPfNVRdm/Rh2PeUhSGF5iEjGLK7RuXRXLvxot8o1a1wRAFjuGNn0bV3v7Yx8Dj+UQ1CJUqWOnTZv3R0HzlMnhvCYk46QX6HLdHT4azDnVjPSsvOCfx0Vg6ghcuLRbCkeDECGeS389IiGW4d94GvYxjFL70oTvk8MhHCqynOMrWfk/bjIMNDKs1oln1mJxFEjpRTZzxjfQzY1RooyrpT1K+/f99xbDjgdynIZh/zdV2+siEXJMRK9NjcGzmjrajRdWnRGsD/ltolGsun2qwnOZ5SsiQhYF+AMjIO4pXED6jcpOc8dpI+G7/WZys5ei+twgtE68bi6e2ADCFEHwvgavN1gNFgvNoDsw2l++AFYf4f62AsCqXqW6PnFHZtWh+5c2mbPXKhhLewUsiCbClo8WvZUI8F0z3hiy9dF4p8I+8TDGgZRbtqpZFA2EB8pQqmyb4="
