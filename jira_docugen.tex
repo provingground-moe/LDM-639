@@ -1,0 +1,1094 @@
+\hypertarget{test-case-summary}{%
+\section{Test Case Summary}\label{test-case-summary}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Jira Id & Test Name\tabularnewline
+\midrule
+\endhead
+\protect\hyperlink{lvv-t61---verify-associate-sources-to-objects--dms-req-0034-implementation}{LVV-T61}
+& Verify Associate Sources to Objects (DMS-REQ-0034)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t77---verify-best-seeing-coadds-dms-req-0330-implementation}{LVV-T77}
+& Verify Best Seeing Coadds (DMS-REQ-0330) implementation\tabularnewline
+\protect\hyperlink{lvv-t72---verify-coadd-image-method-constraints-dms-req-0278-implementation}{LVV-T72}
+& Verify Coadd Image Method Constraints (DMS-REQ-0278)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t64---verify-coadded-image-provenance-dms-req-0106-implementation}{LVV-T64}
+& Verify Coadded Image Provenance (DMS-REQ-0106)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t73---verify-deep-detection-coadds-dms-req-0279-implementation}{LVV-T73}
+& Verify Deep Detection Coadds (DMS-REQ-0279)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t71---verify-detecting-extended--low-surface-brightness-objects-dms-req-0349-implementation}{LVV-T71}
+& Verify Detecting extended low surface brightness objects
+(DMS-REQ-0349) implementation\tabularnewline
+\protect\hyperlink{lvv-t66---verify-forced-source-catalog-dms-req-0268-implementation}{LVV-T66}
+& Verify Forced-Source Catalog (DMS-REQ-0268)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t75---verify-multi-band-coadds-dms-req-0281-implementation}{LVV-T75}
+& Verify Multi-band Coadds (DMS-REQ-0281) implementation\tabularnewline
+\protect\hyperlink{lvv-t78---verify-persisting-data-products-dms-req-0334-implementation}{LVV-T78}
+& Verify Persisting Data Products (DMS-REQ-0334)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t62---verify-provide-psf-for-coadded-images-dms-req-0047-implementation}{LVV-T62}
+& Verify Provide PSF for Coadded Images (DMS-REQ-0047)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t68---verify-provide-photometric-redshifts-of-galaxies-dms-req-0046-implementation}{LVV-T68}
+& Verify Provide Photometric Redshifts of Galaxies (DMS-REQ-0046)
+implementation\tabularnewline
+\protect\hyperlink{lvv-t74---verify-template-coadds-dms-req-0280-implementation}{LVV-T74}
+& Verify Template Coadds (DMS-REQ-0280) implementation\tabularnewline
+\protect\hyperlink{lvv-t80---verify-implementation-of-detecting-faint-variable-objects-dms-req-0337}{LVV-T80}
+& Verify implementation of Detecting faint variable objects
+(DMS-REQ-0337)\tabularnewline
+\protect\hyperlink{lvv-t79---verify-implementation-of-psf-matched-coadds-dms-req-0335}{LVV-T79}
+& Verify implementation of PSF-Matched Coadds
+(DMS-REQ-0335)\tabularnewline
+\protect\hyperlink{lvv-t82---verify-implementation-of-tracking-characterization-changes-between-data-releases-dms-req-0339}{LVV-T82}
+& Verify implementation of Tracking Characterization Changes Between
+Data Releases (DMS-REQ-0339)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-cases}{%
+\section{Test Cases}\label{test-cases}}
+
+\hypertarget{lvv-t61---verify-associate-sources-to-objects-dms-req-0034-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T61}{LVV-T61}
+- Verify Associate Sources to Objects (DMS-REQ-0034)
+implementation}{LVV-T61 - Verify Associate Sources to Objects (DMS-REQ-0034) implementation}}\label{lvv-t61---verify-associate-sources-to-objects-dms-req-0034-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items}{%
+\subsubsection{Test Items}\label{test-items}}
+
+\hypertarget{requirements}{%
+\subsubsection{Requirements}\label{requirements}}
+
+\hypertarget{requirements-1}{%
+\subsubsection{Requirements}\label{requirements-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-16}{LVV-16} -
+  DMS-REQ-0034-V-01: Associate Sources to Objects
+\end{itemize}
+
+\hypertarget{test-script}{%
+\subsubsection{Test Script}\label{test-script}}
+
+\textbf{Step 1}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 2}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 3}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 4}\\
+Verify that sources have objects\\
+~\\
+\textbf{Step 5}\\
+Verify that objects list sources that seem reasonably near them.\\
+~\\
+
+\hypertarget{lvv-t77---verify-best-seeing-coadds-dms-req-0330-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T77}{LVV-T77}
+- Verify Best Seeing Coadds (DMS-REQ-0330)
+implementation}{LVV-T77 - Verify Best Seeing Coadds (DMS-REQ-0330) implementation}}\label{lvv-t77---verify-best-seeing-coadds-dms-req-0330-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-1}{%
+\subsubsection{Test Items}\label{test-items-1}}
+
+\hypertarget{requirements-2}{%
+\subsubsection{Requirements}\label{requirements-2}}
+
+\hypertarget{requirements-3}{%
+\subsubsection{Requirements}\label{requirements-3}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-161}{LVV-161} -
+  DMS-REQ-0330-V-01: Best Seeing Coadds
+\end{itemize}
+
+\hypertarget{test-script-1}{%
+\subsubsection{Test Script}\label{test-script-1}}
+
+\textbf{Step 1}\\
+~\\
+~\\
+\textbf{Step 2}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 5}\\
+Explicitly create a coadd for a specified seeing range in each filter.\\
+~\\
+\textbf{Step 6}\\
+Verify that these coadds exist.\\
+~\\
+
+\hypertarget{lvv-t72---verify-coadd-image-method-constraints-dms-req-0278-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T72}{LVV-T72}
+- Verify Coadd Image Method Constraints (DMS-REQ-0278)
+implementation}{LVV-T72 - Verify Coadd Image Method Constraints (DMS-REQ-0278) implementation}}\label{lvv-t72---verify-coadd-image-method-constraints-dms-req-0278-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-2}{%
+\subsubsection{Test Items}\label{test-items-2}}
+
+\hypertarget{requirements-4}{%
+\subsubsection{Requirements}\label{requirements-4}}
+
+\hypertarget{requirements-5}{%
+\subsubsection{Requirements}\label{requirements-5}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-109}{LVV-109} -
+  DMS-REQ-0278-V-01: Coadd Image Method Constraints
+\end{itemize}
+
+\hypertarget{test-script-2}{%
+\subsubsection{Test Script}\label{test-script-2}}
+
+\textbf{Step 1}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 2}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 3}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 4}\\
+Verify that coadds were created following specification\\
+~\\
+
+\hypertarget{lvv-t64---verify-coadded-image-provenance-dms-req-0106-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T64}{LVV-T64}
+- Verify Coadded Image Provenance (DMS-REQ-0106)
+implementation}{LVV-T64 - Verify Coadded Image Provenance (DMS-REQ-0106) implementation}}\label{lvv-t64---verify-coadded-image-provenance-dms-req-0106-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-3}{%
+\subsubsection{Test Items}\label{test-items-3}}
+
+\hypertarget{requirements-6}{%
+\subsubsection{Requirements}\label{requirements-6}}
+
+\hypertarget{requirements-7}{%
+\subsubsection{Requirements}\label{requirements-7}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46} -
+  DMS-REQ-0106-V-01: Coadded Image Provenance
+\end{itemize}
+
+\hypertarget{test-script-3}{%
+\subsubsection{Test Script}\label{test-script-3}}
+
+\textbf{Step 1}\\
+~\\
+~\\
+\textbf{Step 2}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 5}\\
+Query and verify provenance of input images, and software versions that
+went into producing stack.\\
+~\\
+\textbf{Step 6}\\
+Test re-generating 10 different coadds tract+patches based on the
+provenance image given\\
+~\\
+
+\hypertarget{lvv-t73---verify-deep-detection-coadds-dms-req-0279-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T73}{LVV-T73}
+- Verify Deep Detection Coadds (DMS-REQ-0279)
+implementation}{LVV-T73 - Verify Deep Detection Coadds (DMS-REQ-0279) implementation}}\label{lvv-t73---verify-deep-detection-coadds-dms-req-0279-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-4}{%
+\subsubsection{Test Items}\label{test-items-4}}
+
+\hypertarget{requirements-8}{%
+\subsubsection{Requirements}\label{requirements-8}}
+
+\hypertarget{requirements-9}{%
+\subsubsection{Requirements}\label{requirements-9}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110} -
+  DMS-REQ-0279-V-01: Deep Detection Coadds
+\end{itemize}
+
+\hypertarget{test-script-4}{%
+\subsubsection{Test Script}\label{test-script-4}}
+
+\textbf{Step 1}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 2}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 3}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 4}\\
+Verify through inspection that per-filter coadds exist for each
+tract+patch possible\\
+~\\
+\textbf{Step 5}\\
+Verify through inspection that the images used to generate those coadds
+met specified conditions\\
+~\\
+\textbf{Step 6}\\
+Visually inspect a subset of the coadds to verify that they visually
+appear reasonable and to be from good quality data.\\
+~\\
+
+\hypertarget{lvv-t71---verify-detecting-extended-low-surface-brightness-objects-dms-req-0349-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T71}{LVV-T71}
+- Verify Detecting extended low surface brightness objects
+(DMS-REQ-0349)
+implementation}{LVV-T71 - Verify Detecting extended low surface brightness objects (DMS-REQ-0349) implementation}}\label{lvv-t71---verify-detecting-extended-low-surface-brightness-objects-dms-req-0349-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & jbosch\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-5}{%
+\subsubsection{Test Items}\label{test-items-5}}
+
+\hypertarget{requirements-10}{%
+\subsubsection{Requirements}\label{requirements-10}}
+
+\hypertarget{requirements-11}{%
+\subsubsection{Requirements}\label{requirements-11}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-180}{LVV-180} -
+  DMS-REQ-0349-V-01: Detecting extended low surface brightness objects
+\end{itemize}
+
+\hypertarget{precondition}{%
+\subsubsection{Precondition}\label{precondition}}
+
+Input Data\\
+\hspace*{0.333em}-\/- HSC Public Data Release
+
+\hypertarget{test-script-5}{%
+\subsubsection{Test Script}\label{test-script-5}}
+
+\textbf{Step 1}\\
+Verify that low surface brightness objects exist. ~I.e., objects at SNR
+\textasciitilde{} 10 with clear extendedness.\\
+~\\
+\textbf{Step 2}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+
+\hypertarget{lvv-t66---verify-forced-source-catalog-dms-req-0268-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T66}{LVV-T66}
+- Verify Forced-Source Catalog (DMS-REQ-0268)
+implementation}{LVV-T66 - Verify Forced-Source Catalog (DMS-REQ-0268) implementation}}\label{lvv-t66---verify-forced-source-catalog-dms-req-0268-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & jbosch\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-6}{%
+\subsubsection{Test Items}\label{test-items-6}}
+
+\hypertarget{requirements-12}{%
+\subsubsection{Requirements}\label{requirements-12}}
+
+\hypertarget{requirements-13}{%
+\subsubsection{Requirements}\label{requirements-13}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99} -
+  DMS-REQ-0268-V-01: Forced-Source Catalog
+\end{itemize}
+
+\hypertarget{test-script-6}{%
+\subsubsection{Test Script}\label{test-script-6}}
+
+\textbf{Step 1}\\
+The DM Stack and Alert Processing packaged shall be initialized as
+described in LVT-T17 (AG-00-00).\\
+~\\
+\textbf{Step 2}\\
+The alert generation processing will be executed using the verification
+cluster:\\
+\hspace*{0.333em} ~ ~ ~python
+ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
+\hspace*{0.333em} ~ ~ ~\# At present we must run a single ccd+visit to
+handle ingestion before\\
+\hspace*{0.333em} ~ ~ ~\# parallel processing can begin\\
+\hspace*{0.333em} ~ ~ ~./ap\_verify/bin/exec\_demo\_run\_1ccd.sh 410915
+25\\
+\hspace*{0.333em} ~ ~ ~ln -s ap\_verify/bin/demo\_run.sl\\
+\hspace*{0.333em} ~ ~ ~ln -s ap\_verify/bin/demo\_cmds.conf\\
+\hspace*{0.333em} ~ ~ ~sbatch demo\_run.sl\\
+and any errors or failures reported.\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each of the expected data products types (listed in §4.2.2) and each
+of the expected units (PVIs, catalogs, etc.), the data product will be
+retrieved from the Butler and verified to be non-empty.\\
+~\\
+\textbf{Step 5}\\
+DIAObjects are currently only stored in a database, without shims to the
+Butler, so the existence of the database table and its non-empty
+contents will be verified by directly accessing it using sqlite3 and
+executing appropriate SQL queries.\\
+~\\
+\textbf{Step 6}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 7}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 8}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 9}\\
+Verify that there exist entries in the forced-photometry table for all
+coadd objects for the PVIs on which the object should appear.\\
+~\\
+\textbf{Step 10}\\
+Verify that there exist entries in a forced-photometry table for each
+image for all DIAObjects.\\
+~\\
+~\\
+~\\
+
+\hypertarget{lvv-t75---verify-multi-band-coadds-dms-req-0281-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T75}{LVV-T75}
+- Verify Multi-band Coadds (DMS-REQ-0281)
+implementation}{LVV-T75 - Verify Multi-band Coadds (DMS-REQ-0281) implementation}}\label{lvv-t75---verify-multi-band-coadds-dms-req-0281-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-7}{%
+\subsubsection{Test Items}\label{test-items-7}}
+
+\hypertarget{requirements-14}{%
+\subsubsection{Requirements}\label{requirements-14}}
+
+\hypertarget{requirements-15}{%
+\subsubsection{Requirements}\label{requirements-15}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-112}{LVV-112} -
+  DMS-REQ-0281-V-01: Multi-band Coadds
+\end{itemize}
+
+\hypertarget{precondition-1}{%
+\subsubsection{Precondition}\label{precondition-1}}
+
+\hypertarget{test-script-7}{%
+\subsubsection{Test Script}\label{test-script-7}}
+
+\textbf{Step 1}\\
+~\\
+~\\
+\textbf{Step 2}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 5}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in LVV-T10 - DRP-00-00)\\
+~\\
+\textbf{Step 6}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 7}\\
+For each combination of tract/patch/filter, the PVI will be retrieved
+from the Butler, and the existence of all components described in Test
+items section §4.6.2 will be verified.\\
+~\\
+\textbf{Step 8}\\
+Scripts from the pipe\_analysis package will be run on every visit to
+check for the presence of data products and make plots\\
+~\\
+\textbf{Step 9}\\
+Ten patches will be chosen at random and inspected by eye for unmasked
+artifacts.\\
+~\\
+\textbf{Step 10}\\
+Verify that deep detection coadds exist based on all filters.\\
+~\\
+~\\
+~\\
+
+\hypertarget{lvv-t78---verify-persisting-data-products-dms-req-0334-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T78}{LVV-T78}
+- Verify Persisting Data Products (DMS-REQ-0334)
+implementation}{LVV-T78 - Verify Persisting Data Products (DMS-REQ-0334) implementation}}\label{lvv-t78---verify-persisting-data-products-dms-req-0334-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-8}{%
+\subsubsection{Test Items}\label{test-items-8}}
+
+\hypertarget{requirements-16}{%
+\subsubsection{Requirements}\label{requirements-16}}
+
+\hypertarget{requirements-17}{%
+\subsubsection{Requirements}\label{requirements-17}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165} -
+  DMS-REQ-0334-V-01: Persisting Data Products
+\end{itemize}
+
+\hypertarget{precondition-2}{%
+\subsubsection{Precondition}\label{precondition-2}}
+
+Precursor data from HSC PDR.
+
+\hypertarget{test-script-8}{%
+\subsubsection{Test Script}\label{test-script-8}}
+
+\textbf{Step 1}\\
+~\\
+~\\
+
+\hypertarget{lvv-t62---verify-provide-psf-for-coadded-images-dms-req-0047-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T62}{LVV-T62}
+- Verify Provide PSF for Coadded Images (DMS-REQ-0047)
+implementation}{LVV-T62 - Verify Provide PSF for Coadded Images (DMS-REQ-0047) implementation}}\label{lvv-t62---verify-provide-psf-for-coadded-images-dms-req-0047-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-9}{%
+\subsubsection{Test Items}\label{test-items-9}}
+
+\hypertarget{requirements-18}{%
+\subsubsection{Requirements}\label{requirements-18}}
+
+\hypertarget{requirements-19}{%
+\subsubsection{Requirements}\label{requirements-19}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-20}{LVV-20} -
+  DMS-REQ-0047-V-01: Provide PSF for Coadded Images
+\end{itemize}
+
+\hypertarget{test-script-9}{%
+\subsubsection{Test Script}\label{test-script-9}}
+
+\textbf{Step 1}\\
+~\\
+~\\
+\textbf{Step 2}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in LVV-T10 - DRP-00-00)\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each combination of tract/patch/filter, the PVI will be retrieved
+from the Butler, and the existence of all components described in Test
+items section §4.6.2 will be verified.\\
+~\\
+\textbf{Step 5}\\
+Scripts from the pipe\_analysis package will be run on every visit to
+check for the presence of data products and make plots\\
+~\\
+\textbf{Step 6}\\
+Ten patches will be chosen at random and inspected by eye for unmasked
+artifacts.\\
+~\\
+\textbf{Step 7}\\
+Query range of positions on 10 different coadd images. ~Verify that
+reasonable PSFs are returned.\\
+~\\
+
+\hypertarget{lvv-t68---verify-provide-photometric-redshifts-of-galaxies-dms-req-0046-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T68}{LVV-T68}
+- Verify Provide Photometric Redshifts of Galaxies (DMS-REQ-0046)
+implementation}{LVV-T68 - Verify Provide Photometric Redshifts of Galaxies (DMS-REQ-0046) implementation}}\label{lvv-t68---verify-provide-photometric-redshifts-of-galaxies-dms-req-0046-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-10}{%
+\subsubsection{Test Items}\label{test-items-10}}
+
+\hypertarget{requirements-20}{%
+\subsubsection{Requirements}\label{requirements-20}}
+
+\hypertarget{requirements-21}{%
+\subsubsection{Requirements}\label{requirements-21}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-19}{LVV-19} -
+  DMS-REQ-0046-V-01: Provide Photometric Redshifts of Galaxies
+\end{itemize}
+
+\hypertarget{precondition-3}{%
+\subsubsection{Precondition}\label{precondition-3}}
+
+Input Data\\
+HSC Public Data Release
+
+\hypertarget{test-script-10}{%
+\subsubsection{Test Script}\label{test-script-10}}
+
+\textbf{Step 1}\\
+load LSST stack\\
+~\\
+\textbf{Step 2}\\
+Ingest HSC PDR data\\
+~\\
+\textbf{Step 3}\\
+processCcd.py\\
+multiBandDriver.py\\
+~\\
+\textbf{Step 4}\\
+Estimate Photometric Redshifts\\
+~\\
+\textbf{Step 5}\\
+Load into DRP Database\\
+~\\
+\textbf{Step 6}\\
+Inspect database to verify that photometric redshifts are present for
+all objects\\
+~\\
+
+\hypertarget{lvv-t74---verify-template-coadds-dms-req-0280-implementation}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T74}{LVV-T74}
+- Verify Template Coadds (DMS-REQ-0280)
+implementation}{LVV-T74 - Verify Template Coadds (DMS-REQ-0280) implementation}}\label{lvv-t74---verify-template-coadds-dms-req-0280-implementation}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-11}{%
+\subsubsection{Test Items}\label{test-items-11}}
+
+\hypertarget{requirements-22}{%
+\subsubsection{Requirements}\label{requirements-22}}
+
+\hypertarget{requirements-23}{%
+\subsubsection{Requirements}\label{requirements-23}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-111}{LVV-111} -
+  DMS-REQ-0280-V-01: Template Coadds
+\end{itemize}
+
+\hypertarget{test-script-11}{%
+\subsubsection{Test Script}\label{test-script-11}}
+
+\textbf{Step 1}\\
+~\\
+~\\
+\textbf{Step 2}\\
+The DM Stack and Alert Processing packaged shall be initialized as
+described in LVT-T17 (AG-00-00).\\
+~\\
+\textbf{Step 3}\\
+The alert generation processing will be executed using the verification
+cluster:\\
+\hspace*{0.333em} ~ ~ ~python
+ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
+\hspace*{0.333em} ~ ~ ~\# At present we must run a single ccd+visit to
+handle ingestion before\\
+\hspace*{0.333em} ~ ~ ~\# parallel processing can begin\\
+\hspace*{0.333em} ~ ~ ~./ap\_verify/bin/exec\_demo\_run\_1ccd.sh 410915
+25\\
+\hspace*{0.333em} ~ ~ ~ln -s ap\_verify/bin/demo\_run.sl\\
+\hspace*{0.333em} ~ ~ ~ln -s ap\_verify/bin/demo\_cmds.conf\\
+\hspace*{0.333em} ~ ~ ~sbatch demo\_run.sl\\
+and any errors or failures reported.\\
+~\\
+\textbf{Step 4}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 5}\\
+For each of the expected data products types (listed in §4.2.2) and each
+of the expected units (PVIs, catalogs, etc.), the data product will be
+retrieved from the Butler and verified to be non-empty.\\
+~\\
+\textbf{Step 6}\\
+DIAObjects are currently only stored in a database, without shims to the
+Butler, so the existence of the database table and its non-empty
+contents will be verified by directly accessing it using sqlite3 and
+executing appropriate SQL queries.\\
+~\\
+
+\hypertarget{lvv-t80---verify-implementation-of-detecting-faint-variable-objects-dms-req-0337}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T80}{LVV-T80}
+- Verify implementation of Detecting faint variable objects
+(DMS-REQ-0337)}{LVV-T80 - Verify implementation of Detecting faint variable objects (DMS-REQ-0337)}}\label{lvv-t80---verify-implementation-of-detecting-faint-variable-objects-dms-req-0337}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ebellm\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-12}{%
+\subsubsection{Test Items}\label{test-items-12}}
+
+\hypertarget{requirements-24}{%
+\subsubsection{Requirements}\label{requirements-24}}
+
+\hypertarget{requirements-25}{%
+\subsubsection{Requirements}\label{requirements-25}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-168}{LVV-168} -
+  DMS-REQ-0337-V-01: Detecting faint variable objects
+\end{itemize}
+
+\hypertarget{precondition-4}{%
+\subsubsection{Precondition}\label{precondition-4}}
+
+Input Data\\
+DECam HiTS data.
+
+\hypertarget{test-script-12}{%
+\subsubsection{Test Script}\label{test-script-12}}
+
+\textbf{Step 1}\\
+The DM Stack and Alert Processing packaged shall be initialized as
+described in LVT-T17 (AG-00-00).\\
+~\\
+\textbf{Step 2}\\
+The alert generation processing will be executed using the verification
+cluster:\\
+\hspace*{0.333em} ~ ~ ~python
+ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
+\hspace*{0.333em} ~ ~ ~\# At present we must run a single ccd+visit to
+handle ingestion before\\
+\hspace*{0.333em} ~ ~ ~\# parallel processing can begin\\
+\hspace*{0.333em} ~ ~ ~./ap\_verify/bin/exec\_demo\_run\_1ccd.sh 410915
+25\\
+\hspace*{0.333em} ~ ~ ~ln -s ap\_verify/bin/demo\_run.sl\\
+\hspace*{0.333em} ~ ~ ~ln -s ap\_verify/bin/demo\_cmds.conf\\
+\hspace*{0.333em} ~ ~ ~sbatch demo\_run.sl\\
+and any errors or failures reported.\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each of the expected data products types (listed in §4.2.2) and each
+of the expected units (PVIs, catalogs, etc.), the data product will be
+retrieved from the Butler and verified to be non-empty.\\
+~\\
+\textbf{Step 5}\\
+DIAObjects are currently only stored in a database, without shims to the
+Butler, so the existence of the database table and its non-empty
+contents will be verified by directly accessing it using sqlite3 and
+executing appropriate SQL queries.\\
+~\\
+\textbf{Step 6}\\
+Identify 100 objects from Gaia with proper motions high enough to have
+detectably moved during HSC observations.\\
+~\\
+\textbf{Step 7}\\
+Measure reported proper motion of these objects in DM Stack processing.
+~Verify that it is consistent with Gaia objects.\\
+~\\
+\textbf{Step 8}\\
+Identify 100 quasars from color-space or existing extragalactic
+spectroscopic catalog.\\
+~\\
+\textbf{Step 9}\\
+Measure lightcurves of these quasars. ~Determine if structure function
+is reasonable.\\
+~\\
+
+\hypertarget{lvv-t79---verify-implementation-of-psf-matched-coadds-dms-req-0335}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T79}{LVV-T79}
+- Verify implementation of PSF-Matched Coadds
+(DMS-REQ-0335)}{LVV-T79 - Verify implementation of PSF-Matched Coadds (DMS-REQ-0335)}}\label{lvv-t79---verify-implementation-of-psf-matched-coadds-dms-req-0335}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & ktl\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-13}{%
+\subsubsection{Test Items}\label{test-items-13}}
+
+\hypertarget{requirements-26}{%
+\subsubsection{Requirements}\label{requirements-26}}
+
+\hypertarget{requirements-27}{%
+\subsubsection{Requirements}\label{requirements-27}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-166}{LVV-166} -
+  DMS-REQ-0335-V-01: PSF-Matched Coadds
+\end{itemize}
+
+\hypertarget{test-script-13}{%
+\subsubsection{Test Script}\label{test-script-13}}
+
+\textbf{Step 1}\\
+~\\
+~\\
+\textbf{Step 2}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 3}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 4}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 5}\\
+Verify that PSF-matched coadds were created.\\
+~\\
+
+\hypertarget{lvv-t82---verify-implementation-of-tracking-characterization-changes-between-data-releases-dms-req-0339}{%
+\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T82}{LVV-T82}
+- Verify implementation of Tracking Characterization Changes Between
+Data Releases
+(DMS-REQ-0339)}{LVV-T82 - Verify implementation of Tracking Characterization Changes Between Data Releases (DMS-REQ-0339)}}\label{lvv-t82---verify-implementation-of-tracking-characterization-changes-between-data-releases-dms-req-0339}}
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event &
+Owner\tabularnewline
+\midrule
+\endhead
+1 & Draft & Normal & Test & False & jbosch\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{test-items-14}{%
+\subsubsection{Test Items}\label{test-items-14}}
+
+\hypertarget{requirements-28}{%
+\subsubsection{Requirements}\label{requirements-28}}
+
+\hypertarget{requirements-29}{%
+\subsubsection{Requirements}\label{requirements-29}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://jira.lsstcorp.org/browse/LVV-170}{LVV-170} -
+  DMS-REQ-0339-V-01: Tracking Characterization Changes Between Data
+  Releases
+\end{itemize}
+
+\hypertarget{test-script-14}{%
+\subsubsection{Test Script}\label{test-script-14}}
+
+\textbf{Step 1}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 2}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 3}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 4}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in LVV-T10 - DRP-00-00).\\
+~\\
+~\\
+~\\
+\textbf{Step 5}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 6}\\
+Scripts from the pipe\_analysis package will be run on every visit to
+check for the presence of data products and make plots.\\
+~\\
+\textbf{Step 7}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in LVV-T10 - DRP-00-00).\\
+~\\
+\textbf{Step 8}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 9}\\
+Scripts from the pipe\_analysis package will be run on every tract to
+check for the presence of data products and make plots\\
+~\\
+\textbf{Step 10}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in LVV-T10 - DRP-00-00).\\
+~\\
+\textbf{Step 11}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 12}\\
+For each processed CCD, the PVI will be retrieved from the Butler, and
+the existence of all components described in section Test Items (§4.6.2)
+will be verified.\\
+~\\
+\textbf{Step 13}\\
+Scripts from the pipe\_analysis package will be run on every visit to
+check for the presence of data products and make plots\\
+~\\
+\textbf{Step 14}\\
+Five sensors will be chosen at random from each of two visits and
+inspected by eye for unmasked artifacts.\\
+~\\
+\textbf{Step 15}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in LVV-T10 - DRP-00-00)\\
+~\\
+\textbf{Step 16}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 17}\\
+For each combination of tract/patch/filter, the PVI will be retrieved
+from the Butler, and the existence of all components described in Test
+items section §4.6.2 will be verified.\\
+~\\
+\textbf{Step 18}\\
+Scripts from the pipe\_analysis package will be run on every visit to
+check for the presence of data products and make plots\\
+~\\
+\textbf{Step 19}\\
+Ten patches will be chosen at random and inspected by eye for unmasked
+artifacts.\\
+~\\
+\textbf{Step 20}\\
+Prepare a second DRP run -\textgreater{} DPDD with different
+configuration parameters for this second test Data Release.\\
+~\\
+\textbf{Step 21}\\
+Stage subset of products from first test Data Release to separate
+storage.\\
+~\\
+\textbf{Step 22}\\
+Scientifically compare the results of the subset of that region of sky
+to those in the second test Data Release comparing the results of the
+DRP Scientific Verification tests.\\
+~\\
+
