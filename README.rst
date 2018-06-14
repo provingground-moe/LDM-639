@@ -4,7 +4,7 @@
    :target: https://travis-ci.org/lsst/LDM-639
 
 ########################################
-DM Science Acceptance Test Specification
+DM Acceptance Test Specification
 ########################################
 
 LDM-639
