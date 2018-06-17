@@ -1,7 +1,6 @@
 \hypertarget{test-cases-summary}{%
 \section{Test Cases Summary}\label{test-cases-summary}}
 
-%\begin{longtable}[]{@{}ll@{}}
 \begin{longtable}[]{p{3cm}p{13cm}}
 \toprule
 Jira Id & Test Name\tabularnewline
@@ -935,6 +934,12 @@ approximate form in addition to a full per-pixel form.
   DMS-REQ-0326-V-01: Storing Approximations of Per-pixel Metadata
 \end{itemize}
 
+\hypertarget{precondition}{%
+\subsubsection{Precondition}\label{precondition}}
+
+Test data: A data repository containing a full DRP data reduction of the
+HCS PDR dataset.
+
 \hypertarget{test-script}{%
 \subsubsection{Test Script}\label{test-script}}
 
@@ -954,11 +959,35 @@ non-empty.\\
 ~\\
 ~\\
 \textbf{Step 4}\\
-Produce coverage map from HSC PDR data. ~Compare depth and mask
-parameterization (MOC) to pixel-level depth and mask products.
-~Parameterized mask should predict at least XXX (99\% ?) of pixel-level
-mask. ~Total depth in parameterized depth map and pixel-level depth map
-should agree to YYY (0.1\% ?).\\
+Create the coadd pixel level depth map for the HSC PDR dataset from step
+1.\\
+~\\
+\textbf{Step 5}\\
+Generate compressed representation of the pixel level depth map.\\
+~\\
+\textbf{Step 6}\\
+Create the coadd pixel level mask map for the HSC PDR dataset from step
+1.\\
+~\\
+\textbf{Step 7}\\
+Generate compressed representation of the mask map.\\
+~\\
+\textbf{Step 8}\\
+Sample randomly from both the pixel level and compressed depth maps.
+~Compare the distribution of depths sampled from the pixel level depth
+map to that sampled from the compressed representation.\\
+~\\
+\textbf{Step 9}\\
+Divide the mask planes into two groups: INFO and BAD. ~BAD flags are any
+that would cause a particular pixel to be excluded from processing: e.g.
+EDGE, SAT, BAD. ~Sample masks from both the pixel level mask map and the
+compressed mask map.\\
+~\\
+For each sample, compute sum(mask\_pixel xor mask\_compressed). ~Produce
+the distribution of the number of bits that differ between the
+samples.\\
+~\\
+Repeat for both the INFO flags and the BAD flags.\\
 ~\\
 
 \hypertarget{lvv-t24---verify-implementation-of-computing-derived-quantities-dms-req-0331}{%
@@ -1677,18 +1706,27 @@ contents will be verified by directly accessing it using sqlite3 and
 executing appropriate SQL queries.\\
 ~\\
 \textbf{Step 6}\\
-Test generation of alerts from a set of DECam HiTS data. ~Ingest,
-process, subtract, detect, measure, and verify that from
-ingest-\textgreater{}alert satisfies OTT1.\\
+~\\
 ~\\
 \textbf{Step 7}\\
-Verify that the fuller set of Level 1 Data Productscan ~from the
-processing above ~is made available in L1PublicT.\\
+Time processing of data starting from (pre-ingested) raw files until an
+alert is available for distribution; verify that this time is less than
+OTT1.\\
 ~\\
 \textbf{Step 8}\\
-Feed outputs of 1 night equivalent of LSST observing worth of DECam HiTS
-data and verify that Solar System Object orbits can be updated within 24
+Time processing of data starting from (pre-ingested) raw files until the
+required data products are available in the Science Platform. Verify
+that this time is less than L1PublicT.\\
+~\\
+\textbf{Step 9}\\
+Run MOPS on 1 night equivalent of LSST observing worth of precursor data
+and verify that Solar System Object orbits can be updated within 24
 hours.\\
+~\\
+\textbf{Step 10}\\
+Record time between completion of MOPS processing and availability of
+the updated SSObject catalogue through the Science Platform; verify this
+time is less than L1PublicT.\\
 ~\\
 
 \hypertarget{lvv-t36---verify-implementation-of-difference-exposures-dms-req-0010}{%
@@ -2400,8 +2438,8 @@ measurements are present)
   DMS-REQ-0270-V-01: Faint DIASource Measurements
 \end{itemize}
 
-\hypertarget{precondition}{%
-\subsubsection{Precondition}\label{precondition}}
+\hypertarget{precondition-1}{%
+\subsubsection{Precondition}\label{precondition-1}}
 
 Input Data\\
 \hspace*{0.333em}DECam HiTS data.
@@ -2638,7 +2676,8 @@ Owner\tabularnewline
 \hypertarget{test-items-29}{%
 \subsubsection{Test Items}\label{test-items-29}}
 
-Precursor data, execute MOPS, load results, observe catalog contents
+Execute AP on precursor data, execute MOPS, load results, observe
+catalog contents
 
 \hypertarget{requirements-30}{%
 \subsubsection{Requirements}\label{requirements-30}}
@@ -2691,13 +2730,11 @@ contents will be verified by directly accessing it using sqlite3 and
 executing appropriate SQL queries.\\
 ~\\
 \textbf{Step 6}\\
-Run MOPS\\
+Run the MOPS pipeline on the Prompt Products database.\\
 ~\\
 \textbf{Step 7}\\
-Load results\\
-~\\
-\textbf{Step 8}\\
-Inspect SSOBject catalog\\
+Inspect SSObject catalog and verify the presence of the required
+elements.\\
 ~\\
 
 \hypertarget{lvv-t54---verify-implementation-of-alert-content-dms-req-0274}{%
@@ -2769,6 +2806,14 @@ DIAObjects are currently only stored in a database, without shims to the
 Butler, so the existence of the database table and its non-empty
 contents will be verified by directly accessing it using sqlite3 and
 executing appropriate SQL queries.\\
+~\\
+\textbf{Step 6}\\
+~\\
+~\\
+\textbf{Step 7}\\
+Examine the serialized alert packets to confirm the presence of the
+required elements.\\
+\hspace*{0.333em} ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~~ ~\\
 ~\\
 
 \hypertarget{lvv-t55---verify-implementation-of-diaforcedsource-catalog-dms-req-0317}{%
@@ -2952,18 +2997,16 @@ queries
 \subsubsection{Test Script}\label{test-script-34}}
 
 \textbf{Step 1}\\
-Run MOPS\\
+Run the MOPS pipeline on the Prompt Products database.\\
 ~\\
 \textbf{Step 2}\\
 ~\\
 ~\\
 \textbf{Step 3}\\
-Load results\\
+Inspect SSObject catalog and verify the presence of the required
+elements.\\
 ~\\
 \textbf{Step 4}\\
-Inspect SSOBject catalog\\
-~\\
-\textbf{Step 5}\\
 Computer the phase angle, reduced and absolute asteroid magnitudes for
 objects identified in SSObject Catalog\\
 ~\\
@@ -2986,7 +3029,8 @@ Owner\tabularnewline
 \hypertarget{test-items-34}{%
 \subsubsection{Test Items}\label{test-items-34}}
 
-Precursor data, execute AP, load results, observe table or view present
+Execute DRP and AP on precursor data, load results, confirm crossmatch
+table or view is present
 
 \hypertarget{requirements-35}{%
 \subsubsection{Requirements}\label{requirements-35}}
@@ -3002,10 +3046,25 @@ Precursor data, execute AP, load results, observe table or view present
 \subsubsection{Test Script}\label{test-script-35}}
 
 \textbf{Step 1}\\
+The DM Stack shall be initialized using the loadLSST script (as
+described in DRP-00-00).\\
+~\\
+\textbf{Step 2}\\
+A ``Data Butler'' will be initialized to access the repository.\\
+~\\
+\textbf{Step 3}\\
+For each of the expected data products types (listed in Test Items
+section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
+data product will be retrieved from the Butler and verified to be
+non-empty.\\
+~\\
+~\\
+~\\
+\textbf{Step 4}\\
 The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
-\textbf{Step 2}\\
+\textbf{Step 5}\\
 {[}markdown{]}: \#\\
 ~\\
 The alert generation processing will be executed using the verification
@@ -3024,26 +3083,23 @@ sbatch demo\_run.sl\\
 ~\\
 and any errors or failures reported.\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 6}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 7}\\
 For each of the expected data products types (listed in §4.2.2) and each
 of the expected units (PVIs, catalogs, etc.), the data product will be
 retrieved from the Butler and verified to be non-empty.\\
 ~\\
-\textbf{Step 5}\\
+\textbf{Step 8}\\
 DIAObjects are currently only stored in a database, without shims to the
 Butler, so the existence of the database table and its non-empty
 contents will be verified by directly accessing it using sqlite3 and
 executing appropriate SQL queries.\\
 ~\\
-\textbf{Step 6}\\
-Do a DRP and Data Release with same dataset\\
-~\\
-\textbf{Step 7}\\
-Verify that a cross match table between the Prompt products and DRP
-Products is available.\\
+\textbf{Step 9}\\
+Verify that a cross-match table between the Prompt DIASources and DRP
+Objects is available.\\
 ~\\
 
 \hypertarget{lvv-t59---verify-implementation-of-regenerating-l1-data-products-during-data-release-processing-dms-req-0325}{%
@@ -3212,8 +3268,8 @@ Data Release Production \& Delegate to DRP
   DMS-REQ-0047-V-01: Provide PSF for Coadded Images
 \end{itemize}
 
-\hypertarget{precondition-1}{%
-\subsubsection{Precondition}\label{precondition-1}}
+\hypertarget{precondition-2}{%
+\subsubsection{Precondition}\label{precondition-2}}
 
 Fully covered by preconditions for
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T16}{LVV-T16}.
@@ -3543,8 +3599,8 @@ Precursor data, execute DRP, load results, observe catalog contents
   DMS-REQ-0275-V-01: Object Catalog
 \end{itemize}
 
-\hypertarget{precondition-2}{%
-\subsubsection{Precondition}\label{precondition-2}}
+\hypertarget{precondition-3}{%
+\subsubsection{Precondition}\label{precondition-3}}
 
 Input Data\\
 ~\\
@@ -3642,8 +3698,8 @@ Precursor data, execute DRP, load results, observe catalog contents
   DMS-REQ-0046-V-01: Provide Photometric Redshifts of Galaxies
 \end{itemize}
 
-\hypertarget{precondition-3}{%
-\subsubsection{Precondition}\label{precondition-3}}
+\hypertarget{precondition-4}{%
+\subsubsection{Precondition}\label{precondition-4}}
 
 Input Data\\
 HSC Public Data Release (raw science images, master calibrations)\\
@@ -3794,8 +3850,8 @@ Delegate to DRP
   DMS-REQ-0349-V-01: Detecting extended low surface brightness objects
 \end{itemize}
 
-\hypertarget{precondition-4}{%
-\subsubsection{Precondition}\label{precondition-4}}
+\hypertarget{precondition-5}{%
+\subsubsection{Precondition}\label{precondition-5}}
 
 Input Data\\
 HSC "RC2" data (raw science images and master calibrations)
@@ -3804,19 +3860,26 @@ HSC "RC2" data (raw science images and master calibrations)
 \subsubsection{Test Script}\label{test-script-48}}
 
 \textbf{Step 1}\\
-The DM Stack shall be initialized using the loadLSST script (as
-described in DRP-00-00).\\
+load LSST DM Stack\\
 ~\\
 \textbf{Step 2}\\
-A ``Data Butler'' will be initialized to access the repository.\\
+{}Run the single-frame processing and self-calibration steps of the DRP
+pipeline.\\
 ~\\
 \textbf{Step 3}\\
-For each of the expected data products types (listed in Test Items
-section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
-data product will be retrieved from the Butler and verified to be
-non-empty.\\
+Insert simulated low-surface-brightness galaxies (with exponential
+profiles) consistently into all calibrated single-epoch images.\\
 ~\\
+\textbf{Step 4}\\
+Run all remaining DRP pipeline steps.\\
 ~\\
+\textbf{Step 5}\\
+​​​​Load data into DRP database\\
+~\\
+\textbf{Step 6}\\
+Verify that the injected simulated objects are recovered at a rate
+consistent with their S/N and true profile \emph{when not blended with
+each other or real objects.}\\
 ~\\
 
 \hypertarget{lvv-t72---verify-implementation-of-coadd-image-method-constraints-dms-req-0278}{%
@@ -4038,8 +4101,8 @@ Delegate to DRP
   DMS-REQ-0281-V-01: Multi-band Coadds
 \end{itemize}
 
-\hypertarget{precondition-5}{%
-\subsubsection{Precondition}\label{precondition-5}}
+\hypertarget{precondition-6}{%
+\subsubsection{Precondition}\label{precondition-6}}
 
 \hypertarget{test-script-52}{%
 \subsubsection{Test Script}\label{test-script-52}}
@@ -4118,13 +4181,13 @@ Delegate to DRP
   DMS-REQ-0329-V-01: All-Sky Visualization of Data Releases
 \end{itemize}
 
-\hypertarget{precondition-6}{%
-\subsubsection{Precondition}\label{precondition-6}}
+\hypertarget{precondition-7}{%
+\subsubsection{Precondition}\label{precondition-7}}
 
 Input Data\\
 Dataset of perhaps \textasciitilde{}100 square degrees. ~The first HSC
-Public Data Release might be big enough, but may want to revisit with
-larger datasets.
+Public Data Release will be used for this test. ~Larger (in sky area)
+datasets should be identified for further testing.
 
 \hypertarget{test-script-53}{%
 \subsubsection{Test Script}\label{test-script-53}}
@@ -4145,52 +4208,25 @@ non-empty.\\
 ~\\
 ~\\
 \textbf{Step 4}\\
-Verify that available images can be zoomed and navigated easily across
-the entire available dataset.\\
+Run all sky tile generation task to produce the data products necessary
+for serving the all sky visualization.\\
 ~\\
 \textbf{Step 5}\\
-Clone the Github lsst/LDM-540 package. Record the SHA1 for the version
-of the package to be used. {[}Additional procedures, e.g., tagging, are
-still to be confirmed.{]}\\
+Manually perform, and log (including timing where applicable), the
+following steps against that all sky visualization application. ~At all
+steps take special care to note any missing or un-rendered image
+tiles:\\
 ~\\
-\textbf{Step 6}\\
-Log host and networking details of the client host to be used. Log the
-Web browser version to be used. Log the version of Jupyter to be used.\\
+1. Navigate to the all sky viewer and log the URL, browser and
+version.\\
+2. Zoom to native pixel display (1 image pixel per display pixel)\\
+3. Zoom to fit the full PDR footprint\\
+4. Zoom to 1/4x native resolution\\
+5. Pan to eastern edge of the footprint.\\
+6. Pan to western edge of the footprint.\\
+7. Navigate to the middle of the footprint.\\
+8. Zoom to max magnification\\
 ~\\
-\textbf{Step 7}\\
-Establish VPN connectivity to the PDAC at NCSA.\\
-~\\
-\textbf{Step 8}\\
-\emph{}Execute the LDM-540/test\_scripts/lsp-00-25.ipynb notebook to
-perform the tests listed above against the API Aspect.\\
-~\\
-\textbf{Step 9}\\
-Preserve any outputs of the script that are in the form of files outside
-the notebook.\\
-~\\
-\textbf{Step 10}\\
-Manually perform, and log, the following steps against the Portal
-Aspect:
-
-\begin{enumerate}
-\tightlist
-\item
-  Navigate to the PDAC Portal. Log the URL used to do so.
-\item
-  Perform image queries against the SDSS Stripe 82 coadded and
-  single-epoch image data. These queries should match ones in the API
-  Aspect test notebook. Document the query results with screen shots.
-\item
-  Download an example of each type of image.
-\item
-  Using the public SDSS archive, attempt to retrieve corresponding
-  images and visu- ally compare them.
-\item
-  Perform image cutout requests for 300 × 300 fields at the same targets
-  used in the full-image queries.
-\item
-  Download the cutouts.
-\end{enumerate}
 
 \hypertarget{lvv-t77---verify-implementation-of-best-seeing-coadds-dms-req-0330}{%
 \subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T77}{LVV-T77}
@@ -4281,8 +4317,8 @@ kept, and available.
   DMS-REQ-0334-V-01: Persisting Data Products
 \end{itemize}
 
-\hypertarget{precondition-7}{%
-\subsubsection{Precondition}\label{precondition-7}}
+\hypertarget{precondition-8}{%
+\subsubsection{Precondition}\label{precondition-8}}
 
 Precursor data from HSC PDR.
 
@@ -4383,8 +4419,8 @@ Delegate to DRP
   DMS-REQ-0337-V-01: Detecting faint variable objects
 \end{itemize}
 
-\hypertarget{precondition-8}{%
-\subsubsection{Precondition}\label{precondition-8}}
+\hypertarget{precondition-9}{%
+\subsubsection{Precondition}\label{precondition-9}}
 
 Input Data\\
 DECam HiTS data.
@@ -5375,8 +5411,8 @@ simulated clients using standard protocols
   DMS-REQ-0002-V-01: Transient Alert Distribution
 \end{itemize}
 
-\hypertarget{precondition-9}{%
-\subsubsection{Precondition}\label{precondition-9}}
+\hypertarget{precondition-10}{%
+\subsubsection{Precondition}\label{precondition-10}}
 
 {}Obtain precursor or simulated data
 
@@ -6887,11 +6923,26 @@ Delegate to Bulk Download
   DMS-REQ-0300-V-01: Bulk Download Service
 \end{itemize}
 
+\hypertarget{precondition-11}{%
+\subsubsection{Precondition}\label{precondition-11}}
+
+A large dataset (at least a few TB) must be available.\\
+Requires identity management to confirm bulk download use.\\
+While this can be tested and shown to work using LSST DAC, Chilean DAC,
+and IN2P3 endpoints, this should also be tested to demonstrate expected
+throughput for outside users (e.g. FNAL, NERSC sites could be tested).
+
 \hypertarget{test-script-115}{%
 \subsubsection{Test Script}\label{test-script-115}}
 
 \textbf{Step 1}\\
+Setup large transfer request and examine the data transfer rates
+achieved.\\
 ~\\
+\textbf{Step 2}\\
+Test should be repeated while observing in firehose mode (with LSSTCam)
+during science verification to ensure that bulk transfer does not
+compromise normal nightly operations.\\
 ~\\
 
 \hypertarget{lvv-t139---verify-implementation-of-provide-pipeline-execution-services-dms-req-0156}{%
@@ -7594,7 +7645,15 @@ for DBB)
 \subsubsection{Test Script}\label{test-script-133}}
 
 \textbf{Step 1}\\
+Run a small DRP processing job and download unarchived data products.\\
 ~\\
+\textbf{Step 2}\\
+Wait for (or force) a processing stack change so that the subsequent
+re-processing will be forced to use an older software build.\\
+~\\
+\textbf{Step 3}\\
+Using provenance information from the products in Step 1, request a
+re-processing and compare results with previously unarchived products.\\
 ~\\
 
 \hypertarget{lvv-t157---verify-implementation-level-1-data-product-access-dms-req-0312}{%
@@ -7743,11 +7802,48 @@ representative requests, observe correct results generated in time
   DMS-REQ-0341-V-01: Providing a Precovery Service
 \end{itemize}
 
+\hypertarget{precondition-12}{%
+\subsubsection{Precondition}\label{precondition-12}}
+
+\begin{enumerate}
+\tightlist
+\item
+  DECam HiTS data could be an appropriate set for this activity.
+\item
+  Precovery pipelines for follow-on to alert processing must exist and
+  be made available as a containerized version within the Science
+  Platform.
+\item
+  Determine limitations over which general precovery is supported. ~I
+  would suggest that precovery services be limited to current (or last
+  two) DRP campaigns with the possible addition of including non-DRP
+  products to encompass observations over the preceding year (does this
+  then require means to re-generate PVIs from Alert Production in
+  addition to DRP?)
+\item
+  Could re-use elements of
+  \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T80}{LVV-T80}
+  where quasars are used to test faint object detection.
+\end{enumerate}
+
 \hypertarget{test-script-137}{%
 \subsubsection{Test Script}\label{test-script-137}}
 
 \textbf{Step 1}\\
+Run Precovery within follow-on Alert Production (i.e. daily
+post-processing on 30 day store).\\
 ~\\
+\textbf{Step 2}\\
+Within Science Platform, initiate request to perform precovery for a
+list of sources over same period (and longer). ~Include among the
+sources for precovery quasars from
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T80}{LVV-T80}.~\\
+~\\
+\textbf{Step 3}\\
+Examine the results. ~Compare the results for the period where there is
+overlap with precovery run... and quasar photometry with those from
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T80}{LVV-T80}
+to verify user service performs as production services.\\
 ~\\
 
 \hypertarget{lvv-t161---verify-implementation-of-logging-of-catalog-queries-dms-req-0345}{%
@@ -7821,11 +7917,27 @@ APIs, Parallel Distributed Database
   DMS-REQ-0363-V-01: Access to Previous Data Releases
 \end{itemize}
 
+\hypertarget{precondition-13}{%
+\subsubsection{Precondition}\label{precondition-13}}
+
+Requires two (fake) releases within DAC (or PDAC) with common
+area/observations (preferably with some differing results but could use
+metadata identifying provenance).~
+
 \hypertarget{test-script-139}{%
 \subsubsection{Test Script}\label{test-script-139}}
 
 \textbf{Step 1}\\
+From Science Platform initiate request for image and catalog products
+from one of the two release sets.\\
 ~\\
+\textbf{Step 2}\\
+From Science Platform re-issue the same request but specifying the
+alternate/earlier release set.\\
+~\\
+\textbf{Step 3}\\
+Compare results and identify differences that are germaine to the
+relevant Data Release Sets are found.\\
 ~\\
 
 \hypertarget{lvv-t163---verify-implementation-of-data-access-services-dms-req-0364}{%
@@ -9762,7 +9874,6 @@ design; instantiate and load simulated DAC, observe correct functioning
 \hypertarget{requirements-traceability}{%
 \section{Requirements Traceability}\label{requirements-traceability}}
 
-%\begin{longtable}[]{@{}ll@{}}
 \begin{longtable}[]{p{13cm}p{3cm}}
 \toprule
 Requirements & Test Cases\tabularnewline
