@@ -14,8 +14,8 @@
 
 \title[Test Spec for \product]{\product~Science Acceptance Test Specification}
 
-\author{L.P. Guy, M. Wood-Vasey, E. Bellm, J.F. Bosch,
-G.P. Dubois-Felsmann,  M.L. Graham, R. Gruendl, 
+\author{L.P. Guy, W.M. Wood-Vasey, E. Bellm, J.F. Bosch,
+G.P. Dubois-Felsmann,  M.L. Graham, R. Gruendl,
 K.S. Krughoff, K.-T. Lim, R.H. Lupton, C. Slater}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \setDocDate{\vcsdate}
@@ -45,8 +45,8 @@ This document specifies the science acceptance test procedure for the \product{}
 \label{sec:objectives}
 
 This document describes the test cases required to validate the Data Management System requirements
-described in the LSST DM Subsystem Requirements document \citeds{LSE-61}.  
-A full description of this product is provided in the Data Management System Design document, \citeds{LDM-148} with 
+described in the LSST DM Subsystem Requirements document \citeds{LSE-61}.
+A full description of this product is provided in the Data Management System Design document, \citeds{LDM-148} with
 the science requirements  detailed in  the LSST Science Requirements Document \citeds{LPM-17}.
 % and \citeds{LSE-30}
 
@@ -54,17 +54,17 @@ It identifies test cases and procedures for the tests as well as the pass/fail c
 \subsection{Scope}
 \label{sec:scope}
 
-This document provides the science acceptance test plan for the whole Data Management System (DMS), as described 
+This document provides the science acceptance test plan for the whole Data Management System (DMS), as described
 by the Data Management System Requirements in \citeds{LSE-61}.
 
 \subsection{Applicable Documents}
 \label{sec:docs}
 
 \addtocounter{table}{-1}
-	
+
 \begin{tabular}[htb]{l l}
-\citeds{LPM-17} & LSST Science Requirements Document \\ 
-\citeds{LDM-148} & LSST Data Management System Design \\ 
+\citeds{LPM-17} & LSST Science Requirements Document \\
+\citeds{LDM-148} & LSST Data Management System Design \\
 \citeds{LDM-294} & LSST DM Organization \& Management \\
 % This document will be merged to LDM-61
 % \citeds{LDM-502} & The Measurement and Verification of DM Key Performance Metrics \\
@@ -73,7 +73,7 @@ by the Data Management System Requirements in \citeds{LSE-61}.
 \citeds{LSE-163} & LSST Data Products Definition Document \\
 \citeds{LDM-151} & LSST DM Science Pipelines Design \\
 \citeds{LSE-180} & Level 2 Photometric Calibration for the LSST Survey \\
-\citeds{LSE-30} & LSST Observatory System Specifications \\ 
+\citeds{LSE-30} & LSST Observatory System Specifications \\
 \end{tabular}
 
 \subsection{References\label{sect:references}}
@@ -90,19 +90,18 @@ by the Data Management System Requirements in \citeds{LSE-61}.
 \section{Approach}
 \label{sec:approach}
 
-The approach is based on the Jira Test Management Plugin. 
+This document describes the science acceptance tests for the integrated Data Management System,
+with a focus on whether the data products and functionality provided satisfy the requirements described in \citeds{LSE-61}.
 
-\subsection{Tasks and criteria}
-\label{sec:tasks}
+The requirements from \citeds{LSE-61} are extracted into the Jira ``LSST Verification and Validation'' Project managed through the Jira Test Management Plugin system.  Each LSE-61 requirement leads to a Verification Element.  Each Verification Element has one or more more Tests Cases.  Each Test Case describes a Test Script to be executed, the coverage, pre-conditions, configuration, test results, and other details as specified by \citeds{LDM-503}.
+Test Scripts may have common set up and analysis steps.  The Jira system allows for these steps to be shared shared by other Test Scripts.  This improves the clarity and consistency across the Test Cases.
 
-This document describes the science acceptance tests for the whole integrated Data Management System, 
-with focus on the scientific quality of the data products produced by the LSST data management system and 
-whether they satisfy the requirements described in \citeds{LSE-61}
+In this document, each Test Case is listed here with the Verification Element it tests, a summary of the Test Items exercised by the Test Case, and the detailed steps to be executed by the Test Case.  Shared steps between Test Scripts have been explicitly written out to appear fully in each Test Case.
 
 \subsection{Features to be tested}
 \label{sec:feat2test}
 
-All top-level requirements for the LSST Data Management System described in \citeds{LSE-61} are to be tested, including 
+All top-level requirements for the LSST Data Management System described in \citeds{LSE-61} are to be tested, including
 \begin{itemize}
 \item Data Products
 \item Alert, Calibration and Data Release Production
@@ -110,11 +109,12 @@ All top-level requirements for the LSST Data Management System described in \cit
 \item LSST facilities including the data archive, base, summit, and the communications between them to accept science and engineering data
 \end{itemize}
 
+
 \subsection{Features not to be tested}
 \label{sec:featnot2test}
 
-This document does not describe facilities for periodically generating or collecting key performance metrics (KPMs), 
-except insofar as those KPMs are incidentally measured as part of executing the documented test cases. 
+This document does not describe facilities for periodically generating or collecting key performance metrics (KPMs),
+except insofar as those KPMs are incidentally measured as part of executing the documented test cases.
 
 \subsection{Pass/fail criteria}
 \label{sec:passfail}
@@ -122,8 +122,8 @@ except insofar as those KPMs are incidentally measured as part of executing the 
 The results of all tests will be assessed using the criteria described in
 \citeds{LDM-503} \S4.
 
-Note that, when executing pipelines, tasks or individual algorithms, any unexplained or un- expected errors or warnings 
-appearing in the associated log or on screen output must be described in the documentation for the system under test. 
+Note that, when executing pipelines, tasks or individual algorithms, any unexplained or unexpected errors or warnings
+appearing in the associated log or on screen output must be described in the documentation for the system under test.
 Any warning or error for which this is not the case must be filed as a software problem report and filed with the DMCCB.
 
 
@@ -134,15 +134,15 @@ Refer to individual test cases where applicable.
 
 \subsection{Naming convention}
 
-The naming convention applied is derived from Jira Test Management Plugin, specifically: 
 \begin{description}
-
-  \item[LVV-XXX]{: Are the Verification Elements, where XXX is the Verification Element identifier. A verification Element can have many Test Cases. }
-  \item[LVV-TYY]{: Are the Test Cases. Each Test Case is associated with a Verification Element, where YY is the Test Case identifier)}
-
+  \item[LVV]{: Is the label for the ``LSST Verification and Validation'' project in Jira.}
+  \item[LVV-XXX]{: Are Verification Elements, where XXX is the Verification Element identifier.  Each Verification Element has at least one Test Case. }
+  \item[LVV-TYYY]{: Are Test Cases. Each Test Case is associated with a Verification Element, where YYY is the Test Case identifier.}
 \end{description}
 
-The Verification Elements are drawn from \citeds{LSE-61} requirements.  
+The Verification Elements are drawn from \citeds{LSE-61} requirements which have names of the form DMS-REQ-ZZZZ.
+
+%%% Here include the auto-extracted Test Cases:
 \newpage
 \input{jira_docugen.tex}
 
