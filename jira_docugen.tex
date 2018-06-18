@@ -482,10 +482,10 @@ implementation of Access Controls of Level 3 Data Products
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T124}{Verify
 implementation of Software Architecture to Enable Community Re-Use
 (DMS-REQ-0308)}\tabularnewline
-\protect\hyperlink{lvv-t125---verify-implementatino-of--simulated-data-dms-req-0009}{LVV-T125}
+\protect\hyperlink{lvv-t125---verify-implementation-of-simulated-data-dms-req-0009}{LVV-T125}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T125}{Verify
-implementatino of Simulated Data (DMS-REQ-0009)}\tabularnewline
+implementation of Simulated Data (DMS-REQ-0009)}\tabularnewline
 \protect\hyperlink{lvv-t126---verify-implementation--image-differencing-dms-req-0032}{LVV-T126}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T126}{Verify
@@ -603,10 +603,10 @@ implementation of Catalog Queries (DMS-REQ-0075)}\tabularnewline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T150}{Verify
 implementation of Maintain Archive Publicly Accessible
 (DMS-REQ-0077)}\tabularnewline
-\protect\hyperlink{lvv-t151---verify-iomplementation-of-catalog-export-formats-dms-req-0078}{LVV-T151}
+\protect\hyperlink{lvv-t151---verify-implementation-of-catalog-export-formats-dms-req-0078}{LVV-T151}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T151}{Verify
-iomplementation of Catalog Export Formats (DMS-REQ-0078)}\tabularnewline
+implementation of Catalog Export Formats (DMS-REQ-0078)}\tabularnewline
 \protect\hyperlink{lvv-t152---verify-implementation-of-keep-historical-alert-archive-dms-req-0094}{LVV-T152}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T152}{Verify
@@ -1287,12 +1287,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -1673,12 +1672,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -1706,24 +1704,87 @@ contents will be verified by directly accessing it using sqlite3 and
 executing appropriate SQL queries.\\
 ~\\
 \textbf{Step 6}\\
+\textbf{These instructions need to be adjusted for Kubernetes}\\
 ~\\
+Copy alert packets to local storage and change to that directory.\\
 ~\\
 \textbf{Step 7}\\
+~\\
+~\\
+\textbf{Step 8}\\
+Start a consumer that monitors the full stream and logs only End of
+Partition status messages:\\
+~\\
+
+\begin{verbatim}
+docker service create \
+        --name monitor_full \
+        --network alert_stream_default \
+        --constraint node.role==worker \
+        -e PYTHONUNBUFFERED=0 \
+        alert_stream python bin/monitorStream.py full-stream > monitor_log.txt
+\end{verbatim}
+
+\textbf{Step 9}\\
+Start a consumer that monitors the full stream and logs a deserialized
+version of every Nth packet:\\
+~\\
+\textbf{adjust for printing Nth packets}\\
+~\\
+
+\begin{verbatim}
+docker service create \
+        --name monitor_full \
+        --network alert_stream_default \
+        --constraint node.role==worker \
+        -e PYTHONUNBUFFERED=0 \
+        alert_stream python bin/printStream.py full-stream > packet_log.txt
+\end{verbatim}
+
+\textbf{Step 10}\\
+
+\begin{verbatim}
+Start a producer that reads alert packets from disk and loads them into the Kafka queue:
+
+docker service create \
+              --name sender \
+              --network alert_stream_default \
+              -v $PWD:/home/alert_stream/data:ro \
+              -e PYTHONUNBUFFERED=0 \
+              alert_stream python bin/sendAlertStream.py full-stream
+\end{verbatim}
+
+\textbf{Step 11}\\
+Examine output log files.\\
+~\\
+The monitor log should show end-of partition messages such as\\
+~\\
+
+\begin{verbatim}
+topic:full-stream, partition:0, status:end, offset:1000, key:None, time:1528496269.734
+\end{verbatim}
+
+And the packet log should show deserialized alert packets with contents
+matching the input packets.\\
+~\\
+~\\
+~\\
+\textbf{Step 12}\\
 Time processing of data starting from (pre-ingested) raw files until an
 alert is available for distribution; verify that this time is less than
 OTT1.\\
 ~\\
-\textbf{Step 8}\\
+\textbf{Step 13}\\
 Time processing of data starting from (pre-ingested) raw files until the
 required data products are available in the Science Platform. Verify
 that this time is less than L1PublicT.\\
 ~\\
-\textbf{Step 9}\\
+\textbf{Step 14}\\
 Run MOPS on 1 night equivalent of LSST observing worth of precursor data
 and verify that Solar System Object orbits can be updated within 24
 hours.\\
 ~\\
-\textbf{Step 10}\\
+\textbf{Step 15}\\
 Record time between completion of MOPS processing and availability of
 the updated SSObject catalogue through the Science Platform; verify this
 time is less than L1PublicT.\\
@@ -1769,12 +1830,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -1852,12 +1912,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2374,12 +2433,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 3}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2452,12 +2510,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2540,12 +2597,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 5}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2625,12 +2681,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2697,12 +2752,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2734,7 +2788,8 @@ Run the MOPS pipeline on the Prompt Products database.\\
 ~\\
 \textbf{Step 7}\\
 Inspect SSObject catalog and verify the presence of the required
-elements.\\
+elements
+(​\href{https://jira.lsstcorp.org/browse/LVV-104}{LVV-104)}​​​.\\
 ~\\
 
 \hypertarget{lvv-t54---verify-implementation-of-alert-content-dms-req-0274}{%
@@ -2775,12 +2830,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2808,12 +2862,76 @@ contents will be verified by directly accessing it using sqlite3 and
 executing appropriate SQL queries.\\
 ~\\
 \textbf{Step 6}\\
+\textbf{These instructions need to be adjusted for Kubernetes}\\
 ~\\
+Copy alert packets to local storage and change to that directory.\\
 ~\\
 \textbf{Step 7}\\
+~\\
+~\\
+\textbf{Step 8}\\
+Start a consumer that monitors the full stream and logs only End of
+Partition status messages:\\
+~\\
+
+\begin{verbatim}
+docker service create \
+        --name monitor_full \
+        --network alert_stream_default \
+        --constraint node.role==worker \
+        -e PYTHONUNBUFFERED=0 \
+        alert_stream python bin/monitorStream.py full-stream > monitor_log.txt
+\end{verbatim}
+
+\textbf{Step 9}\\
+Start a consumer that monitors the full stream and logs a deserialized
+version of every Nth packet:\\
+~\\
+\textbf{adjust for printing Nth packets}\\
+~\\
+
+\begin{verbatim}
+docker service create \
+        --name monitor_full \
+        --network alert_stream_default \
+        --constraint node.role==worker \
+        -e PYTHONUNBUFFERED=0 \
+        alert_stream python bin/printStream.py full-stream > packet_log.txt
+\end{verbatim}
+
+\textbf{Step 10}\\
+
+\begin{verbatim}
+Start a producer that reads alert packets from disk and loads them into the Kafka queue:
+
+docker service create \
+              --name sender \
+              --network alert_stream_default \
+              -v $PWD:/home/alert_stream/data:ro \
+              -e PYTHONUNBUFFERED=0 \
+              alert_stream python bin/sendAlertStream.py full-stream
+\end{verbatim}
+
+\textbf{Step 11}\\
+Examine output log files.\\
+~\\
+The monitor log should show end-of partition messages such as\\
+~\\
+
+\begin{verbatim}
+topic:full-stream, partition:0, status:end, offset:1000, key:None, time:1528496269.734
+\end{verbatim}
+
+And the packet log should show deserialized alert packets with contents
+matching the input packets.\\
+~\\
+~\\
+~\\
+\textbf{Step 12}\\
 Examine the serialized alert packets to confirm the presence of the
-required elements.\\
-\hspace*{0.333em} ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~~ ~\\
+required elements
+(\href{https://jira.lsstcorp.org/browse/LVV-105}{LVV-105}).~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~\\
 ~\\
 
 \hypertarget{lvv-t55---verify-implementation-of-diaforcedsource-catalog-dms-req-0317}{%
@@ -2854,12 +2972,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2925,12 +3042,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3004,7 +3120,8 @@ Run the MOPS pipeline on the Prompt Products database.\\
 ~\\
 \textbf{Step 3}\\
 Inspect SSObject catalog and verify the presence of the required
-elements.\\
+elements
+(​\href{https://jira.lsstcorp.org/browse/LVV-104}{LVV-104)}​​​.\\
 ~\\
 \textbf{Step 4}\\
 Computer the phase angle, reduced and absolute asteroid magnitudes for
@@ -3065,12 +3182,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 5}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3338,6 +3454,21 @@ Delegate to DRP
   DMS-REQ-0103-V-01: Produce Images for EPO
 \end{itemize}
 
+\hypertarget{precondition-3}{%
+\subsubsection{Precondition}\label{precondition-3}}
+
+This test will verify that the image data products called out in LSE-131
+have been produced. ~In order for that to be successful, as a
+precondition the inputs to that production must exist.\\
+As the only currently mandated image data production in LSE-131 is that
+of a color all-sky HiPS map down to 1 arcsecond resolution, the
+prerequisite inputs to that must be the single-filter coadds in the
+bands required by the yet-to-be-specified color prescription.\\
+~\\
+Depending on the test dataset used for different runs of this test over
+time, e.g., precursor or LSST-commissioning data, the size of the
+resulting HiPS image map will vary.
+
 \hypertarget{test-script-40}{%
 \subsubsection{Test Script}\label{test-script-40}}
 
@@ -3357,7 +3488,36 @@ non-empty.\\
 ~\\
 ~\\
 \textbf{Step 4}\\
-Query the produced data to produce required EPO data products.\\
+Verify that a HiPS image map covering the LSST survey area, with a
+limiting depth yielding 1 arcsecond resolution, has been produced
+matching the color prescriptions provided by EPO (in updates to LSE-131
+which are expected to be made "once ComCam data is available").\\
+~\\
+\textbf{Step 5}\\
+Place the image map in a location accessible to a Firefly and an Aladin
+Lite client, ideally with the client running in the EPO data systems
+environment.\\
+~\\
+\textbf{Step 6}\\
+Use Firefly to manually explore the image map at the largest scales to
+verify coverage of the entire sky. ~Sample in various locations to
+confirm the 1 arcsecond maximum depth.\\
+Confirm using Aladin Lite that the format of the image map is supported
+by this common community tool.\\
+~\\
+\textbf{Step 7}\\
+Verify programmatically, perhaps both by sampling a variety of
+locations, and by counting the tiles created at the
+1-arcsecond-resolution depth, that the map is complete and meets its
+specifications.\\
+~\\
+\textbf{Step 8}\\
+Apply an IVOA-community HiPS service validation tool, if available, to
+the service location.\\
+~\\
+\textbf{Step 9}\\
+Verify that the HiPS map created is in a location accessible to the EPO
+data systems.\\
 ~\\
 
 \hypertarget{lvv-t64---verify-implementation-of-coadded-image-provenance-dms-req-0106}{%
@@ -3511,12 +3671,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3599,8 +3758,8 @@ Precursor data, execute DRP, load results, observe catalog contents
   DMS-REQ-0275-V-01: Object Catalog
 \end{itemize}
 
-\hypertarget{precondition-3}{%
-\subsubsection{Precondition}\label{precondition-3}}
+\hypertarget{precondition-4}{%
+\subsubsection{Precondition}\label{precondition-4}}
 
 Input Data\\
 ~\\
@@ -3698,8 +3857,8 @@ Precursor data, execute DRP, load results, observe catalog contents
   DMS-REQ-0046-V-01: Provide Photometric Redshifts of Galaxies
 \end{itemize}
 
-\hypertarget{precondition-4}{%
-\subsubsection{Precondition}\label{precondition-4}}
+\hypertarget{precondition-5}{%
+\subsubsection{Precondition}\label{precondition-5}}
 
 Input Data\\
 HSC Public Data Release (raw science images, master calibrations)\\
@@ -3850,8 +4009,8 @@ Delegate to DRP
   DMS-REQ-0349-V-01: Detecting extended low surface brightness objects
 \end{itemize}
 
-\hypertarget{precondition-5}{%
-\subsubsection{Precondition}\label{precondition-5}}
+\hypertarget{precondition-6}{%
+\subsubsection{Precondition}\label{precondition-6}}
 
 Input Data\\
 HSC "RC2" data (raw science images and master calibrations)
@@ -4038,12 +4197,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 3}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4101,8 +4259,8 @@ Delegate to DRP
   DMS-REQ-0281-V-01: Multi-band Coadds
 \end{itemize}
 
-\hypertarget{precondition-6}{%
-\subsubsection{Precondition}\label{precondition-6}}
+\hypertarget{precondition-7}{%
+\subsubsection{Precondition}\label{precondition-7}}
 
 \hypertarget{test-script-52}{%
 \subsubsection{Test Script}\label{test-script-52}}
@@ -4181,8 +4339,8 @@ Delegate to DRP
   DMS-REQ-0329-V-01: All-Sky Visualization of Data Releases
 \end{itemize}
 
-\hypertarget{precondition-7}{%
-\subsubsection{Precondition}\label{precondition-7}}
+\hypertarget{precondition-8}{%
+\subsubsection{Precondition}\label{precondition-8}}
 
 Input Data\\
 Dataset of perhaps \textasciitilde{}100 square degrees. ~The first HSC
@@ -4317,8 +4475,8 @@ kept, and available.
   DMS-REQ-0334-V-01: Persisting Data Products
 \end{itemize}
 
-\hypertarget{precondition-8}{%
-\subsubsection{Precondition}\label{precondition-8}}
+\hypertarget{precondition-9}{%
+\subsubsection{Precondition}\label{precondition-9}}
 
 Precursor data from HSC PDR.
 
@@ -4419,11 +4577,14 @@ Delegate to DRP
   DMS-REQ-0337-V-01: Detecting faint variable objects
 \end{itemize}
 
-\hypertarget{precondition-9}{%
-\subsubsection{Precondition}\label{precondition-9}}
+\hypertarget{precondition-10}{%
+\subsubsection{Precondition}\label{precondition-10}}
 
 Input Data\\
-DECam HiTS data.
+DECam HiTS data.\\
+Gaia catalog of faint moving objects.\\
+Catalog of spectroscopically confirmed quasars.\\
+(Alternative: input data injected with faint variable sources).
 
 \hypertarget{test-script-57}{%
 \subsubsection{Test Script}\label{test-script-57}}
@@ -4433,12 +4594,11 @@ The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
 \textbf{Step 2}\\
-{[}markdown{]}: \#\\
-~\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
-```bash\\
+```\\
+bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4479,7 +4639,12 @@ spectroscopic catalog.\\
 ~\\
 \textbf{Step 9}\\
 Measure lightcurves of these quasars. ~Determine if structure function
-is reasonable.\\
+is reasonable (may require at least a year to determine if the structure
+function of 100 quasars is "reasonable").\\
+~\\
+\textbf{Step 10}\\
+(Alternative: if faint variable source can be injected into the input
+data, test to see if they are recovered).\\
 ~\\
 
 \hypertarget{lvv-t81---verify-implementation-of-targeted-coadds-dms-req-0338}{%
@@ -5019,7 +5184,45 @@ Owner\tabularnewline
 
 Special Programs Production, Data Release Production, Task Framework,
 Workload and Orchestration \& Precursor data, execute representative
-Special Programs pipelines
+Special Programs pipelines\\
+~\\
+\emph{DMS-REQ-0320 will be as follows, once LCR 1309 (accepted) is
+implemented.\\
+}
+
+\hypertarget{processing-of-data-from-special-programs}{%
+\subsubsection{1.6.1 Processing Of Data From Special
+Programs}\label{processing-of-data-from-special-programs}}
+
+\hypertarget{id-dms-req-0320-priority-2}{%
+\subsubsection{Id: Dms-Req-0320 (Priority:
+2)}\label{id-dms-req-0320-priority-2}}
+
+\hypertarget{specification}{%
+\subsubsection{Specification:~}\label{specification}}
+
+It shall be possible for special programs to trigger their own data
+processing recipes. It shall also be possible for special programs data
+to be processed with the prompt- and/or annual-release pipelines
+alongside data from the main survey.\\
+
+\hypertarget{discussion}{%
+\subsubsection{Discussion}\label{discussion}}
+
+: LSST will provide these recipes for processing Special Programs data
+when possible, which includes cases where DM can run original or
+reconfigured versions of existing pipelines, and excludes cases where
+the development new algorithms, or the allocation significant additional
+computational resources, are required. The data from Special Programs
+should only be included in the prompt- and/or annual-release processing
+along with data from the wide-fast-deep main survey when it is (a)
+possible for DM to do so without additional effort and (b) beneficial to
+the LSST's main science objectives.\\
+~\\
+The requirement for prompt Special Programs data processing to be
+completed within 24h is covered by
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T93}{TVV-T93}
+.
 
 \hypertarget{requirements-69}{%
 \subsubsection{Requirements}\label{requirements-69}}
@@ -5031,11 +5234,44 @@ Special Programs pipelines
   DMS-REQ-0320-V-01: Processing of Data From Special Programs
 \end{itemize}
 
+\hypertarget{precondition-11}{%
+\subsubsection{Precondition}\label{precondition-11}}
+
+A variety of imaging data from Special Programs, including these
+scenarios:\\
+(1) Special Programs data that can be processed by the Prompt pipeline
+(i.e., standard visits)\\
+(2) Special Programs data that requires 'real-time'
+(\textasciitilde{}24) processing with a reconfigured pipeline (e.g., DDF
+imaging sequence)\\
+(3) Special Programs data that can (should) be processed by the Data
+Release pipeline (e.g., North Ecliptic Spur standard visits)
+
 \hypertarget{test-script-69}{%
 \subsubsection{Test Script}\label{test-script-69}}
 
 \textbf{Step 1}\\
+(1) Special Programs data that can be processed by the Prompt pipeline
+(i.e., standard visits).\\
+Check that all images with the header keyword for SP were processed by
+the Prompt pipeline. Check that the Prompt pipeline's data products -\/-
+DIASource, DIAObject catalogs and the Alerts -\/- contain items flagged
+with their origin as that SP.\\
 ~\\
+\textbf{Step 2}\\
+(2) Special Programs data that requires 'real-time'
+(\textasciitilde{}24) processing with a reconfigured pipeline (e.g., DDF
+imaging sequence)\\
+Check that all images with the header keywords for a given SP were
+processed by their reconfigured pipeline. Check that the pipeline's data
+products have been updated, and passed their QA.\\
+~\\
+\textbf{Step 3}\\
+(3) Special Programs data that can (should) be processed by the Data
+Release pipeline (e.g., North Ecliptic Spur standard visits).\\
+SP data would be added manually to the DRP processing. Check that the
+DRP's data products -\/- Source, Object, CoAdds -\/- contain items
+flagged as originating in that SP.\\
 ~\\
 
 \hypertarget{lvv-t93---verify-implementation-of-level-1-processing-of-special-programs-data-dms-req-0321}{%
@@ -5058,7 +5294,32 @@ Owner\tabularnewline
 
 Prompt Processing, Alert Production, MOPS and Forced Photometry \&
 Execute single-day operations rehearsal, observe processing completed in
-time
+time\\
+~\\
+\emph{The relevant requirement here is this one:\\
+}
+
+\hypertarget{level-1-processing-of-special-programs-data}{%
+\subsubsection{1.6.2 Level 1 Processing Of Special Programs
+Data}\label{level-1-processing-of-special-programs-data}}
+
+\hypertarget{id-dms-req-0321-priority-2}{%
+\subsubsection{Id: Dms-Req-0321 (Priority:
+2)}\label{id-dms-req-0321-priority-2}}
+
+\hypertarget{specification-1}{%
+\subsubsection{Specification:}\label{specification-1}}
+
+All Level 1 processing from special programs shall be completed before
+data arrives from the following night's observations\\
+~\\
+This refers to Special Programs that require prompt processing either
+with the Prompt pipeline (Alert Generation), or with a reconfigured
+pipeline.\\
+The requirement for Special Programs data to be automatically processed
+with the Prompt (and/or prompt reconfigured) pipelines is covered by
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T92}{LVV-T92}
+.
 
 \hypertarget{requirements-70}{%
 \subsubsection{Requirements}\label{requirements-70}}
@@ -5070,11 +5331,25 @@ time
   DMS-REQ-0321-V-01: Level 1 Processing of Special Programs Data
 \end{itemize}
 
+\hypertarget{precondition-12}{%
+\subsubsection{Precondition}\label{precondition-12}}
+
+Imaging data obtained under a Special Program: for example, a sequence
+of consecutive images of a deep drilling field.
+
 \hypertarget{test-script-70}{%
 \subsubsection{Test Script}\label{test-script-70}}
 
 \textbf{Step 1}\\
+If imaging data for a Special Program that requires processing with the
+Prompt pipeline was obtained the previous night, check that there exist
+DIASources/Objects/Alerts with flags that they originated from the
+Special Program.\\
 ~\\
+\textbf{Step 2}\\
+If imaging data for a Special Program that requires prompt processing
+with a reconfigured pipeline was obtained the previous night, check that
+the relevant data products have been updated.\\
 ~\\
 
 \hypertarget{lvv-t94---verify-implementation-of-special-programs-database-dms-req-0322}{%
@@ -5098,7 +5373,24 @@ Owner\tabularnewline
 Data Backbone, Managed Database, LSP Web APIs, Special Programs
 Production, Parallel Distributed Database \& Precursor data, execute
 representative Special Programs pipelines, load results, observe
-distinct database
+distinct database\\
+~\\
+\emph{The relevant requirement here is:}\\
+
+\hypertarget{special-programs-database-id-dms-req-0322-priority-1b-specification}{%
+\subsubsection{1.6.4 Special Programs Database Id: Dms-Req-0322
+(Priority: 1B)
+Specification:}\label{special-programs-database-id-dms-req-0322-priority-1b-specification}}
+
+Data products for special programs shall be stored in databases that are
+distinct from those used to store standard Level 1 and Level 2 data
+products. It shall be possible for these databases to be federated with
+the Level 1 and Level 2 databases to allow cross-queries and joins.\\
+~\\
+The requirement that these database be created by reconfigured DM
+pipelines is covered by
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T92}{LVV-T92}
+.
 
 \hypertarget{requirements-71}{%
 \subsubsection{Requirements}\label{requirements-71}}
@@ -5110,10 +5402,29 @@ distinct database
   DMS-REQ-0322-V-01: Special Programs Database
 \end{itemize}
 
+\hypertarget{precondition-13}{%
+\subsubsection{Precondition}\label{precondition-13}}
+
+Databases created by reconfigured pipelines for processing Special
+Programs data (e.g., DIAObject/DIASource catalogs for a Deep Drilling
+Field)
+
 \hypertarget{test-script-71}{%
 \subsubsection{Test Script}\label{test-script-71}}
 
 \textbf{Step 1}\\
+SP data product: DDF DIAObjects catalog\\
+Non-SP data product: WFD DIAObjects catalog\\
+Test: join the two catalogs by coordinate (e.g., to get a longer time
+baseline for variable stars in the DDF)\\
+~\\
+\textbf{Step 2}\\
+SP data product: DDF Objects catalog\\
+Non-SP data product: WFD DIAObjects catalog\\
+Test: join the two catalogs by coordinate to identify faint host
+galaxies of transients found in WFD\\
+~\\
+\textbf{Step 3}\\
 ~\\
 ~\\
 
@@ -5137,7 +5448,26 @@ Owner\tabularnewline
 \subsubsection{Test Items}\label{test-items-71}}
 
 Execute single-day operations rehearsal, observe data products generated
-in time
+in time\\
+~\\
+
+\hypertarget{constraints-on-level-1-special-program-products-generation-id-dms-req-0344-priority-2-specification}{%
+\subsubsection{1.6.3 Constraints On Level 1 Special Program Products
+Generation Id: Dms-Req-0344 (Priority: 2)
+Specification:}\label{constraints-on-level-1-special-program-products-generation-id-dms-req-0344-priority-2-specification}}
+
+The publishing of Level 1 data products from Special Programs shall be
+subject to the same performance requirements of the standard Level 1
+system. In particular L1PublicT and OTT1.\\
+L1PublicT = 24 hours\\
+OTT1 = 1 minute\\
+~\\
+When data from Special Programs is processed by the Prompt pipeline, it
+is treated the same way as WFD data, and the equivalent requirement for
+WFD data is DMS-REQ-0004.\\
+Therefore, the test scripts for the implementation of DMS-REQ-0004,
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T35}{TVV-T35}
+, apply here.
 
 \hypertarget{requirements-72}{%
 \subsubsection{Requirements}\label{requirements-72}}
@@ -5154,7 +5484,30 @@ in time
 \subsubsection{Test Script}\label{test-script-72}}
 
 \textbf{Step 1}\\
+Time processing of data starting from (pre-ingested) raw files until an
+alert is available for distribution; verify that this time is less than
+OTT1.\\
 ~\\
+\textbf{Step 2}\\
+Time processing of data starting from (pre-ingested) raw files until the
+required data products are available in the Science Platform. Verify
+that this time is less than L1PublicT.\\
+~\\
+\textbf{Step 3}\\
+Run MOPS on 1 night equivalent of LSST observing worth of precursor data
+and verify that Solar System Object orbits can be updated within 24
+hours.\\
+~\\
+\textbf{Step 4}\\
+~\\
+~\\
+\textbf{Step 5}\\
+~\\
+~\\
+\textbf{Step 6}\\
+Record time between completion of MOPS processing and availability of
+the updated SSObject catalogue through the Science Platform; verify this
+time is less than L1PublicT.\\
 ~\\
 
 \hypertarget{lvv-t96---verify-implementation-of-query-repeatability-dms-req-0291}{%
@@ -5411,8 +5764,8 @@ simulated clients using standard protocols
   DMS-REQ-0002-V-01: Transient Alert Distribution
 \end{itemize}
 
-\hypertarget{precondition-10}{%
-\subsubsection{Precondition}\label{precondition-10}}
+\hypertarget{precondition-14}{%
+\subsubsection{Precondition}\label{precondition-14}}
 
 {}Obtain precursor or simulated data
 
@@ -6368,19 +6721,30 @@ Execution of algorithms on batch cluster and desktop.
 \subsubsection{Test Script}\label{test-script-101}}
 
 \textbf{Step 1}\\
-Inspect and analyze plan for algorithm and Pipeline use. ~Can tasks be
-run on laptop and on NCSA?\\
-~\\
-~\\
+Using curated test datasets for multiple precursor instruments, verify
+and log that the prototype DRP pipelines execute successfully in three
+contexts:\\
+1. The CI system\\
+2. On a single user system: laptop, desktop, or notebook running in the
+Notebook aspect of the LSP.\\
 ~\\
 \textbf{Step 2}\\
+Using a template testing notebook in the Notebook aspect of the LSP,
+verify and log the following:\\
+1. Individual pipeline steps (tasks) are importable and executable on
+their own. ~this is not comprehensive, but demonstrative.\\
+2. Individual pipeline steps may be overridden by configuration.\\
+3. Users can implement a custom pipeline step and insert i into the
+processing flow via configuration.\\
+~\\
+\textbf{Step 3}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in DRP-00-00).\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 4}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 5}\\
 For each of the expected data products types (listed in Test Items
 section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
 data product will be retrieved from the Butler and verified to be
@@ -6388,23 +6752,23 @@ non-empty.\\
 ~\\
 ~\\
 ~\\
-\textbf{Step 5}\\
+\textbf{Step 6}\\
 Run subset of full DRP from previous step on an individual node. ~Was
 this organizationally easy? ~Did the performance scale appropriately?\\
 ~\\
-\textbf{Step 6}\\
+\textbf{Step 7}\\
 Re-run aperture correction on subset. ~Verify that same results as DRP
 run are achieved.\\
 ~\\
-\textbf{Step 7}\\
+\textbf{Step 8}\\
 Re-run photometric redshift estimation algorithm on subset coadd
 catalogs. ~Verify that same results are achieved as from full DRP.\\
 ~\\
 
-\hypertarget{lvv-t125---verify-implementatino-of-simulated-data-dms-req-0009}{%
+\hypertarget{lvv-t125---verify-implementation-of-simulated-data-dms-req-0009}{%
 \subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T125}{LVV-T125}
-- Verify implementatino of Simulated Data
-(DMS-REQ-0009)}{LVV-T125 - Verify implementatino of Simulated Data (DMS-REQ-0009)}}\label{lvv-t125---verify-implementatino-of-simulated-data-dms-req-0009}}
+- Verify implementation of Simulated Data
+(DMS-REQ-0009)}{LVV-T125 - Verify implementation of Simulated Data (DMS-REQ-0009)}}\label{lvv-t125---verify-implementation-of-simulated-data-dms-req-0009}}
 
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
@@ -6648,7 +7012,9 @@ Dubois-Felsmann\tabularnewline
 \hypertarget{test-items-107}{%
 \subsubsection{Test Items}\label{test-items-107}}
 
-Delegate to LSP
+Delegate to LSP: it is intended that the detailed test coverage for this
+requirement will largely arise from testing at the Science Platform
+level.
 
 \hypertarget{requirements-108}{%
 \subsubsection{Requirements}\label{requirements-108}}
@@ -6660,11 +7026,195 @@ Delegate to LSP
   DMS-REQ-0160-V-01: Provide User Interface Services
 \end{itemize}
 
+\hypertarget{precondition-15}{%
+\subsubsection{Precondition}\label{precondition-15}}
+
+\begin{enumerate}
+\tightlist
+\item
+  Testing this requirement relies on a set of data products meeting the
+  data model implied by the DPDD existing in a deployment of the Science
+  Platform and its underlying database and file services.
+
+  \begin{enumerate}
+  \tightlist
+  \item
+    In particular, both image and catalog data products are required.
+  \item
+    From the specific language of the underlying requirement, it appears
+    clear that coadded data products are required, but in practice
+    single-epoch data products should be included in the test as well.
+  \end{enumerate}
+\item
+  Depending on when this requirement is tested, the tests may involve
+  either or both of precursor data and LSST commissioning data. ~The use
+  of the latter is ultimately essential to ensure that the tests are
+  performed with as LSST-like a dataset as possible.
+\end{enumerate}
+
 \hypertarget{test-script-108}{%
 \subsubsection{Test Script}\label{test-script-108}}
 
 \textbf{Step 1}\\
+\textbf{Establishment of test coordinates:}\\
+Establish sky positions and surrounding regions (e.g., cones or
+polygons), field sizes, filter bands, and temporal epochs for the tests
+that are consistent with the known content of the test dataset, whether
+precursor or LSST commissioning data.\\
+Establishing sky positions should include pre-determining the
+corresponding LSST "tract and patch" identifiers.\\
+If the plan to not keep all calibrated single-epoch images on disk is
+still in place at the time of the test, identify for use in the test
+both images that are, and are not, on disk.\\
+Establish target image boundaries, projections, and pixel scales to be
+used for resampling tests. ~Ensure that at least some of these test
+conditions include coadded image boundaries that cross tract and patch
+boundaries, and single-epoch image boundaries that cross focal plane
+raft boundaries.\\
 ~\\
+\textbf{Step 2}\\
+\textbf{Butler image access:}\\
+From within the Notebook Aspect, verify that coadded images for the
+identified regions of sky and filter bands are accessible via the
+Butler. ~Verify that the same images are available whether obtained by
+direct reference to the previous established tract/patch identifiers or
+by the use of LSST stack code for retrieving images based on sky
+coordinates.\\
+From within the Notebook Aspect, verify that single-epoch raw images for
+the selected locations and times are available. ~Verify that calibrated
+images (PVIs) for the selected locations and times are available;
+depending on the details of the test dataset, verify that PVIs still on
+disk can be retrieved immediately.\\
+Verify that lists or tables of image metadata, not just individual
+images, can be retrieved. ~E.g., a list of all the single-epoch images
+covering a selected sky location.\\
+~\\
+\textbf{Step 3}\\
+\textbf{Programmatic PVI re-creation:}\\
+From within the Notebook Aspect, verify that the recreation on demand of
+a PVI can be performed. ~Ideally, this should be done as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  Verify that recreation of a PVI that \emph{is} still available works
+  and that it reproduces the original PVI exactly (except for provenance
+  metadata that must be different) or within the reasonable ability of
+  processing systems to do so (e.g., taking into account that the
+  original calibration and the recreation may have run on different CPU
+  architectures).
+\item
+  The test conditions should ensure the verification that a recreation
+  was actually performed, i.e., that the still-available PVI was not
+  returned instead.
+\item
+  Note that it does not appear to be a requirement that \emph{at Butler
+  level} recreation on demand of PVIs is a completely transparent
+  process. ~If this \emph{is} decided to be a requirement, the test must
+  also verify that it has been satisfied. ~If it is \emph{not} a
+  requirement, verify that adequate documentation on the PVI-recreation
+  process (e.g., the SuperTasks and configuration to be used) is
+  available.
+\end{itemize}
+
+\textbf{Step 4}\\
+\textbf{Butler catalog access:}\\
+From within the Notebook Aspect, verify that all the catalog data
+products described in the DPDD can be retrieved for the coordinates
+selected above via the Butler. (This test should include access to
+SSObject data, but the details of how such a test would depend on the
+coordinate selections require additional thought.)\\
+~\\
+\textbf{Step 5}\\
+\textbf{LSST-stack-based resampling/reprojection:}\\
+Verify the availability of software in the LSST stack, and associated
+documentation, that permits the resampling of LSST images to different
+pixel grids and projections.\\
+Exercise this capability for the test conditions selected in Step 1
+above.\\
+Perform photometric and astrometric tests on the resulting resampled
+images to provide evidence that the transformations performed were
+correct to the accuracy supported by the data.\\
+~\\
+\textbf{Step 6}\\
+\textbf{Comment:}\\
+The following API Aspect test steps should be carried out on the
+required "offsite-like" test platform, to ensure that their success does
+not reflect any privileged access given to processes inside the Data
+Access Center or other Science Platform instance. ~However, at least a
+small sampling of them should \emph{also} be carried out \emph{within}
+the Science Platform environment, i.e., in the Notebook Aspect, and the
+results compared.\\
+~\\
+\textbf{Step 7}\\
+\textbf{API Aspect image access:}\\
+Using IVOA services such as the Registry and ObsTAP, from the
+"offsite-like" test platform, verify that the existence of the classes
+of image data products foreseen in the DPDD can be determined.\\
+Verify that ObsTAP and/or SIAv2 can be used to find the same images and
+lists of images for the established test coordinates that were retrieved
+via the Butler in Step 2 above.\\
+Verify that the selected images are retrievable from the Web services.\\
+Verify that the retrieved images are identical in their pixel content
+and metadata.\\
+The tests must include both coadded and single-epoch images.\\
+~\\
+\textbf{Step 8}\\
+\textbf{API Aspect image transformations:}\\
+Verify that image cutouts and resamplings can be performed via the IVOA
+SODA service, and that the results are identical to those obtained for
+the same parameters from the LSST-stack-based tests in Step 5.\\
+(The requirements for supported reprojections, if any, in the SODA
+service have not been established at the time of writing.)\\
+~\\
+\textbf{Step 9}\\
+\textbf{API Aspect catalog data access:}\\
+Verify that the IVOA Registry, RegTAP, TAP\_SCHEMA, and other relevant
+mechanisms can be used to discover the existence of all the catalog data
+products foreseen in the DPDD.\\
+Using the IVOA TAP service, verify that all the catalog data products
+foreseen in the DPDD can be retrieved for the coordinates determined in
+Step 1. ~Verify that their scientific content is the same as when they
+are retrieved via the Butler.\\
+~\\
+\textbf{Step 10}\\
+\textbf{Comment:}\\
+The Portal Aspect tests below should be carried out from a web browser
+on an "offsite-like" test platform, to ensure that no privileged access
+provided to intra-data-center clients is relied upon.\\
+~\\
+\textbf{Step 11}\\
+\textbf{Portal Aspect data browsing:}\\
+Verify that the Portal Aspect can be used to discover the existence of
+all the data products foreseen in the DPDD. ~Verify that the UI permits
+locating the data for the coordinates selected in Step 1 by visual
+means, e.g., by zooming and panning in from an all-sky view.\\
+Verify that the UI permits locating the data by typing in coordinates as
+well.\\
+~\\
+\textbf{Step 12}\\
+\textbf{Portal Aspect image access:}\\
+Verify that the Portal Aspect allows both the retrieval of "original"
+image data, i.e., in its native LSST pixel projection and with full
+metadata, as well as retrieval of on-demand UI cutouts of coadded image
+data for selected locations.\\
+~\\
+\textbf{Step 13}\\
+\textbf{Portal Aspect catalog query and visualization:}\\
+Verify that the Portal Aspect allows graphical querying of DPDD catalog
+data, both coadded and single-epoch, for selected regions of sky and/or
+with selected properties, and supports the visualization of the results
+(including histogramming, scatterplots, time series, table
+manipulations, and overplotting on image data).\\
+(Note that the Science Platform requirements, LDM-554, lay out a
+detailed set of requirements on the selection and visualization of
+catalog data.)\\
+~\\
+\textbf{Step 14}\\
+\textbf{Portal Aspect data download:}\\
+Verify that data identified and/or visualized in the Portal Aspect can
+be downloaded to the remote system running the web browser in which the
+Portal is displayed, as well as to the User Workspace.\\
 ~\\
 
 \hypertarget{lvv-t132---verify-implementation-of-pre-cursor-and-real-data-dms-req-0296}{%
@@ -6923,8 +7473,8 @@ Delegate to Bulk Download
   DMS-REQ-0300-V-01: Bulk Download Service
 \end{itemize}
 
-\hypertarget{precondition-11}{%
-\subsubsection{Precondition}\label{precondition-11}}
+\hypertarget{precondition-16}{%
+\subsubsection{Precondition}\label{precondition-16}}
 
 A large dataset (at least a few TB) must be available.\\
 Requires identity management to confirm bulk download use.\\
@@ -7420,10 +7970,10 @@ Observe access to prior DR on tape
 ~\\
 ~\\
 
-\hypertarget{lvv-t151---verify-iomplementation-of-catalog-export-formats-dms-req-0078}{%
+\hypertarget{lvv-t151---verify-implementation-of-catalog-export-formats-dms-req-0078}{%
 \subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T151}{LVV-T151}
-- Verify iomplementation of Catalog Export Formats
-(DMS-REQ-0078)}{LVV-T151 - Verify iomplementation of Catalog Export Formats (DMS-REQ-0078)}}\label{lvv-t151---verify-iomplementation-of-catalog-export-formats-dms-req-0078}}
+- Verify implementation of Catalog Export Formats
+(DMS-REQ-0078)}{LVV-T151 - Verify implementation of Catalog Export Formats (DMS-REQ-0078)}}\label{lvv-t151---verify-implementation-of-catalog-export-formats-dms-req-0078}}
 
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
@@ -7802,8 +8352,8 @@ representative requests, observe correct results generated in time
   DMS-REQ-0341-V-01: Providing a Precovery Service
 \end{itemize}
 
-\hypertarget{precondition-12}{%
-\subsubsection{Precondition}\label{precondition-12}}
+\hypertarget{precondition-17}{%
+\subsubsection{Precondition}\label{precondition-17}}
 
 \begin{enumerate}
 \tightlist
@@ -7917,8 +8467,8 @@ APIs, Parallel Distributed Database
   DMS-REQ-0363-V-01: Access to Previous Data Releases
 \end{itemize}
 
-\hypertarget{precondition-13}{%
-\subsubsection{Precondition}\label{precondition-13}}
+\hypertarget{precondition-18}{%
+\subsubsection{Precondition}\label{precondition-18}}
 
 Requires two (fake) releases within DAC (or PDAC) with common
 area/observations (preferably with some differing results but could use
@@ -9890,7 +10440,7 @@ Pipeline Availability} &
 \protect\hyperlink{lvv-t171---verify-implementation-of-pipeline-availability-dms-req-0008}{LVV-T171}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-6}{LVV-6 - DMS-REQ-0009-V-01:
 Simulated Data} &
-\protect\hyperlink{lvv-t125---verify-implementatino-of--simulated-data-dms-req-0009}{LVV-T125}\tabularnewline
+\protect\hyperlink{lvv-t125---verify-implementation-of-simulated-data-dms-req-0009}{LVV-T125}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-7}{LVV-7 - DMS-REQ-0010-V-01:
 Difference Exposures} &
 \protect\hyperlink{lvv-t36---verify-implementation-of-difference-exposures--dms-req-0010}{LVV-T36}\tabularnewline
@@ -9977,7 +10527,7 @@ DMS-REQ-0077-V-01: Maintain Archive Publicly Accessible} &
 \protect\hyperlink{lvv-t150---verify-implementation-of-maintain-archive-publicly-accessible-dms-req-0077}{LVV-T150}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-35}{LVV-35 -
 DMS-REQ-0078-V-01: Catalog Export Formats} &
-\protect\hyperlink{lvv-t151---verify-iomplementation-of-catalog-export-formats-dms-req-0078}{LVV-T151}\tabularnewline
+\protect\hyperlink{lvv-t151---verify-implementation-of-catalog-export-formats-dms-req-0078}{LVV-T151}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-36}{LVV-36 -
 DMS-REQ-0089-V-01: Solar System Objects Available Within Specified Time}
 &
