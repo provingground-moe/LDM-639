@@ -3058,14 +3058,11 @@ queries
 Run the MOPS pipeline on the Prompt Products database.\\
 ~\\
 \textbf{Step 2}\\
-~\\
-~\\
-\textbf{Step 3}\\
 Inspect SSObject catalog and verify the presence of the required
 elements
 (​\href{https://jira.lsstcorp.org/browse/LVV-104}{LVV-104)}​​​.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 Computer the phase angle, reduced and absolute asteroid magnitudes for
 objects identified in SSObject Catalog\\
 ~\\
@@ -3335,29 +3332,26 @@ Fully covered by preconditions for
 \subsubsection{Test Script}\label{test-script-39}}
 
 \textbf{Step 1}\\
-~\\
-~\\
-\textbf{Step 2}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in LVV-T10 - DRP-00-00)\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 2}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 For each combination of tract/patch/filter, the PVI will be retrieved
 from the Butler, and the existence of all components described in Test
 items section §4.6.2 will be verified.\\
 ~\\
-\textbf{Step 5}\\
+\textbf{Step 4}\\
 Scripts from the pipe\_analysis package will be run on every visit to
 check for the presence of data products and make plots\\
 ~\\
-\textbf{Step 6}\\
+\textbf{Step 5}\\
 Ten patches will be chosen at random and inspected by eye for unmasked
 artifacts.\\
 ~\\
-\textbf{Step 7}\\
+\textbf{Step 6}\\
 Select Objects classified as point sources on 10 different coadd images
 (including all bands). ~Evaluate the PSF model at the positions of these
 Objects, and verify that subtracting a scaled version of the PSF model
@@ -3495,28 +3489,23 @@ Delegate to DRP
 \subsubsection{Test Script}\label{test-script-41}}
 
 \textbf{Step 1}\\
-~\\
-~\\
-\textbf{Step 2}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in DRP-00-00).\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 2}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 For each of the expected data products types (listed in Test Items
 section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
 data product will be retrieved from the Butler and verified to be
 non-empty.\\
 ~\\
-~\\
-~\\
-\textbf{Step 5}\\
+\textbf{Step 4}\\
 Query and verify provenance of input images, and software versions that
 went into producing stack.\\
 ~\\
-\textbf{Step 6}\\
+\textbf{Step 5}\\
 Test re-generating 10 different coadds tract+patches based on the
 provenance image given\\
 ~\\
@@ -3556,23 +3545,17 @@ data, execute DRP, load results, observe catalog contents
 \subsubsection{Test Script}\label{test-script-42}}
 
 \textbf{Step 1}\\
-~\\
-~\\
-\textbf{Step 2}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in DRP-00-00).\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 2}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 For each of the expected data products types (listed in Test Items
 section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
 data product will be retrieved from the Butler and verified to be
 non-empty.\\
-~\\
-~\\
-~\\
 
 \hypertarget{lvv-t66---verify-implementation-of-forced-source-catalog-dms-req-0268}{%
 \subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T66}{LVV-T66}
@@ -4130,13 +4113,10 @@ products
 \subsubsection{Test Script}\label{test-script-51}}
 
 \textbf{Step 1}\\
-~\\
-~\\
-\textbf{Step 2}\\
 The DM Stack and Alert Processing packaged shall be initialized as
 described in LVT-T17 (AG-00-00).\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 2}\\
 The alert generation processing will be executed using the verification
 cluster:\\
 ~\\
@@ -4153,15 +4133,15 @@ sbatch demo\_run.sl\\
 ~\\
 and any errors or failures reported.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 5}\\
+\textbf{Step 4}\\
 For each of the expected data products types (listed in §4.2.2) and each
 of the expected units (PVIs, catalogs, etc.), the data product will be
 retrieved from the Butler and verified to be non-empty.\\
 ~\\
-\textbf{Step 6}\\
+\textbf{Step 5}\\
 DIAObjects are currently only stored in a database, without shims to the
 Butler, so the existence of the database table and its non-empty
 contents will be verified by directly accessing it using sqlite3 and
@@ -4205,16 +4185,13 @@ Delegate to DRP
 \subsubsection{Test Script}\label{test-script-52}}
 
 \textbf{Step 1}\\
-~\\
-~\\
-\textbf{Step 2}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in DRP-00-00).\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 2}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 For each of the expected data products types (listed in Test Items
 section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
 data product will be retrieved from the Butler and verified to be
@@ -4222,30 +4199,28 @@ non-empty.\\
 ~\\
 ~\\
 ~\\
-\textbf{Step 5}\\
+\textbf{Step 4}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in LVV-T10 - DRP-00-00)\\
 ~\\
-\textbf{Step 6}\\
+\textbf{Step 5}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 7}\\
+\textbf{Step 6}\\
 For each combination of tract/patch/filter, the PVI will be retrieved
 from the Butler, and the existence of all components described in Test
 items section §4.6.2 will be verified.\\
 ~\\
-\textbf{Step 8}\\
+\textbf{Step 7}\\
 Scripts from the pipe\_analysis package will be run on every visit to
 check for the presence of data products and make plots\\
 ~\\
-\textbf{Step 9}\\
+\textbf{Step 8}\\
 Ten patches will be chosen at random and inspected by eye for unmasked
 artifacts.\\
 ~\\
-\textbf{Step 10}\\
+\textbf{Step 9}\\
 Verify that deep detection coadds exist based on all filters.\\
-~\\
-~\\
 ~\\
 
 \hypertarget{lvv-t76---verify-implementation-of-all-sky-visualization-of-data-releases-dms-req-0329}{%
@@ -4359,27 +4334,22 @@ Delegate to DRP
 \subsubsection{Test Script}\label{test-script-54}}
 
 \textbf{Step 1}\\
-~\\
-~\\
-\textbf{Step 2}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in DRP-00-00).\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 2}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 For each of the expected data products types (listed in Test Items
 section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
 data product will be retrieved from the Butler and verified to be
 non-empty.\\
 ~\\
-~\\
-~\\
-\textbf{Step 5}\\
+\textbf{Step 4}\\
 Explicitly create a coadd for a specified seeing range in each filter.\\
 ~\\
-\textbf{Step 6}\\
+\textbf{Step 5}\\
 Verify that these coadds exist.\\
 ~\\
 
@@ -4465,24 +4435,19 @@ Delegate to DRP
 \subsubsection{Test Script}\label{test-script-56}}
 
 \textbf{Step 1}\\
-~\\
-~\\
-\textbf{Step 2}\\
 The DM Stack shall be initialized using the loadLSST script (as
 described in DRP-00-00).\\
 ~\\
-\textbf{Step 3}\\
+\textbf{Step 2}\\
 A ``Data Butler'' will be initialized to access the repository.\\
 ~\\
-\textbf{Step 4}\\
+\textbf{Step 3}\\
 For each of the expected data products types (listed in Test Items
 section §4.3.2) and each of the expected units (PVIs, coadds, etc), the
 data product will be retrieved from the Butler and verified to be
 non-empty.\\
 ~\\
-~\\
-~\\
-\textbf{Step 5}\\
+\textbf{Step 4}\\
 Verify that PSF-matched coadds were created.\\
 ~\\
 
