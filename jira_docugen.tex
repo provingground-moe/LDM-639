@@ -5122,45 +5122,7 @@ Owner\tabularnewline
 
 Special Programs Production, Data Release Production, Task Framework,
 Workload and Orchestration \& Precursor data, execute representative
-Special Programs pipelines\\
-~\\
-\emph{DMS-REQ-0320 will be as follows, once LCR 1309 (accepted) is
-implemented.\\
-}
-
-\hypertarget{processing-of-data-from-special-programs}{%
-\subsubsection{1.6.1 Processing Of Data From Special
-Programs}\label{processing-of-data-from-special-programs}}
-
-\hypertarget{id-dms-req-0320-priority-2}{%
-\subsubsection{Id: Dms-Req-0320 (Priority:
-2)}\label{id-dms-req-0320-priority-2}}
-
-\hypertarget{specification}{%
-\subsubsection{Specification:~}\label{specification}}
-
-It shall be possible for special programs to trigger their own data
-processing recipes. It shall also be possible for special programs data
-to be processed with the prompt- and/or annual-release pipelines
-alongside data from the main survey.\\
-
-\hypertarget{discussion}{%
-\subsubsection{Discussion}\label{discussion}}
-
-: LSST will provide these recipes for processing Special Programs data
-when possible, which includes cases where DM can run original or
-reconfigured versions of existing pipelines, and excludes cases where
-the development new algorithms, or the allocation significant additional
-computational resources, are required. The data from Special Programs
-should only be included in the prompt- and/or annual-release processing
-along with data from the wide-fast-deep main survey when it is (a)
-possible for DM to do so without additional effort and (b) beneficial to
-the LSST's main science objectives.\\
-~\\
-The requirement for prompt Special Programs data processing to be
-completed within 24h is covered by
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T93}{TVV-T93}
-.
+Special Programs pipelines
 
 \hypertarget{requirements-69}{%
 \subsubsection{Requirements}\label{requirements-69}}
@@ -5311,24 +5273,7 @@ Owner\tabularnewline
 Data Backbone, Managed Database, LSP Web APIs, Special Programs
 Production, Parallel Distributed Database \& Precursor data, execute
 representative Special Programs pipelines, load results, observe
-distinct database\\
-~\\
-\emph{The relevant requirement here is:}\\
-
-\hypertarget{special-programs-database-id-dms-req-0322-priority-1b-specification}{%
-\subsubsection{1.6.4 Special Programs Database Id: Dms-Req-0322
-(Priority: 1B)
-Specification:}\label{special-programs-database-id-dms-req-0322-priority-1b-specification}}
-
-Data products for special programs shall be stored in databases that are
-distinct from those used to store standard Level 1 and Level 2 data
-products. It shall be possible for these databases to be federated with
-the Level 1 and Level 2 databases to allow cross-queries and joins.\\
-~\\
-The requirement that these database be created by reconfigured DM
-pipelines is covered by
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T92}{LVV-T92}
-.
+distinct database
 
 \hypertarget{requirements-71}{%
 \subsubsection{Requirements}\label{requirements-71}}
@@ -5386,26 +5331,7 @@ Owner\tabularnewline
 \subsubsection{Test Items}\label{test-items-71}}
 
 Execute single-day operations rehearsal, observe data products generated
-in time\\
-~\\
-
-\hypertarget{constraints-on-level-1-special-program-products-generation-id-dms-req-0344-priority-2-specification}{%
-\subsubsection{1.6.3 Constraints On Level 1 Special Program Products
-Generation Id: Dms-Req-0344 (Priority: 2)
-Specification:}\label{constraints-on-level-1-special-program-products-generation-id-dms-req-0344-priority-2-specification}}
-
-The publishing of Level 1 data products from Special Programs shall be
-subject to the same performance requirements of the standard Level 1
-system. In particular L1PublicT and OTT1.\\
-L1PublicT = 24 hours\\
-OTT1 = 1 minute\\
-~\\
-When data from Special Programs is processed by the Prompt pipeline, it
-is treated the same way as WFD data, and the equivalent requirement for
-WFD data is DMS-REQ-0004.\\
-Therefore, the test scripts for the implementation of DMS-REQ-0004,
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T35}{TVV-T35}
-, apply here.
+in time
 
 \hypertarget{requirements-72}{%
 \subsubsection{Requirements}\label{requirements-72}}
