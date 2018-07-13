@@ -57,10 +57,10 @@ implementation of Pre-cursor, and Real Data
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T133}{Verify
 implementation of Provide Beam Projector Coordinate Calculation Software
 (DMS-REQ-0351)}\tabularnewline
-\protect\hyperlink{lvv-t134---verify-implementatino-of-provide-image-access-services-dms-req-0065}{LVV-T134}
+\protect\hyperlink{lvv-t134---verify-implementation-of-provide-image-access-services-dms-req-0065}{LVV-T134}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T134}{Verify
-implementatino of Provide Image Access Services
+implementation of Provide Image Access Services
 (DMS-REQ-0065)}\tabularnewline
 \protect\hyperlink{lvv-t135---verify-implementation-of-provide-data-access-services-dms-req-0155}{LVV-T135}
 &
@@ -155,10 +155,11 @@ implementation of Operations Subsets (DMS-REQ-0365)}\tabularnewline
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T165}{Verify
 implementation of Subsets Support (DMS-REQ-0366)}\tabularnewline
-\protect\hyperlink{lvv-t168---verify-implementation-of-evolution-dms-req-0369}{LVV-T168}
+\protect\hyperlink{lvv-t168---verify-design-of-data-access-services-allows-evolution-of-the-lsst-data-model-dms-req-0369}{LVV-T168}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T168}{Verify
-implementation of Evolution (DMS-REQ-0369)}\tabularnewline
+design of Data Access Services allows Evolution of the LSST Data Model
+(DMS-REQ-0369)}\tabularnewline
 \protect\hyperlink{lvv-t169---verify-implementation-of-older-release-behavior-dms-req-0370}{LVV-T169}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T169}{Verify
@@ -199,10 +200,11 @@ implementation of Summit Facility Data Communications
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T182}{Verify
 implementation of Prefer Computing and Storage Down
 (DMS-REQ-0170)}\tabularnewline
-\protect\hyperlink{lvv-t183---verify-implementation-dms-communication-with-ocs-dms-req-0315}{LVV-T183}
+\protect\hyperlink{lvv-t183---verify-implementation-of-dms-communication-with-ocs-dms-req-0315}{LVV-T183}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T183}{Verify
-implementation DMS Communication with OCS (DMS-REQ-0315)}\tabularnewline
+implementation of DMS Communication with OCS
+(DMS-REQ-0315)}\tabularnewline
 \protect\hyperlink{lvv-t184---verify-implementation-of-summit-to-base-network-dms-req-0171}{LVV-T184}
 &
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T184}{Verify
@@ -449,7 +451,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-3}
 
-Alert Production, Data Release Production~
+Verify that the DMS can inject simulated data into data products for
+testing.
 
 \subsubsection{Requirements}\label{requirements-3}
 
@@ -481,7 +484,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-4}
 
-Alert Production, Data Release Production, Science Algorithms~
+Verify that the DMS can performance image differencing from single
+exposures and coadds.
 
 \subsubsection{Requirements}\label{requirements-4}
 
@@ -578,8 +582,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-7}
 
-Alert Production, Data Release Production, Science Algorithms, Science
-Primitives~
+Verify that the DMS provides photometry calibrated in AB for all
+measured objects and sources.
 
 \subsubsection{Requirements}\label{requirements-7}
 
@@ -696,9 +700,9 @@ Science Primitives~
 \textbf{Step 1}\\
 Delegate to CPP\\[2\baselineskip]
 
-\hypertarget{lvv-t134---verify-implementatino-of-provide-image-access-services-dms-req-0065}{\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T134}{LVV-T134}
-- Verify implementatino of Provide Image Access Services
-(DMS-REQ-0065)}{LVV-T134 - Verify implementatino of Provide Image Access Services (DMS-REQ-0065)}}\label{lvv-t134---verify-implementatino-of-provide-image-access-services-dms-req-0065}}
+\hypertarget{lvv-t134---verify-implementation-of-provide-image-access-services-dms-req-0065}{\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T134}{LVV-T134}
+- Verify implementation of Provide Image Access Services
+(DMS-REQ-0065)}{LVV-T134 - Verify implementation of Provide Image Access Services (DMS-REQ-0065)}}\label{lvv-t134---verify-implementation-of-provide-image-access-services-dms-req-0065}}
 
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
@@ -713,7 +717,10 @@ Dubois-Felsmann\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-11}
 
-LSP Portal, LSP Web APIs~
+Verify that images can be identified and that images and image cut-outs
+can be retrieved using the network interfaces - primarily IVOA
+standards-based - and Python APIs provided for image access by science
+users.
 
 \subsubsection{Requirements}\label{requirements-11}
 
@@ -723,6 +730,11 @@ LSP Portal, LSP Web APIs~
   \href{https://jira.lsstcorp.org/browse/LVV-27}{LVV-27} -
   DMS-REQ-0065-V-01: Provide Image Access Services
 \end{itemize}
+
+\subsubsection{Precondition}\label{precondition-1}
+
+Testing requires the establishment of running services such as SIAv2 and
+SODA to which the tests can be applied.
 
 \subsubsection{Test Script}\label{test-script-11}
 
@@ -841,7 +853,7 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-15}
 
-Task Framework~
+This is a composite requirement in the SysML model
 
 \subsubsection{Requirements}\label{requirements-15}
 
@@ -873,7 +885,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-16}
 
-Middleware\\[2\baselineskip]Task Framework
+Verify that the DMS provides the ability to define a new or modified
+pipeline task without recompilation.
 
 \subsubsection{Requirements}\label{requirements-16}
 
@@ -1041,7 +1054,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-21}
 
-Data Backbone, LSP Portal, LSP JupyterLab, LSP Web APIs~
+Verify that the DMS preserves and makes accessible an Alert Archive for
+reference and for false alert analyses
 
 \subsubsection{Requirements}\label{requirements-21}
 
@@ -1241,7 +1255,11 @@ Dubois-Felsmann\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-27}
 
-LSP Portal, MOPS and Forced Photometry~
+Verify that a technical capability to perform user-directed precovery
+analyses on difference images exists and that it is exposed through the
+LSST Science Platform. ~Verified by testing against precursor
+datasets.\\
+(Involves: LSP Portal, MOPS and Forced Photometry)
 
 \subsubsection{Requirements}\label{requirements-27}
 
@@ -1252,7 +1270,7 @@ LSP Portal, MOPS and Forced Photometry~
   DMS-REQ-0341-V-01: Providing a Precovery Service
 \end{itemize}
 
-\subsubsection{Precondition}\label{precondition-1}
+\subsubsection{Precondition}\label{precondition-2}
 
 \begin{enumerate}
 \tightlist
@@ -1409,8 +1427,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-31}
 
-Data Backbone, Managed Database, LSP Portal, LSP JupyterLab, LSP Web
-APIs, Parallel Distributed Database~
+Verify that the DMS can provide designated subsets of previous Data
+Releases.
 
 \subsubsection{Requirements}\label{requirements-31}
 
@@ -1426,9 +1444,10 @@ APIs, Parallel Distributed Database~
 \textbf{Step 1}\\
 Delegate to LSP\\[2\baselineskip]
 
-\hypertarget{lvv-t168---verify-implementation-of-evolution-dms-req-0369}{\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T168}{LVV-T168}
-- Verify implementation of Evolution
-(DMS-REQ-0369)}{LVV-T168 - Verify implementation of Evolution (DMS-REQ-0369)}}\label{lvv-t168---verify-implementation-of-evolution-dms-req-0369}}
+\hypertarget{lvv-t168---verify-design-of-data-access-services-allows-evolution-of-the-lsst-data-model-dms-req-0369}{\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T168}{LVV-T168}
+- Verify design of Data Access Services allows Evolution of the LSST
+Data Model
+(DMS-REQ-0369)}{LVV-T168 - Verify design of Data Access Services allows Evolution of the LSST Data Model (DMS-REQ-0369)}}\label{lvv-t168---verify-design-of-data-access-services-allows-evolution-of-the-lsst-data-model-dms-req-0369}}
 
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
@@ -1442,9 +1461,9 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-32}
 
-This test case is meant to verify that the design of the Data Access
-Services are able to accommodate changes/evolution of the LSST data
-model from one release to another.
+Verify that the design of the Data Access Services are able to
+accommodate changes/evolution of the LSST data model from one release to
+another.
 
 \subsubsection{Requirements}\label{requirements-32}
 
@@ -1477,8 +1496,15 @@ Dubois-Felsmann\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-33}
 
-Data Backbone, Managed Database, LSP Portal, LSP JupyterLab, LSP Web
-APIs, Parallel Distributed Database~
+Verify that the components of the data access system are technically
+capable of handling data releases beyond the two for which full services
+are required. ~DMS-REQ-0364 requires that up to 11 be supported.
+~Verified by inspection, i.e., by determination that the system design
+and implementation contain the necessary features to support this number
+of releases, and by direct test in a synthetic test environment with
+multiple releases.\\
+(Involves: Data Backbone, Managed Database, LSP Portal, LSP JupyterLab,
+LSP Web APIs, Parallel Distributed Database)
 
 \subsubsection{Requirements}\label{requirements-33}
 
@@ -1786,9 +1812,9 @@ networking downtimes.
 \textbf{Step 1}\\
 Analyze design\\[2\baselineskip]
 
-\hypertarget{lvv-t183---verify-implementation-dms-communication-with-ocs-dms-req-0315}{\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T183}{LVV-T183}
-- Verify implementation DMS Communication with OCS
-(DMS-REQ-0315)}{LVV-T183 - Verify implementation DMS Communication with OCS (DMS-REQ-0315)}}\label{lvv-t183---verify-implementation-dms-communication-with-ocs-dms-req-0315}}
+\hypertarget{lvv-t183---verify-implementation-of-dms-communication-with-ocs-dms-req-0315}{\subsection{\texorpdfstring{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T183}{LVV-T183}
+- Verify implementation of DMS Communication with OCS
+(DMS-REQ-0315)}{LVV-T183 - Verify implementation of DMS Communication with OCS (DMS-REQ-0315)}}\label{lvv-t183---verify-implementation-of-dms-communication-with-ocs-dms-req-0315}}
 
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
@@ -1803,8 +1829,9 @@ Dubois-Felsmann\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-42}
 
-Image and EFD Archiving, Prompt Processing, Observatory Operations Data,
-OCS Driven Batch, Telemetry Gateway~
+Verify that the DMS at the Base Facility can receive commands from the
+OCS and send command responses, events, and telemetry back. ~Verified by
+Early Integration activities and during AuxTel commissioning.
 
 \subsubsection{Requirements}\label{requirements-42}
 
@@ -2466,8 +2493,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-61}
 
-Execute bulk distribution of DRP catalogs, observe correct transfer and
-use of maintenance/validation tools
+Verify that catalog export, and maintenance/validation tools for Level 3
+products to outside of the Data Access Centers.
 
 \subsubsection{Requirements}\label{requirements-62}
 
@@ -2539,8 +2566,9 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-63}
 
-Execute bulk distribution of DRP images, observe correct transfer and
-use of maintenance/validation tools
+Verify that bulk distribution of images, and accompanying
+maintenance/validation tools for Level 3 image products to outside of
+the Data Access Centers.
 
 \subsubsection{Requirements}\label{requirements-64}
 
@@ -2576,7 +2604,8 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-64}
 
-Load Prompt and DR images into PDAC, observe access via LSP
+Verify that prompt processing and DRP products are available at the DACs
+for Level 3 processing at the DACs.
 
 \subsubsection{Requirements}\label{requirements-65}
 
@@ -2610,7 +2639,7 @@ Owner\tabularnewline
 
 \subsubsection{Test Items}\label{test-items-65}
 
-Verify that additional Data Access Centers can be setup.
+Verify that additional Data Access Centers can be set up.
 
 \subsubsection{Requirements}\label{requirements-66}
 
@@ -2657,7 +2686,7 @@ DMS-REQ-0052-V-01: Enable a Range of Shape Measurement Approaches} &
 \protect\hyperlink{lvv-t130---verify-implementation-of-enable-a-range-of-shape-measurement-approaches-dms-req-0052}{LVV-T130}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-27}{LVV-27 -
 DMS-REQ-0065-V-01: Provide Image Access Services} &
-\protect\hyperlink{lvv-t134---verify-implementatino-of-provide-image-access-services-dms-req-0065}{LVV-T134}\tabularnewline
+\protect\hyperlink{lvv-t134---verify-implementation-of-provide-image-access-services-dms-req-0065}{LVV-T134}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33 -
 DMS-REQ-0075-V-01: Catalog Queries} &
 \protect\hyperlink{lvv-t149---verify-implementation-of-catalog-queries-dms-req-0075}{LVV-T149}\tabularnewline
@@ -2795,7 +2824,7 @@ DMS-REQ-0313-V-01: Level 1 \& 2 Catalog Access} &
 \protect\hyperlink{lvv-t158---verify-implementation-level-1-and-2-catalog-access-dms-req-0313}{LVV-T158}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-146}{LVV-146 -
 DMS-REQ-0315-V-01: DMS Communication with OCS} &
-\protect\hyperlink{lvv-t183---verify-implementation-dms-communication-with-ocs-dms-req-0315}{LVV-T183}\tabularnewline
+\protect\hyperlink{lvv-t183---verify-implementation-of-dms-communication-with-ocs-dms-req-0315}{LVV-T183}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-147}{LVV-147 -
 DMS-REQ-0316-V-01: Commissioning Cluster} &
 \protect\hyperlink{lvv-t191---verify-implementation-of-commissioning-cluster-dms-req-0316}{LVV-T191}\tabularnewline
@@ -2833,7 +2862,7 @@ DMS-REQ-0366-V-01: Subsets Support} &
 \protect\hyperlink{lvv-t165---verify-implementation-of-subsets-support-dms-req-0366}{LVV-T165}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-195}{LVV-195 -
 DMS-REQ-0369-V-01: Evolution} &
-\protect\hyperlink{lvv-t168---verify-implementation-of-evolution-dms-req-0369}{LVV-T168}\tabularnewline
+\protect\hyperlink{lvv-t168---verify-design-of-data-access-services-allows-evolution-of-the-lsst-data-model-dms-req-0369}{LVV-T168}\tabularnewline
 \href{https://jira.lsstcorp.org/browse/LVV-196}{LVV-196 -
 DMS-REQ-0370-V-01: Older Release Behavior} &
 \protect\hyperlink{lvv-t169---verify-implementation-of-older-release-behavior-dms-req-0370}{LVV-T169}\tabularnewline
