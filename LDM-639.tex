@@ -1,6 +1,8 @@
 \documentclass[DM,lsstdraft,STS,toc]{lsstdoc}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{arydshln}
+
 \input meta.tex
 
 \begin{document}
@@ -149,8 +151,12 @@ Refer to individual test cases where applicable.
 The Verification Elements are drawn from \citeds{LSE-61} requirements which have names of the form DMS-REQ-ZZZZ.
 
 %%% Here include the auto-extracted Test Cases:
+
 \newpage
 \input{jira_docugen.tex}
 
+\newpage
+\appendix
+\input{jira_docugen.appendix.tex}
 
 \end{document}
