@@ -1,6 +1,6 @@
 % generated from JIRA project LVV
-% on 2019-02-07 15:22:09
-% using template at /Users/GComoretto/anaconda3/lib/python3.6/site-packages/docsteady/templates/dm-spec.latex.jinja2.
+% on 2019-02-07 23:18:02
+% using template at /usr/local/lib/python3.6/site-packages/docsteady/templates/dm-spec.latex.jinja2.
 % Collecting ATM data from folder: "/Data Management/Acceptance"
 % using docsteady version 1.1rc5
 % Please do not edit -- update information in Jira instead
@@ -428,9 +428,10 @@ Test & Simon Krughoff
 \end{itemize}
 
 \subsubsection{Test Items}
-\textbf{Test Items}\\[2\baselineskip]Show that the compressed form depth
-and mask maps adequately represents the exact version of the same
-information.
+\textbf{Test Items}\\
+~\\
+Show that the compressed form depth and mask maps adequately represents
+the exact version of the same information.
 
 
 
@@ -591,10 +592,13 @@ map to that sampled from the compressed representation.
             Divide the mask planes into two groups: INFO and BAD. ~BAD flags are any
 that would cause a particular pixel to be excluded from processing: e.g.
 EDGE, SAT, BAD. ~Sample masks from both the pixel level mask map and the
-compressed mask map.\\[2\baselineskip]For each sample, compute
-sum(mask\_pixel xor mask\_compressed). ~Produce the distribution of the
-number of bits that differ between the samples.\\[2\baselineskip]Repeat
-for both the INFO flags and the BAD flags.
+compressed mask map.\\
+~\\
+For each sample, compute sum(mask\_pixel xor mask\_compressed). ~Produce
+the distribution of the number of bits that differ between the
+samples.\\
+~\\
+Repeat for both the INFO flags and the BAD flags.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -1148,7 +1152,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -1157,7 +1163,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -1672,8 +1680,8 @@ image metadata is present and queryable.
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that time of exposure start/end, site metadata, telescope
-metadata, and camera metadata are stored in DMS
-system.\\[2\baselineskip]
+metadata, and camera metadata are stored in DMS system.\\
+~\\
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -1900,7 +1908,9 @@ Test & Eric Bellm
 \end{itemize}
 
 \subsubsection{Test Items}
-\textbf{Test Items}\\[2\baselineskip]Verify that\\
+\textbf{Test Items}\\
+~\\
+Verify that\\
 1. Alerts are available within OTT1\\
 2. Level 1 Data Products are available within L1PublicT\\
 3. Solar System Object orbits are available within L1PublicT of the
@@ -1999,7 +2009,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2008,7 +2020,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2154,11 +2168,17 @@ kubectl create -f sender-deployment.yaml
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the consumer pod with\\[2\baselineskip]kubectl get
-pods\\[2\baselineskip]Examine output log files.\\[2\baselineskip]kubectl
-logs \textless{}pod name\textgreater{}\\[2\baselineskip]The packet log
-should show deserialized alert packets with contents matching the input
-packets.\\[2\baselineskip]
+                Determine the name of the consumer pod with\\
+~\\
+kubectl get pods\\
+~\\
+Examine output log files.\\
+~\\
+kubectl logs \textless{}pod name\textgreater{}\\
+~\\
+The packet log should show deserialized alert packets with contents
+matching the input packets.\\
+~\\
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2167,26 +2187,26 @@ packets.\\[2\baselineskip]
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to \{'alertId': 12132024420, `l1dbId': 71776805594116,
-`diaSource': \{'diaSourceId':\\
-73499448928374785, `ccdVisitId': 2020011570, `diaObjectId':
+                    Similar to \{'alertId': 12132024420, 'l1dbId': 71776805594116,
+'diaSource': \{'diaSourceId':\\
+73499448928374785, 'ccdVisitId': 2020011570, 'diaObjectId':
 71776805594116, 'ssO\\
-bjectId': None, `parentDiaSourceId': None, `midPointTai': 59595.37041,
+bjectId': None, 'parentDiaSourceId': None, 'midPointTai': 59595.37041,
 'filterNa\\
-me': `y', `ra': 172.24912810036074, `decl': -80.64214929176521,
-`ra\_decl\_Cov': \{\\
-`raSigma': 0.0003428002819418907, `declSigma': 0.00027273103478364646,
+me': 'y', 'ra': 172.24912810036074, 'decl': -80.64214929176521,
+'ra\_decl\_Cov': \{\\
+'raSigma': 0.0003428002819418907, 'declSigma': 0.00027273103478364646,
 'ra\_decl\_\\
-Cov': 0.000628734880592674\}, `x': 2979.08837890625, `y':
+Cov': 0.000628734880592674\}, 'x': 2979.08837890625, 'y':
 3843.328857421875, 'x\_y\\
-\_Cov': \{'xSigma': 0.6135467886924744, `ySigma': 0.77132648229599,
-`x\_y\_Cov': 0.0\\
-007463791407644749\}, `apFlux': None, `apFluxErr': None, `snr':
+\_Cov': \{'xSigma': 0.6135467886924744, 'ySigma': 0.77132648229599,
+'x\_y\_Cov': 0.0\\
+007463791407644749\}, 'apFlux': None, 'apFluxErr': None, 'snr':
 0.366516500711441\\
-04, `psFlux': 7.698232025177276e-07, `psRa': None, `psDecl': None,
-`ps\_Cov': Non\\
-e, `psLnL': None, `psChi2': None, `psNdata': None, `trailFlux': None,
-`trailRa':\\
+04, 'psFlux': 7.698232025177276e-07, 'psRa': None, 'psDecl': None,
+'ps\_Cov': Non\\
+e, 'psLnL': None, 'psChi2': None, 'psNdata': None, 'trailFlux': None,
+'trailRa':\\
 etc.
 
                     \vspace{\dp0}
@@ -2200,11 +2220,16 @@ etc.
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the alert sender pod with\\[2\baselineskip]kubectl
-get pods\\[2\baselineskip]Examine output log
-files.\\[2\baselineskip]kubectl logs \textless{}pod
-name\textgreater{}\\[2\baselineskip]Verify that alerts are being sent
-within 40 seconds by subtracting the timing measurements.
+                Determine the name of the alert sender pod with\\
+~\\
+kubectl get pods\\
+~\\
+Examine output log files.\\
+~\\
+kubectl logs \textless{}pod name\textgreater{}\\
+~\\
+Verify that alerts are being sent within 40 seconds by subtracting the
+timing measurements.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2213,13 +2238,17 @@ within 40 seconds by subtracting the timing measurements.
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to\\[2\baselineskip]kubectl logs sender-7d6f98586f-nhwfj\\
+                    Similar to\\
+~\\
+kubectl logs sender-7d6f98586f-nhwfj\\
 visit: 1570. ~ ~ time: 1530588618.0313473\\
 visits finished: 1 ~ ~ ~time: 1530588653.5614944\\
 visit: 1571. ~ ~ time: 1530588657.0087624\\
 visits finished: 2 ~ ~ ~time: 1530588692.506188\\
 visit: 1572. ~ ~ time: 1530588696.0051727\\
-visits finished: 3 ~ ~ ~time: 1530588731.5900314\\[3\baselineskip]
+visits finished: 3 ~ ~ ~time: 1530588731.5900314\\
+~\\
+~\\
 
                     \vspace{\dp0}
                     } \end{minipage}
@@ -2333,7 +2362,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2342,7 +2373,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2501,7 +2534,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2510,7 +2545,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2750,7 +2787,7 @@ Test & Jim Bosch
 
 \subsubsection{Test Items}
 Verify that Processed Visit Images produced by the AP and DRP pipelines
-include FITS WCS accurate to specified ``astrometricAccuracy'' over the
+include FITS WCS accurate to specified "astrometricAccuracy" over the
 bounds of the image.
 
 
@@ -3111,8 +3148,9 @@ of the following:\\
 1. Successfully processed, recoverable failures, unrecoverable
 failures.\\
 2. Archived\\
-3. Result in science.\\[2\baselineskip]This is testing more the
-processing rather than the observatory system.
+3. Result in science.\\
+~\\
+This is testing more the processing rather than the observatory system.
 
 
 
@@ -3408,7 +3446,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3417,7 +3457,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -3574,7 +3616,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3583,7 +3627,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -3793,7 +3839,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3802,7 +3850,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -3977,7 +4027,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3986,7 +4038,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4139,7 +4193,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4148,7 +4204,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4301,7 +4359,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4310,7 +4370,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4456,11 +4518,17 @@ kubectl create -f sender-deployment.yaml
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the consumer pod with\\[2\baselineskip]kubectl get
-pods\\[2\baselineskip]Examine output log files.\\[2\baselineskip]kubectl
-logs \textless{}pod name\textgreater{}\\[2\baselineskip]The packet log
-should show deserialized alert packets with contents matching the input
-packets.\\[2\baselineskip]
+                Determine the name of the consumer pod with\\
+~\\
+kubectl get pods\\
+~\\
+Examine output log files.\\
+~\\
+kubectl logs \textless{}pod name\textgreater{}\\
+~\\
+The packet log should show deserialized alert packets with contents
+matching the input packets.\\
+~\\
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4469,26 +4537,26 @@ packets.\\[2\baselineskip]
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to \{'alertId': 12132024420, `l1dbId': 71776805594116,
-`diaSource': \{'diaSourceId':\\
-73499448928374785, `ccdVisitId': 2020011570, `diaObjectId':
+                    Similar to \{'alertId': 12132024420, 'l1dbId': 71776805594116,
+'diaSource': \{'diaSourceId':\\
+73499448928374785, 'ccdVisitId': 2020011570, 'diaObjectId':
 71776805594116, 'ssO\\
-bjectId': None, `parentDiaSourceId': None, `midPointTai': 59595.37041,
+bjectId': None, 'parentDiaSourceId': None, 'midPointTai': 59595.37041,
 'filterNa\\
-me': `y', `ra': 172.24912810036074, `decl': -80.64214929176521,
-`ra\_decl\_Cov': \{\\
-`raSigma': 0.0003428002819418907, `declSigma': 0.00027273103478364646,
+me': 'y', 'ra': 172.24912810036074, 'decl': -80.64214929176521,
+'ra\_decl\_Cov': \{\\
+'raSigma': 0.0003428002819418907, 'declSigma': 0.00027273103478364646,
 'ra\_decl\_\\
-Cov': 0.000628734880592674\}, `x': 2979.08837890625, `y':
+Cov': 0.000628734880592674\}, 'x': 2979.08837890625, 'y':
 3843.328857421875, 'x\_y\\
-\_Cov': \{'xSigma': 0.6135467886924744, `ySigma': 0.77132648229599,
-`x\_y\_Cov': 0.0\\
-007463791407644749\}, `apFlux': None, `apFluxErr': None, `snr':
+\_Cov': \{'xSigma': 0.6135467886924744, 'ySigma': 0.77132648229599,
+'x\_y\_Cov': 0.0\\
+007463791407644749\}, 'apFlux': None, 'apFluxErr': None, 'snr':
 0.366516500711441\\
-04, `psFlux': 7.698232025177276e-07, `psRa': None, `psDecl': None,
-`ps\_Cov': Non\\
-e, `psLnL': None, `psChi2': None, `psNdata': None, `trailFlux': None,
-`trailRa':\\
+04, 'psFlux': 7.698232025177276e-07, 'psRa': None, 'psDecl': None,
+'ps\_Cov': Non\\
+e, 'psLnL': None, 'psChi2': None, 'psNdata': None, 'trailFlux': None,
+'trailRa':\\
 etc.
 
                     \vspace{\dp0}
@@ -4502,11 +4570,16 @@ etc.
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the alert sender pod with\\[2\baselineskip]kubectl
-get pods\\[2\baselineskip]Examine output log
-files.\\[2\baselineskip]kubectl logs \textless{}pod
-name\textgreater{}\\[2\baselineskip]Verify that alerts are being sent
-within 40 seconds by subtracting the timing measurements.
+                Determine the name of the alert sender pod with\\
+~\\
+kubectl get pods\\
+~\\
+Examine output log files.\\
+~\\
+kubectl logs \textless{}pod name\textgreater{}\\
+~\\
+Verify that alerts are being sent within 40 seconds by subtracting the
+timing measurements.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4515,13 +4588,17 @@ within 40 seconds by subtracting the timing measurements.
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to\\[2\baselineskip]kubectl logs sender-7d6f98586f-nhwfj\\
+                    Similar to\\
+~\\
+kubectl logs sender-7d6f98586f-nhwfj\\
 visit: 1570. ~ ~ time: 1530588618.0313473\\
 visits finished: 1 ~ ~ ~time: 1530588653.5614944\\
 visit: 1571. ~ ~ time: 1530588657.0087624\\
 visits finished: 2 ~ ~ ~time: 1530588692.506188\\
 visit: 1572. ~ ~ time: 1530588696.0051727\\
-visits finished: 3 ~ ~ ~time: 1530588731.5900314\\[3\baselineskip]
+visits finished: 3 ~ ~ ~time: 1530588731.5900314\\
+~\\
+~\\
 
                     \vspace{\dp0}
                     } \end{minipage}
@@ -4615,7 +4692,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4624,7 +4703,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4714,7 +4795,7 @@ Test & Eric Bellm
 
 \subsubsection{Test Items}
 Verify that the variability characterization in the DIAObject catalog
-includes data collected within previous ``diaCharacterizationCutoff''
+includes data collected within previous "diaCharacterizationCutoff"
 period of time.
 
 
@@ -4777,7 +4858,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4786,7 +4869,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -5034,7 +5119,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -5043,7 +5130,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -5654,7 +5743,7 @@ color prescription.
             Verify that a HiPS image map covering the LSST survey area, with a
 limiting depth yielding 1 arcsecond resolution, has been produced
 matching the color prescriptions provided by EPO (in updates to LSE-131
-which are expected to be made ``once ComCam data is available'').
+which are expected to be made "once ComCam data is available").
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -6105,7 +6194,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -6114,7 +6205,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -6258,7 +6351,8 @@ coadd objects for the PVIs on which the object should appear.
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that there exist entries in a forced-photometry table for each
-image for all DIAObjects.\\[2\baselineskip]
+image for all DIAObjects.\\
+~\\
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -6306,9 +6400,10 @@ images.
 \paragraph{Hardware}
 
 \subsubsection{Input Specification}
-Input Data\\[2\baselineskip]DECam HiTS data (raw science images and
-master calibrations)\\
-HSC ``RC2'' data (raw science images and master calibrations)
+Input Data\\
+~\\
+DECam HiTS data (raw science images and master calibrations)\\
+HSC "RC2" data (raw science images and master calibrations)
 
 
 \subsubsection{Output Specification}
@@ -6770,7 +6865,7 @@ S/N is lower than the detection threshold) are detected in coadds.
 
 \subsubsection{Input Specification}
 Input Data\\
-HSC ``RC2'' data (raw science images and master calibrations)
+HSC "RC2" data (raw science images and master calibrations)
 
 
 \subsubsection{Output Specification}
@@ -6797,7 +6892,7 @@ HSC ``RC2'' data (raw science images and master calibrations)
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Run the single-frame processing and self-calibration steps of the DRP
+            {}Run the single-frame processing and self-calibration steps of the DRP
 pipeline.
 
             \vspace{\dp0}
@@ -7194,7 +7289,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -7203,7 +7300,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -7468,8 +7567,8 @@ artifacts.
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Verify that deep detection coadds exist based on all
-filters.\\[2\baselineskip]
+            Verify that deep detection coadds exist based on all filters.\\
+~\\
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -7606,8 +7705,10 @@ for serving the all sky visualization.
             Manually perform, and log (including timing where applicable), the
 following steps against that all sky visualization application. ~At all
 steps take special care to note any missing or un-rendered image
-tiles:\\[2\baselineskip]1. Navigate to the all sky viewer and log the
-URL, browser and version.\\
+tiles:\\
+~\\
+1. Navigate to the all sky viewer and log the URL, browser and
+version.\\
 2. Zoom to native pixel display (1 image pixel per display pixel)\\
 3. Zoom to fit the full PDR footprint\\
 4. Zoom to 1/4x native resolution\\
@@ -8042,7 +8143,7 @@ spectroscopic catalog.
             \begin{minipage}[t]{13cm}{\footnotesize
             Measure lightcurves of these quasars. ~Determine if structure function
 is reasonable (may require at least a year to determine if the structure
-function of 100 quasars is ``reasonable'').
+function of 100 quasars is "reasonable").
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -8079,7 +8180,9 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\[2\baselineskip]```bash\\
+cluster:\\
+~\\
+```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -8088,7 +8191,9 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\[2\baselineskip]and any errors or failures reported.
+```\\
+~\\
+and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -9273,7 +9378,7 @@ A variety of imaging data from Special Programs, including these
 scenarios:\\
 (1) Special Programs data that can be processed by the Prompt pipeline
 (i.e., standard visits)\\
-(2) Special Programs data that requires `real-time'
+(2) Special Programs data that requires 'real-time'
 (\textasciitilde{}24) processing with a reconfigured pipeline (e.g., DDF
 imaging sequence)\\
 (3) Special Programs data that can (should) be processed by the Data
@@ -9293,8 +9398,8 @@ Release pipeline (e.g., North Ecliptic Spur standard visits)
             (1) Special Programs data that can be processed by the Prompt pipeline
 (i.e., standard visits).\\
 Check that all images with the header keyword for SP were processed by
-the Prompt pipeline. Check that the Prompt pipeline's data products --
-DIASource, DIAObject catalogs and the Alerts -- contain items flagged
+the Prompt pipeline. Check that the Prompt pipeline's data products -\/-
+DIASource, DIAObject catalogs and the Alerts -\/- contain items flagged
 with their origin as that SP.
 
             \vspace{\dp0}
@@ -9309,7 +9414,7 @@ with their origin as that SP.
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            (2) Special Programs data that requires `real-time'
+            (2) Special Programs data that requires 'real-time'
 (\textasciitilde{}24) processing with a reconfigured pipeline (e.g., DDF
 imaging sequence)\\
 Check that all images with the header keywords for a given SP were
@@ -9331,8 +9436,8 @@ products have been updated, and passed their QA.
             (3) Special Programs data that can (should) be processed by the Data
 Release pipeline (e.g., North Ecliptic Spur standard visits).\\
 SP data would be added manually to the DRP processing. Check that the
-DRP's data products -- Source, Object, CoAdds -- contain items flagged
-as originating in that SP.
+DRP's data products -\/- Source, Object, CoAdds -\/- contain items
+flagged as originating in that SP.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -10059,7 +10164,7 @@ Test & Kian-Tat Lim
 
 \subsubsection{Test Items}
 \textbf{Test Items\\
-}\\
+}~\\
 Observe dataset retrieval from multiple LSP instances
 
 
@@ -10130,7 +10235,7 @@ simulated clients using standard protocols
 \paragraph{Hardware}
 
 \subsubsection{Input Specification}
-Obtain precursor or simulated data
+{}Obtain precursor or simulated data
 
 
 \subsubsection{Output Specification}
@@ -12260,9 +12365,9 @@ DMS-REQ-0160 requirement are defined below.
 
 \paragraph{Hardware}
 As noted in Verification Configuration, the systems required to carry
-out the tests include both an ``inside'' test execution platform - the
+out the tests include both an "inside" test execution platform - the
 ability to execute test notebooks within the Science Platform Notebook
-Aspect - and an ``outside'' test execution platform with connectivity to
+Aspect - and an "outside" test execution platform with connectivity to
 the Science Platform instance under test that is comparable to that
 available to offsite science users.
 
@@ -12308,7 +12413,7 @@ polygons), field sizes, filter bands, and temporal epochs for the tests
 that are consistent with the known content of the test dataset, whether
 precursor or LSST commissioning data.\\
 Establishing sky positions should include pre-determining the
-corresponding LSST ``tract and patch'' identifiers.\\
+corresponding LSST "tract and patch" identifiers.\\
 If the plan to not keep all calibrated single-epoch images on disk is
 still in place at the time of the test, identify for use in the test
 both images that are, and are not, on disk.\\
@@ -12440,12 +12545,12 @@ correct to the accuracy supported by the data.
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{Comment:}\\
 The following API Aspect test steps should be carried out on the
-required ``offsite-like'' test platform, to ensure that their success
-does not reflect any privileged access given to processes inside the
-Data Access Center or other Science Platform instance. ~However, at
-least a small sampling of them should \emph{also} be carried out
-\emph{within} the Science Platform environment, i.e., in the Notebook
-Aspect, and the results compared.
+required "offsite-like" test platform, to ensure that their success does
+not reflect any privileged access given to processes inside the Data
+Access Center or other Science Platform instance. ~However, at least a
+small sampling of them should \emph{also} be carried out \emph{within}
+the Science Platform environment, i.e., in the Notebook Aspect, and the
+results compared.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -12461,7 +12566,7 @@ Aspect, and the results compared.
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{API Aspect image access:}\\
 Using IVOA services such as the Registry and ObsTAP, from the
-``offsite-like'' test platform, verify that the existence of the classes
+"offsite-like" test platform, verify that the existence of the classes
 of image data products foreseen in the DPDD can be determined.\\
 Verify that ObsTAP and/or SIAv2 can be used to find the same images and
 lists of images for the established test coordinates that were retrieved
@@ -12544,7 +12649,7 @@ well.
             \multirow{3}{*}{ 11 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{Portal Aspect image access:}\\
-Verify that the Portal Aspect allows both the retrieval of ``original''
+Verify that the Portal Aspect allows both the retrieval of "original"
 image data, i.e., in its native LSST pixel projection and with full
 metadata, as well as retrieval of on-demand UI cutouts of coadded image
 data for selected locations.
@@ -12585,8 +12690,8 @@ catalog data.)
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{Comment:}\\
 The Portal Aspect tests below should be carried out from a web browser
-on an ``offsite-like'' test platform, to ensure that no privileged
-access provided to intra-data-center clients is relied upon.
+on an "offsite-like" test platform, to ensure that no privileged access
+provided to intra-data-center clients is relied upon.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -14421,7 +14526,7 @@ sources for precovery quasars from
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Examine the results. ~Compare the results for the period where there is
-overlap with precovery run\ldots{} and quasar photometry with those from
+overlap with precovery run... and quasar photometry with those from
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T80}{LVV-T80}
 to verify user service performs as production services.
 
@@ -15270,7 +15375,7 @@ Test & Robert Gruendl
 
 \subsubsection{Test Items}
 Verify that the DMS has sufficient processing, storage, and network to
-reprocess all data within ``drProcessingPeriod'' (1 year) while
+reprocess all data within "drProcessingPeriod" (1 year) while
 maintaining full Prompt Processing capability.
 
 
@@ -15385,7 +15490,7 @@ Test & Robert Gruendl
 
 \subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-68}{LVV-68} - DMS-REQ-0165-V-01: Infrastructure Sizing for ``catching up''
+\item \href{https://jira.lsstcorp.org/browse/LVV-68}{LVV-68} - DMS-REQ-0165-V-01: Infrastructure Sizing for "catching up"
 
 \end{itemize}
 
@@ -17626,9 +17731,10 @@ The scope of this test case is to run the science pipelines and conduct
 basic verification of the outputs prior to conducting detailed science
 verification.\\
 This test case should be included as a pre-requisite in other test cases
-that require output from the LSST science pipelines as
-input.\\[2\baselineskip]This test is a general purpose pre-requisite
-test case, it is not related to any requirements.
+that require output from the LSST science pipelines as input.\\
+~\\
+This test is a general purpose pre-requisite test case, it is not
+related to any requirements.
 
 
 
@@ -17672,10 +17778,13 @@ https://pipelines.lsst.io/install/prereqs/centos.html
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            create a local folder where to set-up the science
-pipeline:\\[2\baselineskip]\hspace*{0.333em} mkdir -p
-lsst\_sciencepipeline\\[2\baselineskip]and move into
-it\\[2\baselineskip]\hspace*{0.333em} cd lsst\_sciencepipeline
+            create a local folder where to set-up the science pipeline:\\
+~\\
+\hspace*{0.333em} mkdir -p lsst\_sciencepipeline\\
+~\\
+and move into it\\
+~\\
+\hspace*{0.333em} cd lsst\_sciencepipeline
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17689,13 +17798,19 @@ it\\[2\baselineskip]\hspace*{0.333em} cd lsst\_sciencepipeline
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            download the newistall.sh:\\[2\baselineskip]\hspace*{0.333em} curl -OL
-https://raw.githubusercontent.com/lsst/lsst/\textbf{{[}X.Y{]}}/scripts/newinstall.sh\\[2\baselineskip]Note
-that \textbf{{[}X.Y{]}} need to be consistent with the version of the
-science pipeline you want to install.\\[2\baselineskip]and execute
-it:\\[2\baselineskip]\hspace*{0.333em} bash newinstall.sh
--ct\\[2\baselineskip]Note that the ``t'' option will install binaries
-packages if available
+            download the newistall.sh:\\
+~\\
+\hspace*{0.333em} curl -OL
+https://raw.githubusercontent.com/lsst/lsst/\textbf{{[}X.Y{]}}/scripts/newinstall.sh\\
+~\\
+Note that \textbf{{[}X.Y{]}} need to be consistent with the version of
+the science pipeline you want to install.\\
+~\\
+and execute it:\\
+~\\
+\hspace*{0.333em} bash newinstall.sh -ct\\
+~\\
+Note that the "t" option will install binaries packages if available
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17709,9 +17824,9 @@ packages if available
 
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Load the environment generated by the execution of
-newistall.sh:\\[2\baselineskip]\hspace*{0.333em}\hspace*{0.333em}source
-loadLSST.bash
+            Load the environment generated by the execution of newistall.sh:\\
+~\\
+\hspace*{0.333em}\hspace*{0.333em}source loadLSST.bash
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17725,12 +17840,15 @@ loadLSST.bash
 
             \multirow{3}{*}{ 5 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Run the installation:\\[2\baselineskip]\hspace*{0.333em} eups distrib
-install -t v\textbf{{[}X\_Y{]}} lsst\_distrib\\[2\baselineskip]Note that
-{[}X\_Y{]} is the version of the science\_pipeline to install and has to
-be consistent with the newinstall.sh version downloaded 2 steps above.
-Note also that lsst\_distrib is the top level package of the
-science\_pipeline software product.
+            Run the installation:\\
+~\\
+\hspace*{0.333em} eups distrib install -t v\textbf{{[}X\_Y{]}}
+lsst\_distrib\\
+~\\
+Note that {[}X\_Y{]} is the version of the science\_pipeline to install
+and has to be consistent with the newinstall.sh version downloaded 2
+steps above. Note also that lsst\_distrib is the top level package of
+the science\_pipeline software product.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17744,7 +17862,9 @@ science\_pipeline software product.
 
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Finalize the installation:\\[2\baselineskip]\hspace*{0.333em} curl -sSL
+            Finalize the installation:\\
+~\\
+\hspace*{0.333em} curl -sSL
 https://raw.githubusercontent.com/lsst/shebangtron/master/shebangtron
 \textbar{} python\\
 \hspace*{0.333em}\hspace*{0.333em}setup lsst\_distrib
@@ -17975,8 +18095,8 @@ image users
     \end{longtable}
 
 % generated from JIRA project LVV
-% on 2019-02-07 15:22:09
-% using template at /Users/GComoretto/anaconda3/lib/python3.6/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
+% on 2019-02-07 23:18:02
+% using template at /usr/local/lib/python3.6/site-packages/docsteady/templates/dm-spec-appendix.latex.jinja2.
 % Collecting ATM data from folder: "/Data Management/Acceptance"
 % using dosteady version 1.1rc5
 % Please do not edit -- update information in Jira instead
@@ -18803,7 +18923,7 @@ Order
 & {
 \hyperref[lvv-t175]{LVV-T175}
 } \\
-\href{https://jira.lsstcorp.org/browse/LVV-68}{LVV-68 - DMS-REQ-0165-V-01: Infrastructure Sizing for ``catching up''
+\href{https://jira.lsstcorp.org/browse/LVV-68}{LVV-68 - DMS-REQ-0165-V-01: Infrastructure Sizing for "catching up"
 }
 & {
 \hyperref[lvv-t176]{LVV-T176}
