@@ -1,6 +1,11 @@
-\section{Test Cases Summary}\label{test-cases-summary}
+% generated from JIRA project LVV
+% on 2019-02-07 15:02:16
+% using template at /Users/GComoretto/anaconda3/lib/python3.6/site-packages/docsteady/templates/dm-spec.latex.jinja2.
+% Collecting ATM data from folder: "/Data Management/Acceptance"
+% using docsteady version 1.1rc5
+% Please do not edit -- update information in Jira instead
 
-Follows the list of test cases documented in this specification.
+\section{Test Cases Summary}\label{test-cases-summary}
 
 \begin{longtable}[]{p{3cm}p{13cm}}
 \toprule
@@ -388,7 +393,15 @@ Test Id & Test Name\tabularnewline
     \hyperref[lvv-t212]{LVV-T212} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T212}{Verify implementation of No Limit on Data Access Centers} \tabularnewline
     \hyperref[lvv-t219]{LVV-T219} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T219}{Initialize Science Pipelines} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T219}{Run Science Pipelines} \tabularnewline
+    \hyperref[lvv-t376]{LVV-T376} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T376}{Verify the Calculation of Ellipticity Correlations} \tabularnewline
+    \hyperref[lvv-t377]{LVV-T377} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T377}{Verify Calculation of Photometric Performance Metrics} \tabularnewline
+    \hyperref[lvv-t378]{LVV-T378} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T378}{Verify Calculation of Astrometric Performance Metrics} \tabularnewline
+    \hyperref[lvv-t385]{LVV-T385} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T385}{Verify Retrieval of a CCD-sized image from a coadd} \tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -401,27 +414,27 @@ Test Id & Test Name\tabularnewline
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Simon Krughoff
+Test & Simon Krughoff
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-157}{LVV-157} - DMS-REQ-0326-V-01: Storing Approximations of Per-pixel Metadata
+
 \end{itemize}
 
 \subsubsection{Test Items}
-\textbf{Test Items}\\
-~\\
-Show that the compressed form depth and mask maps adequately represents
-the exact version of the same information.
+\textbf{Test Items}\\[2\baselineskip]Show that the compressed form depth
+and mask maps adequately represents the exact version of the same
+information.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -578,13 +591,10 @@ map to that sampled from the compressed representation.
             Divide the mask planes into two groups: INFO and BAD. ~BAD flags are any
 that would cause a particular pixel to be excluded from processing: e.g.
 EDGE, SAT, BAD. ~Sample masks from both the pixel level mask map and the
-compressed mask map.\\
-~\\
-For each sample, compute sum(mask\_pixel xor mask\_compressed). ~Produce
-the distribution of the number of bits that differ between the
-samples.\\
-~\\
-Repeat for both the INFO flags and the BAD flags.
+compressed mask map.\\[2\baselineskip]For each sample, compute
+sum(mask\_pixel xor mask\_compressed). ~Produce the distribution of the
+number of bits that differ between the samples.\\[2\baselineskip]Repeat
+for both the INFO flags and the BAD flags.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -602,16 +612,17 @@ Repeat for both the INFO flags and the BAD flags.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Melissa Graham
+Test & Melissa Graham
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-162}{LVV-162} - DMS-REQ-0331-V-01: Computing Derived Quantities
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -622,7 +633,7 @@ derived data, or generating other common scientific derivatives.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -750,16 +761,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-163}{LVV-163} - DMS-REQ-0332-V-01: Denormalizing Database Tables
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -768,7 +780,7 @@ Science Platform.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -836,16 +848,17 @@ determine if any could be simplified by adding additional views.}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-164}{LVV-164} - DMS-REQ-0333-V-01: Maximum Likelihood Values and Covariances
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -868,7 +881,7 @@ Test & False & Jim Bosch
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -965,16 +978,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-177}{LVV-177} - DMS-REQ-0346-V-01: Data Availability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -987,7 +1001,7 @@ such as from AuxTel and ComCam.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1056,16 +1070,17 @@ expect the archiving and provision of raw data}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-178}{LVV-178} - DMS-REQ-0347-V-01: Measurements in catalogs
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1073,7 +1088,7 @@ Verify that source measurements in catalogs are in flux units.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1133,9 +1148,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -1144,9 +1157,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -1278,16 +1289,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8} - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1296,7 +1308,7 @@ all modes
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1350,16 +1362,17 @@ mode\\
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-9}{LVV-9} - DMS-REQ-0020-V-01: Wavefront Sensor Data Acquisition
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1368,7 +1381,7 @@ DAQ while simulating all modes.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1421,16 +1434,17 @@ all modes}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-10}{LVV-10} - DMS-REQ-0022-V-01: Crosstalk Corrected Science Image Data Acquisition
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1439,7 +1453,7 @@ Stand DAQ while simulating all modes.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1519,16 +1533,17 @@ Stand DAQ while simulating all modes.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11} - DMS-REQ-0024-V-01: Raw Image Assembly
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1537,7 +1552,7 @@ observe image and metadata output)
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1617,16 +1632,17 @@ observe image and metadata output)
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28} - DMS-REQ-0068-V-01: Raw Science Image Metadata
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1635,7 +1651,7 @@ image metadata is present and queryable.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1656,8 +1672,8 @@ image metadata is present and queryable.
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that time of exposure start/end, site metadata, telescope
-metadata, and camera metadata are stored in DMS system.\\
-~\\
+metadata, and camera metadata are stored in DMS
+system.\\[2\baselineskip]
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -1783,16 +1799,17 @@ mode\\
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-96}{LVV-96} - DMS-REQ-0265-V-01: Guider Calibration Data Acquisition
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -1803,7 +1820,7 @@ Test & False & Kian-Tat Lim
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1869,22 +1886,21 @@ Test & False & Kian-Tat Lim
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-4}{LVV-4} - DMS-REQ-0004-V-01: Nightly Data Accessible Within 24 hrs
+\item \href{https://jira.lsstcorp.org/browse/LVV-4}{LVV-4} - DMS-REQ-0004-V-01: Time to L1 public release
+
 \end{itemize}
 
 \subsubsection{Test Items}
-\textbf{Test Items}\\
-~\\
-Verify that\\
+\textbf{Test Items}\\[2\baselineskip]Verify that\\
 1. Alerts are available within OTT1\\
 2. Level 1 Data Products are available within L1PublicT\\
 3. Solar System Object orbits are available within L1PublicT of the
@@ -1892,7 +1908,7 @@ updated calculations completion on the following night.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -1983,9 +1999,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -1994,9 +2008,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2142,17 +2154,11 @@ kubectl create -f sender-deployment.yaml
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the consumer pod with\\
-~\\
-kubectl get pods\\
-~\\
-Examine output log files.\\
-~\\
-kubectl logs \textless{}pod name\textgreater{}\\
-~\\
-The packet log should show deserialized alert packets with contents
-matching the input packets.\\
-~\\
+                Determine the name of the consumer pod with\\[2\baselineskip]kubectl get
+pods\\[2\baselineskip]Examine output log files.\\[2\baselineskip]kubectl
+logs \textless{}pod name\textgreater{}\\[2\baselineskip]The packet log
+should show deserialized alert packets with contents matching the input
+packets.\\[2\baselineskip]
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2161,26 +2167,26 @@ matching the input packets.\\
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to \{'alertId': 12132024420, 'l1dbId': 71776805594116,
-'diaSource': \{'diaSourceId':\\
-73499448928374785, 'ccdVisitId': 2020011570, 'diaObjectId':
+                    Similar to \{'alertId': 12132024420, `l1dbId': 71776805594116,
+`diaSource': \{'diaSourceId':\\
+73499448928374785, `ccdVisitId': 2020011570, `diaObjectId':
 71776805594116, 'ssO\\
-bjectId': None, 'parentDiaSourceId': None, 'midPointTai': 59595.37041,
+bjectId': None, `parentDiaSourceId': None, `midPointTai': 59595.37041,
 'filterNa\\
-me': 'y', 'ra': 172.24912810036074, 'decl': -80.64214929176521,
-'ra\_decl\_Cov': \{\\
-'raSigma': 0.0003428002819418907, 'declSigma': 0.00027273103478364646,
+me': `y', `ra': 172.24912810036074, `decl': -80.64214929176521,
+`ra\_decl\_Cov': \{\\
+`raSigma': 0.0003428002819418907, `declSigma': 0.00027273103478364646,
 'ra\_decl\_\\
-Cov': 0.000628734880592674\}, 'x': 2979.08837890625, 'y':
+Cov': 0.000628734880592674\}, `x': 2979.08837890625, `y':
 3843.328857421875, 'x\_y\\
-\_Cov': \{'xSigma': 0.6135467886924744, 'ySigma': 0.77132648229599,
-'x\_y\_Cov': 0.0\\
-007463791407644749\}, 'apFlux': None, 'apFluxErr': None, 'snr':
+\_Cov': \{'xSigma': 0.6135467886924744, `ySigma': 0.77132648229599,
+`x\_y\_Cov': 0.0\\
+007463791407644749\}, `apFlux': None, `apFluxErr': None, `snr':
 0.366516500711441\\
-04, 'psFlux': 7.698232025177276e-07, 'psRa': None, 'psDecl': None,
-'ps\_Cov': Non\\
-e, 'psLnL': None, 'psChi2': None, 'psNdata': None, 'trailFlux': None,
-'trailRa':\\
+04, `psFlux': 7.698232025177276e-07, `psRa': None, `psDecl': None,
+`ps\_Cov': Non\\
+e, `psLnL': None, `psChi2': None, `psNdata': None, `trailFlux': None,
+`trailRa':\\
 etc.
 
                     \vspace{\dp0}
@@ -2194,16 +2200,11 @@ etc.
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the alert sender pod with\\
-~\\
-kubectl get pods\\
-~\\
-Examine output log files.\\
-~\\
-kubectl logs \textless{}pod name\textgreater{}\\
-~\\
-Verify that alerts are being sent within 40 seconds by subtracting the
-timing measurements.
+                Determine the name of the alert sender pod with\\[2\baselineskip]kubectl
+get pods\\[2\baselineskip]Examine output log
+files.\\[2\baselineskip]kubectl logs \textless{}pod
+name\textgreater{}\\[2\baselineskip]Verify that alerts are being sent
+within 40 seconds by subtracting the timing measurements.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2212,17 +2213,13 @@ timing measurements.
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to\\
-~\\
-kubectl logs sender-7d6f98586f-nhwfj\\
+                    Similar to\\[2\baselineskip]kubectl logs sender-7d6f98586f-nhwfj\\
 visit: 1570. ~ ~ time: 1530588618.0313473\\
 visits finished: 1 ~ ~ ~time: 1530588653.5614944\\
 visit: 1571. ~ ~ time: 1530588657.0087624\\
 visits finished: 2 ~ ~ ~time: 1530588692.506188\\
 visit: 1572. ~ ~ time: 1530588696.0051727\\
-visits finished: 3 ~ ~ ~time: 1530588731.5900314\\
-~\\
-~\\
+visits finished: 3 ~ ~ ~time: 1530588731.5900314\\[3\baselineskip]
 
                     \vspace{\dp0}
                     } \end{minipage}
@@ -2253,16 +2250,17 @@ time is less than L1PublicT.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-7}{LVV-7} - DMS-REQ-0010-V-01: Difference Exposures
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2272,7 +2270,7 @@ Verify successful creation of a\\
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -2335,9 +2333,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2346,9 +2342,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2423,16 +2417,17 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-32}{LVV-32} - DMS-REQ-0074-V-01: Difference Exposure Attributes
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2444,7 +2439,7 @@ kernel used.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -2506,9 +2501,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -2517,9 +2510,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -2594,16 +2585,17 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-29}{LVV-29} - DMS-REQ-0069-V-01: Processed Visit Images
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2614,7 +2606,7 @@ signature has been removed.\\
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -2685,16 +2677,17 @@ described orientation.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-12}{LVV-12} - DMS-REQ-0029-V-01: Generate Photometric Zeropoint for Visit Image
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2704,7 +2697,7 @@ flux on the image to physical flux units.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -2742,26 +2735,27 @@ flux on the image to physical flux units.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-13}{LVV-13} - DMS-REQ-0030-V-01: Generate WCS for Visit Images
+\item \href{https://jira.lsstcorp.org/browse/LVV-13}{LVV-13} - DMS-REQ-0030-V-01: Absolute accuracy of WCS
+
 \end{itemize}
 
 \subsubsection{Test Items}
 Verify that Processed Visit Images produced by the AP and DRP pipelines
-include FITS WCS accurate to specified "astrometricAccuracy" over the
+include FITS WCS accurate to specified ``astrometricAccuracy'' over the
 bounds of the image.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -2799,16 +2793,17 @@ bounds of the image.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-30}{LVV-30} - DMS-REQ-0070-V-01: Generate PSF for Visit Images
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2818,7 +2813,7 @@ PSF given a point on the image.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -2856,16 +2851,17 @@ PSF given a point on the image.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-31}{LVV-31} - DMS-REQ-0072-V-01: Processed Visit Image Content
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2875,7 +2871,7 @@ and a WCS model.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -2913,16 +2909,17 @@ and a WCS model.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-158}{LVV-158} - DMS-REQ-0327-V-01: Background Model Calculation
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2933,7 +2930,10 @@ to be retrieved along with the image for that CCD.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/127}{LVV-T15}\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/131}{LVV-T19}
+
 
 \subsubsection{Environment Needs}
 
@@ -2971,16 +2971,17 @@ to be retrieved along with the image for that CCD.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-159}{LVV-159} - DMS-REQ-0328-V-01: Documenting Image Characterization
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -2989,7 +2990,7 @@ associated instrument-signature-removal data products is documented.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3027,16 +3028,17 @@ associated instrument-signature-removal data products is documented.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-39}{LVV-39} - DMS-REQ-0097-V-01: Level 1 Data Quality Report Definition
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3050,7 +3052,7 @@ Verify that the DMS produces a Prompt Processing Data Quality Report.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3089,16 +3091,17 @@ observe telemetry and report
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-41}{LVV-41} - DMS-REQ-0099-V-01: Level 1 Performance Report Definition
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3108,13 +3111,12 @@ of the following:\\
 1. Successfully processed, recoverable failures, unrecoverable
 failures.\\
 2. Archived\\
-3. Result in science.\\
-~\\
-This is testing more the processing rather than the observatory system.
+3. Result in science.\\[2\baselineskip]This is testing more the
+processing rather than the observatory system.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3152,16 +3154,17 @@ This is testing more the processing rather than the observatory system.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-43}{LVV-43} - DMS-REQ-0101-V-01: Level 1 Calibration Report Definition
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3171,7 +3174,7 @@ aspects of the telescope or camera are changing with time.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3209,16 +3212,17 @@ aspects of the telescope or camera are changing with time.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-97}{LVV-97} - DMS-REQ-0266-V-01: Exposure Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3233,7 +3237,7 @@ Verify that the DMS creates an Exposure Catalog that includes\\
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3328,16 +3332,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-100}{LVV-100} - DMS-REQ-0269-V-01: DIASource Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3346,7 +3351,7 @@ with the required attributes.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3403,9 +3408,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3414,9 +3417,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -3491,16 +3492,17 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-101}{LVV-101} - DMS-REQ-0270-V-01: Faint DIASource Measurements
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3509,7 +3511,7 @@ below the nominal S/N cutoff that satisfy additional criteria.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3572,9 +3574,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3583,9 +3583,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -3660,16 +3658,17 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-102}{LVV-102} - DMS-REQ-0271-V-01: DIAObject Catalog
+\item \href{https://jira.lsstcorp.org/browse/LVV-102}{LVV-102} - DMS-REQ-0271-V-01: Max nearby galaxies associated with DIASource
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3679,7 +3678,7 @@ Object.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3794,9 +3793,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3805,9 +3802,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -3920,16 +3915,17 @@ database.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-103}{LVV-103} - DMS-REQ-0272-V-01: DIAObject Attributes
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -3938,7 +3934,7 @@ including periodicity measures.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -3981,9 +3977,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -3992,9 +3986,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4069,16 +4061,17 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-104}{LVV-104} - DMS-REQ-0273-V-01: SSObject Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -4089,7 +4082,7 @@ additional related quanitites.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -4146,9 +4139,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4157,9 +4148,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4249,16 +4238,17 @@ elements (​\href{https://jira.lsstcorp.org/browse/LVV-104}{LVV-104)}​​​.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-105}{LVV-105} - DMS-REQ-0274-V-01: Alert Content
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -4268,7 +4258,7 @@ Verify that the context of the Alert packet match requirements.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -4311,9 +4301,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4322,9 +4310,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4470,17 +4456,11 @@ kubectl create -f sender-deployment.yaml
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the consumer pod with\\
-~\\
-kubectl get pods\\
-~\\
-Examine output log files.\\
-~\\
-kubectl logs \textless{}pod name\textgreater{}\\
-~\\
-The packet log should show deserialized alert packets with contents
-matching the input packets.\\
-~\\
+                Determine the name of the consumer pod with\\[2\baselineskip]kubectl get
+pods\\[2\baselineskip]Examine output log files.\\[2\baselineskip]kubectl
+logs \textless{}pod name\textgreater{}\\[2\baselineskip]The packet log
+should show deserialized alert packets with contents matching the input
+packets.\\[2\baselineskip]
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4489,26 +4469,26 @@ matching the input packets.\\
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to \{'alertId': 12132024420, 'l1dbId': 71776805594116,
-'diaSource': \{'diaSourceId':\\
-73499448928374785, 'ccdVisitId': 2020011570, 'diaObjectId':
+                    Similar to \{'alertId': 12132024420, `l1dbId': 71776805594116,
+`diaSource': \{'diaSourceId':\\
+73499448928374785, `ccdVisitId': 2020011570, `diaObjectId':
 71776805594116, 'ssO\\
-bjectId': None, 'parentDiaSourceId': None, 'midPointTai': 59595.37041,
+bjectId': None, `parentDiaSourceId': None, `midPointTai': 59595.37041,
 'filterNa\\
-me': 'y', 'ra': 172.24912810036074, 'decl': -80.64214929176521,
-'ra\_decl\_Cov': \{\\
-'raSigma': 0.0003428002819418907, 'declSigma': 0.00027273103478364646,
+me': `y', `ra': 172.24912810036074, `decl': -80.64214929176521,
+`ra\_decl\_Cov': \{\\
+`raSigma': 0.0003428002819418907, `declSigma': 0.00027273103478364646,
 'ra\_decl\_\\
-Cov': 0.000628734880592674\}, 'x': 2979.08837890625, 'y':
+Cov': 0.000628734880592674\}, `x': 2979.08837890625, `y':
 3843.328857421875, 'x\_y\\
-\_Cov': \{'xSigma': 0.6135467886924744, 'ySigma': 0.77132648229599,
-'x\_y\_Cov': 0.0\\
-007463791407644749\}, 'apFlux': None, 'apFluxErr': None, 'snr':
+\_Cov': \{'xSigma': 0.6135467886924744, `ySigma': 0.77132648229599,
+`x\_y\_Cov': 0.0\\
+007463791407644749\}, `apFlux': None, `apFluxErr': None, `snr':
 0.366516500711441\\
-04, 'psFlux': 7.698232025177276e-07, 'psRa': None, 'psDecl': None,
-'ps\_Cov': Non\\
-e, 'psLnL': None, 'psChi2': None, 'psNdata': None, 'trailFlux': None,
-'trailRa':\\
+04, `psFlux': 7.698232025177276e-07, `psRa': None, `psDecl': None,
+`ps\_Cov': Non\\
+e, `psLnL': None, `psChi2': None, `psNdata': None, `trailFlux': None,
+`trailRa':\\
 etc.
 
                     \vspace{\dp0}
@@ -4522,16 +4502,11 @@ etc.
 
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
-                Determine the name of the alert sender pod with\\
-~\\
-kubectl get pods\\
-~\\
-Examine output log files.\\
-~\\
-kubectl logs \textless{}pod name\textgreater{}\\
-~\\
-Verify that alerts are being sent within 40 seconds by subtracting the
-timing measurements.
+                Determine the name of the alert sender pod with\\[2\baselineskip]kubectl
+get pods\\[2\baselineskip]Examine output log
+files.\\[2\baselineskip]kubectl logs \textless{}pod
+name\textgreater{}\\[2\baselineskip]Verify that alerts are being sent
+within 40 seconds by subtracting the timing measurements.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4540,17 +4515,13 @@ timing measurements.
                 } \end{minipage} \\ \cdashline{2-3}
                 & {\small Expected Result} &
                     \begin{minipage}[t]{13cm}{\scriptsize
-                    Similar to\\
-~\\
-kubectl logs sender-7d6f98586f-nhwfj\\
+                    Similar to\\[2\baselineskip]kubectl logs sender-7d6f98586f-nhwfj\\
 visit: 1570. ~ ~ time: 1530588618.0313473\\
 visits finished: 1 ~ ~ ~time: 1530588653.5614944\\
 visit: 1571. ~ ~ time: 1530588657.0087624\\
 visits finished: 2 ~ ~ ~time: 1530588692.506188\\
 visit: 1572. ~ ~ time: 1530588696.0051727\\
-visits finished: 3 ~ ~ ~time: 1530588731.5900314\\
-~\\
-~\\
+visits finished: 3 ~ ~ ~time: 1530588731.5900314\\[3\baselineskip]
 
                     \vspace{\dp0}
                     } \end{minipage}
@@ -4582,16 +4553,17 @@ required elements
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-148}{LVV-148} - DMS-REQ-0317-V-01: DIAForcedSource Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -4600,7 +4572,7 @@ catalog contains measured fluxes for DIAObjects.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -4643,9 +4615,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4654,9 +4624,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4731,26 +4699,27 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-150}{LVV-150} - DMS-REQ-0319-V-01: Characterizing Variability
+
 \end{itemize}
 
 \subsubsection{Test Items}
 Verify that the variability characterization in the DIAObject catalog
-includes data collected within previous "diaCharacterizationCutoff"
+includes data collected within previous ``diaCharacterizationCutoff''
 period of time.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -4808,9 +4777,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -4819,9 +4786,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -4896,16 +4861,17 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-154}{LVV-154} - DMS-REQ-0323-V-01: Calculating SSObject Parameters
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -4914,7 +4880,7 @@ and magnitudes in LSST bands for every SSObject.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5006,16 +4972,17 @@ elements (​\href{https://jira.lsstcorp.org/browse/LVV-104}{LVV-104)}​​​.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-155}{LVV-155} - DMS-REQ-0324-V-01: Matching DIASources to Objects
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -5024,7 +4991,7 @@ Objects.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5067,9 +5034,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -5078,9 +5043,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -5227,16 +5190,18 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-156}{LVV-156} - DMS-REQ-0325-V-01: Regenerating L1 Data Products During Data Release Processing
+\item \href{https://jira.lsstcorp.org/browse/LVV-156}{LVV-156} - DMS-REQ-0325-V-01: Regenerating L1 Data Products During Data Release
+Processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -5245,7 +5210,7 @@ DRP.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5297,16 +5262,17 @@ DRP.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-184}{LVV-184} - DMS-REQ-0353-V-01: Publishing predicted visit schedule
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -5314,7 +5280,7 @@ Verify that a predict-visit schedule can be published by the OCS.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5351,16 +5317,17 @@ Verify that a predict-visit schedule can be published by the OCS.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-16}{LVV-16} - DMS-REQ-0034-V-01: Associate Sources to Objects
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -5369,7 +5336,7 @@ best guess at the Object it corresponds to.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5478,16 +5445,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-20}{LVV-20} - DMS-REQ-0047-V-01: Provide PSF for Coadded Images
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -5497,7 +5465,7 @@ obtained.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5633,21 +5601,22 @@ from the coadd image yields residuals consistent with pure noise.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-45}{LVV-45} - DMS-REQ-0103-V-01: Produce Images for EPO
+
 \end{itemize}
 
 \subsubsection{Test Items}
 This test will verify that the DRP pipelines produce the image data
-products called out in LSE-131. ~Currently this is limited to a color
+products called out in \citeds{LSE-131}. ~Currently this is limited to a color
 all-sky HiPS map. ~This will be verified (1) by inspection of pipeline
 configurations and (2) in operations rehearsals on precursor data. ~The
 production of a usable HiPS map will be verified by browsing it with
@@ -5655,7 +5624,7 @@ community tools.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5666,7 +5635,7 @@ community tools.
 \subsubsection{Input Specification}
 In order for an operational test to be successful, as a precondition the
 inputs to that production must exist. ~For the only currently mandated
-image data production in LSE-131, a color all-sky HiPS map down to 1
+image data production in \citeds{LSE-131}, a color all-sky HiPS map down to 1
 arcsecond resolution, the prerequisite inputs to that are the
 single-filter coadds in the bands required by the yet-to-be-specified
 color prescription.
@@ -5685,7 +5654,7 @@ color prescription.
             Verify that a HiPS image map covering the LSST survey area, with a
 limiting depth yielding 1 arcsecond resolution, has been produced
 matching the color prescriptions provided by EPO (in updates to LSE-131
-which are expected to be made "once ComCam data is available").
+which are expected to be made ``once ComCam data is available'').
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -5841,16 +5810,17 @@ data systems.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-46}{LVV-46} - DMS-REQ-0106-V-01: Coadded Image Provenance
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -5861,7 +5831,7 @@ needed to exactly produce that coadd.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -5972,16 +5942,17 @@ provenance image given
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-98}{LVV-98} - DMS-REQ-0267-V-01: Source Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -5990,7 +5961,7 @@ entries listed in DMS-REQ-0267.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -6071,16 +6042,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-99}{LVV-99} - DMS-REQ-0268-V-01: Forced-Source Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6090,7 +6062,7 @@ uncertainties, an Object ID, and a Visit ID.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -6133,9 +6105,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -6144,9 +6114,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -6290,8 +6258,7 @@ coadd objects for the PVIs on which the object should appear.
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Verify that there exist entries in a forced-photometry table for each
-image for all DIAObjects.\\
-~\\
+image for all DIAObjects.\\[2\baselineskip]
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -6309,16 +6276,17 @@ image for all DIAObjects.\\
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-106}{LVV-106} - DMS-REQ-0275-V-01: Object Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6329,7 +6297,7 @@ images.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -6338,10 +6306,9 @@ images.
 \paragraph{Hardware}
 
 \subsubsection{Input Specification}
-Input Data\\
-~\\
-DECam HiTS data (raw science images and master calibrations)\\
-HSC "RC2" data (raw science images and master calibrations)
+Input Data\\[2\baselineskip]DECam HiTS data (raw science images and
+master calibrations)\\
+HSC ``RC2'' data (raw science images and master calibrations)
 
 
 \subsubsection{Output Specification}
@@ -6482,16 +6449,17 @@ consistent with their properties:
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-19}{LVV-19} - DMS-REQ-0046-V-01: Provide Photometric Redshifts of Galaxies
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6500,7 +6468,7 @@ photometric redshift information.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -6603,16 +6571,17 @@ processing.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-107}{LVV-107} - DMS-REQ-0276-V-01: Object Characterization
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6621,7 +6590,7 @@ measurements listed in DMS-REQ-0276.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -6659,16 +6628,17 @@ measurements listed in DMS-REQ-0276.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-108}{LVV-108} - DMS-REQ-0277-V-01: Coadd Source Catalog
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6676,7 +6646,7 @@ Verify that the DRP pipelines produce a CoaddSource catalog.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -6771,16 +6741,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-180}{LVV-180} - DMS-REQ-0349-V-01: Detecting extended  low surface brightness objects
+\item \href{https://jira.lsstcorp.org/browse/LVV-180}{LVV-180} - DMS-REQ-0349-V-01: Detecting extended low surface brightness objects
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6789,7 +6760,7 @@ S/N is lower than the detection threshold) are detected in coadds.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -6799,7 +6770,7 @@ S/N is lower than the detection threshold) are detected in coadds.
 
 \subsubsection{Input Specification}
 Input Data\\
-HSC "RC2" data (raw science images and master calibrations)
+HSC ``RC2'' data (raw science images and master calibrations)
 
 
 \subsubsection{Output Specification}
@@ -6826,7 +6797,7 @@ HSC "RC2" data (raw science images and master calibrations)
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            {}Run the single-frame processing and self-calibration steps of the DRP
+            Run the single-frame processing and self-calibration steps of the DRP
 pipeline.
 
             \vspace{\dp0}
@@ -6904,16 +6875,17 @@ each other or real objects.}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-109}{LVV-109} - DMS-REQ-0278-V-01: Coadd Image Method Constraints
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -6921,7 +6893,7 @@ Verify the implementation of how Coadd images are created.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7016,16 +6988,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-110}{LVV-110} - DMS-REQ-0279-V-01: Deep Detection Coadds
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7034,7 +7007,7 @@ that are optimized for depth.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7160,16 +7133,17 @@ appear reasonable and to be from good quality data.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-111}{LVV-111} - DMS-REQ-0280-V-01: Template Coadds
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7177,7 +7151,7 @@ Verify that the DMS can produce Template Coadds for DIA processing.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7220,9 +7194,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -7231,9 +7203,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -7308,16 +7278,17 @@ executing appropriate SQL queries.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-112}{LVV-112} - DMS-REQ-0281-V-01: Multi-band Coadds
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7326,7 +7297,7 @@ purposes.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7497,8 +7468,8 @@ artifacts.
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Verify that deep detection coadds exist based on all filters.\\
-~\\
+            Verify that deep detection coadds exist based on all
+filters.\\[2\baselineskip]
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -7516,16 +7487,17 @@ artifacts.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Simon Krughoff
+Test & Simon Krughoff
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-160}{LVV-160} - DMS-REQ-0329-V-01: All-Sky Visualization of Data Releases
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7534,7 +7506,7 @@ Release data products.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7634,10 +7606,8 @@ for serving the all sky visualization.
             Manually perform, and log (including timing where applicable), the
 following steps against that all sky visualization application. ~At all
 steps take special care to note any missing or un-rendered image
-tiles:\\
-~\\
-1. Navigate to the all sky viewer and log the URL, browser and
-version.\\
+tiles:\\[2\baselineskip]1. Navigate to the all sky viewer and log the
+URL, browser and version.\\
 2. Zoom to native pixel display (1 image pixel per display pixel)\\
 3. Zoom to fit the full PDR footprint\\
 4. Zoom to 1/4x native resolution\\
@@ -7662,16 +7632,17 @@ version.\\
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-161}{LVV-161} - DMS-REQ-0330-V-01: Best Seeing Coadds
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7681,7 +7652,7 @@ coadd.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7790,16 +7761,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-165}{LVV-165} - DMS-REQ-0334-V-01: Persisting Data Products
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7808,7 +7780,7 @@ kept, and available.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7863,16 +7835,17 @@ Produce some relevant coadds and store them in the Archive
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-166}{LVV-166} - DMS-REQ-0335-V-01: PSF-Matched Coadds
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7880,7 +7853,7 @@ Verify that the DRP pipelines produce PSF matched coadds.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -7975,16 +7948,17 @@ non-empty.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Melissa Graham
+Test & Melissa Graham
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-168}{LVV-168} - DMS-REQ-0337-V-01: Detecting faint variable objects
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -7995,7 +7969,7 @@ months).
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -8068,7 +8042,7 @@ spectroscopic catalog.
             \begin{minipage}[t]{13cm}{\footnotesize
             Measure lightcurves of these quasars. ~Determine if structure function
 is reasonable (may require at least a year to determine if the structure
-function of 100 quasars is "reasonable").
+function of 100 quasars is ``reasonable'').
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -8105,9 +8079,7 @@ described in LVT-T17 (AG-00-00).
                 & {\small Description} &
                 \begin{minipage}[t]{13cm}{\scriptsize
                 The alert generation processing will be executed using the verification
-cluster:\\
-~\\
-```bash\\
+cluster:\\[2\baselineskip]```bash\\
 python ap\_verify/bin/prepare\_demo\_slurm\_files.py\\
 \# At present we must run a single ccd+visit to handle ingestion
 before\\
@@ -8116,9 +8088,7 @@ before\\
 ln -s ap\_verify/bin/demo\_run.sl\\
 ln -s ap\_verify/bin/demo\_cmds.conf\\
 sbatch demo\_run.sl\\
-```\\
-~\\
-and any errors or failures reported.
+```\\[2\baselineskip]and any errors or failures reported.
 
                 \vspace{\dp0}
                 } \end{minipage} \\ \cdashline{2-3}
@@ -8215,16 +8185,17 @@ efficiency.)
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-169}{LVV-169} - DMS-REQ-0338-V-01: Targeted Coadds
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8233,7 +8204,7 @@ can be retained, even if the full coadd is not.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -8300,16 +8271,18 @@ instance
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Jim Bosch
+Test & Jim Bosch
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-170}{LVV-170} - DMS-REQ-0339-V-01: Tracking Characterization Changes Between Data Releases
+\item \href{https://jira.lsstcorp.org/browse/LVV-170}{LVV-170} - DMS-REQ-0339-V-01: Tracking Characterization Changes Between Data
+Releases
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8318,7 +8291,7 @@ DR is retired, for comparison with future DRs.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -8739,16 +8712,17 @@ DRP Scientific Verification tests.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-22}{LVV-22} - DMS-REQ-0059-V-01: Bad Pixel Map
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8757,7 +8731,7 @@ from pathologies.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -8795,16 +8769,17 @@ from pathologies.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-23}{LVV-23} - DMS-REQ-0060-V-01: Bias Residual Image
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8814,7 +8789,7 @@ Verify that DMS can do this on demand.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -8852,16 +8827,17 @@ Verify that DMS can do this on demand.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-24}{LVV-24} - DMS-REQ-0061-V-01: Crosstalk Correction Matrix
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8872,7 +8848,7 @@ correction matrix.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -8910,16 +8886,17 @@ correction matrix.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-25}{LVV-25} - DMS-REQ-0062-V-01: Illumination Correction Frame
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8930,7 +8907,7 @@ correction and determine how often it should be updated.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -8968,16 +8945,17 @@ correction and determine how often it should be updated.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-26}{LVV-26} - DMS-REQ-0063-V-01: Monochromatic Flatfield Data Cube
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -8988,7 +8966,7 @@ flatfield data cube.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9026,16 +9004,17 @@ flatfield data cube.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-57}{LVV-57} - DMS-REQ-0130-V-01: Calibration Data Products
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9046,7 +9025,7 @@ corrections.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9084,16 +9063,17 @@ corrections.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-59}{LVV-59} - DMS-REQ-0132-V-01: Calibration Image Provenance
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9102,7 +9082,7 @@ Calibration Data Products.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9140,16 +9120,17 @@ Calibration Data Products.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-113}{LVV-113} - DMS-REQ-0282-V-01: Dark Current Correction Frame
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9160,7 +9141,7 @@ and determine how often it should be updated.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9198,16 +9179,17 @@ and determine how often it should be updated.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-114}{LVV-114} - DMS-REQ-0283-V-01: Fringe Correction Frame
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9218,7 +9200,7 @@ fringe-correction frame and determine how often it should be updated.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9256,16 +9238,17 @@ fringe-correction frame and determine how often it should be updated.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Melissa Graham
+Test & Melissa Graham
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-151}{LVV-151} - DMS-REQ-0320-V-01: Processing of Data From Special Programs
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9277,7 +9260,7 @@ images in the processing).
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9290,7 +9273,7 @@ A variety of imaging data from Special Programs, including these
 scenarios:\\
 (1) Special Programs data that can be processed by the Prompt pipeline
 (i.e., standard visits)\\
-(2) Special Programs data that requires 'real-time'
+(2) Special Programs data that requires `real-time'
 (\textasciitilde{}24) processing with a reconfigured pipeline (e.g., DDF
 imaging sequence)\\
 (3) Special Programs data that can (should) be processed by the Data
@@ -9310,8 +9293,8 @@ Release pipeline (e.g., North Ecliptic Spur standard visits)
             (1) Special Programs data that can be processed by the Prompt pipeline
 (i.e., standard visits).\\
 Check that all images with the header keyword for SP were processed by
-the Prompt pipeline. Check that the Prompt pipeline's data products -\/-
-DIASource, DIAObject catalogs and the Alerts -\/- contain items flagged
+the Prompt pipeline. Check that the Prompt pipeline's data products --
+DIASource, DIAObject catalogs and the Alerts -- contain items flagged
 with their origin as that SP.
 
             \vspace{\dp0}
@@ -9326,7 +9309,7 @@ with their origin as that SP.
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            (2) Special Programs data that requires 'real-time'
+            (2) Special Programs data that requires `real-time'
 (\textasciitilde{}24) processing with a reconfigured pipeline (e.g., DDF
 imaging sequence)\\
 Check that all images with the header keywords for a given SP were
@@ -9348,8 +9331,8 @@ products have been updated, and passed their QA.
             (3) Special Programs data that can (should) be processed by the Data
 Release pipeline (e.g., North Ecliptic Spur standard visits).\\
 SP data would be added manually to the DRP processing. Check that the
-DRP's data products -\/- Source, Object, CoAdds -\/- contain items
-flagged as originating in that SP.
+DRP's data products -- Source, Object, CoAdds -- contain items flagged
+as originating in that SP.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -9367,16 +9350,17 @@ flagged as originating in that SP.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Melissa Graham
+Test & Melissa Graham
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-152}{LVV-152} - DMS-REQ-0321-V-01: Level 1 Processing of Special Programs Data
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9386,7 +9370,7 @@ processing has completed before the start of the next simulated night.~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9446,16 +9430,17 @@ the relevant data products have been updated.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Melissa Graham
+Test & Melissa Graham
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-153}{LVV-153} - DMS-REQ-0322-V-01: Special Programs Database
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9468,7 +9453,7 @@ with no Object detections in the DRP coadds.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9530,16 +9515,17 @@ galaxies of transients found in WFD
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Melissa Graham
+Test & Melissa Graham
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-175}{LVV-175} - DMS-REQ-0344-V-01: Constraints on Level 1 Special Program Products Generation
+\item \href{https://jira.lsstcorp.org/browse/LVV-175}{LVV-175} - DMS-REQ-0344-V-01: Time to L1 public release
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9550,7 +9536,7 @@ release of public data within L1publicT and Alerts within OTT1.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9688,16 +9674,17 @@ time is less than L1PublicT.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-122}{LVV-122} - DMS-REQ-0291-V-01: Query Repeatability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9706,7 +9693,7 @@ new additional data for live (Alert Production) databases.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9791,16 +9778,17 @@ are identical.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-123}{LVV-123} - DMS-REQ-0292-V-01: Uniqueness of IDs Across Data Releases
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9808,7 +9796,7 @@ Load multiple DRs and PPDB, observe uniqueness of IDs
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9860,16 +9848,17 @@ Load multiple DRs and PPDB, observe uniqueness of IDs
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-124}{LVV-124} - DMS-REQ-0293-V-01: Selection of Datasets
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9877,7 +9866,7 @@ Load DR, observe retrieval of representative datasets
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -9971,16 +9960,17 @@ Load DR, observe retrieval of representative datasets
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-125}{LVV-125} - DMS-REQ-0294-V-01: Processing of Datasets
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -9988,7 +9978,7 @@ Execute AP and DRP, simulate failures, observe correct processing
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10054,26 +10044,27 @@ Execute AP and DRP, simulate failures, observe correct processing
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-126}{LVV-126} - DMS-REQ-0295-V-01: Transparent Data Access
+
 \end{itemize}
 
 \subsubsection{Test Items}
 \textbf{Test Items\\
-}~\\
+}\\
 Observe dataset retrieval from multiple LSP instances
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10111,16 +10102,17 @@ Observe dataset retrieval from multiple LSP instances
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-3}{LVV-3} - DMS-REQ-0002-V-01: Transient Alert Distribution
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10129,7 +10121,7 @@ simulated clients using standard protocols
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10138,7 +10130,7 @@ simulated clients using standard protocols
 \paragraph{Hardware}
 
 \subsubsection{Input Specification}
-{}Obtain precursor or simulated data
+Obtain precursor or simulated data
 
 
 \subsubsection{Output Specification}
@@ -10183,16 +10175,17 @@ simulated clients using standard protocols
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-36}{LVV-36} - DMS-REQ-0089-V-01: Solar System Objects Available Within Specified Time
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10201,7 +10194,7 @@ in time
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10253,16 +10246,17 @@ in time
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-38}{LVV-38} - DMS-REQ-0096-V-01: Generate Data Quality Report Within Specified Time
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10271,7 +10265,7 @@ dqReportComplTime
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10324,16 +10318,17 @@ contents
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-40}{LVV-40} - DMS-REQ-0098-V-01: Generate DMS Performance Report Within Specified Time
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10342,7 +10337,7 @@ perfReportComplTime
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10395,16 +10390,17 @@ contents
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-42}{LVV-42} - DMS-REQ-0100-V-01: Generate Calibration Report Within Specified Time
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10413,7 +10409,7 @@ human-readable and machine-parseable forms.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10466,16 +10462,17 @@ contents
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-58}{LVV-58} - DMS-REQ-0131-V-01: Calibration Images Available Within Specified Time
+\item \href{https://jira.lsstcorp.org/browse/LVV-58}{LVV-58} - DMS-REQ-0131-V-01: Time allowed to process calibs
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10483,7 +10480,7 @@ Execute single-day operations rehearsal, observe data products generated
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10535,16 +10532,17 @@ Execute single-day operations rehearsal, observe data products generated
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-115}{LVV-115} - DMS-REQ-0284-V-01: Level-1 Production Completeness
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10554,7 +10552,9 @@ failures.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T284}{LVV-T284}
+
 
 \subsubsection{Environment Needs}
 
@@ -10593,16 +10593,17 @@ recovery
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-116}{LVV-116} - DMS-REQ-0285-V-01: Level 1 Source Association
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10610,7 +10611,7 @@ Verify that the DMS associates DIASources into a DIAObject or SSObject.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10648,16 +10649,17 @@ Verify that the DMS associates DIASources into a DIAObject or SSObject.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-117}{LVV-117} - DMS-REQ-0286-V-01: SSObject Precovery
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10666,7 +10668,7 @@ back in time) with objects classified as SSObjects.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10704,16 +10706,17 @@ back in time) with objects classified as SSObjects.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-118}{LVV-118} - DMS-REQ-0287-V-01: DIASource Precovery
+\item \href{https://jira.lsstcorp.org/browse/LVV-118}{LVV-118} - DMS-REQ-0287-V-01: Max look-back time for precovery
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10722,7 +10725,7 @@ available images within the precoveryWindow.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10761,16 +10764,17 @@ in time
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-119}{LVV-119} - DMS-REQ-0288-V-01: Use of External Orbit Catalogs
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10779,7 +10783,7 @@ identification of SSObjects.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10817,16 +10821,17 @@ identification of SSObjects.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-173}{LVV-173} - DMS-REQ-0342-V-01: Alert Filtering Service
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10835,7 +10840,7 @@ filtering service.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10874,16 +10879,17 @@ filter results
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-174}{LVV-174} - DMS-REQ-0343-V-01: Performance Requirements for LSST Alert Filtering Service
+\item \href{https://jira.lsstcorp.org/browse/LVV-174}{LVV-174} - DMS-REQ-0343-V-01: Number of full-size alerts
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10892,7 +10898,7 @@ brokers.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10930,16 +10936,17 @@ brokers.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-179}{LVV-179} - DMS-REQ-0348-V-01: Pre-defined alert filters
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -10948,7 +10955,7 @@ set of filters.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -10987,16 +10994,17 @@ filter results
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-120}{LVV-120} - DMS-REQ-0289-V-01: Calibration Production Processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11004,7 +11012,7 @@ Execute CPP on a variety of representative cadences
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11056,16 +11064,17 @@ Execute CPP on a variety of representative cadences
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-181}{LVV-181} - DMS-REQ-0350-V-01: Associating Objects across data releases
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11073,7 +11082,7 @@ Load DR, observe queryable association
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11125,16 +11134,17 @@ Load DR, observe queryable association
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-47}{LVV-47} - DMS-REQ-0119-V-01: DAC resource allocation for Level 3 processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11143,7 +11153,7 @@ science users.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11289,16 +11299,17 @@ that previously caused an error.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-48}{LVV-48} - DMS-REQ-0120-V-01: Level 3 Data Product Self Consistency
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11307,7 +11318,7 @@ sets of input data.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11345,16 +11356,17 @@ sets of input data.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-49}{LVV-49} - DMS-REQ-0121-V-01: Provenance for Level 3 processing at DACs
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11363,7 +11375,7 @@ user-generated Level 3 products.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11402,16 +11414,17 @@ recording
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-53}{LVV-53} - DMS-REQ-0125-V-01: Software framework for Level 3 catalog processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11420,7 +11433,7 @@ to all records in a catalog.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11459,16 +11472,17 @@ and recovery from failures
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-56}{LVV-56} - DMS-REQ-0128-V-01: Software framework for Level 3 image processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11477,7 +11491,7 @@ desired set of images.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11516,16 +11530,17 @@ and recovery from failures
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-121}{LVV-121} - DMS-REQ-0290-V-01: Level 3 Data Import
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11534,7 +11549,7 @@ file formats.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11623,16 +11638,17 @@ data is present.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-171}{LVV-171} - DMS-REQ-0340-V-01: Access Controls of Level 3 Data Products
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11644,7 +11660,7 @@ varying from single-user, a list, a named group, or open access.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11685,16 +11701,17 @@ restrictions
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Simon Krughoff
+Test & Simon Krughoff
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-139}{LVV-139} - DMS-REQ-0308-V-01: Software Architecture to Enable Community Re-Use
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11706,7 +11723,7 @@ completely replaced at run time.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11872,16 +11889,17 @@ processing flow via configuration.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-6}{LVV-6} - DMS-REQ-0009-V-01: Simulated Data
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11890,7 +11908,7 @@ testing.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11928,16 +11946,17 @@ testing.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-14}{LVV-14} - DMS-REQ-0032-V-01: Image Differencing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -11946,7 +11965,7 @@ exposures and coadds.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -11984,16 +12003,17 @@ exposures and coadds.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-15}{LVV-15} - DMS-REQ-0033-V-01: Provide Source Detection Software
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12001,7 +12021,7 @@ Alert Production, Data Release Production, Science Algorithms~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12039,16 +12059,17 @@ Alert Production, Data Release Production, Science Algorithms~
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-17}{LVV-17} - DMS-REQ-0042-V-01: Provide Astrometric Model
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12057,7 +12078,7 @@ DIAObjects.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12095,16 +12116,17 @@ DIAObjects.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-18}{LVV-18} - DMS-REQ-0043-V-01: Provide Calibrated Photometry
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12113,7 +12135,7 @@ measured objects and sources.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12151,16 +12173,17 @@ measured objects and sources.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-21}{LVV-21} - DMS-REQ-0052-V-01: Enable a Range of Shape Measurement Approaches
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12168,7 +12191,7 @@ Verify that multiple shape measurement algorithms can be used.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12206,16 +12229,17 @@ Verify that multiple shape measurement algorithms can be used.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-63}{LVV-63} - DMS-REQ-0160-V-01: Provide User Interface Services
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12223,12 +12247,12 @@ Verify the availability and functionality of the broad range of user
 interface services called for in the requirement, as applied to both
 Nightly and DRP data. ~This will primarily be done by verifications
 performed at the LSST Science Platform level, based on the requirements
-in LDM-554; however, a high-level set of tests corresponding to the
+in \citeds{LDM-554}; however, a high-level set of tests corresponding to the
 DMS-REQ-0160 requirement are defined below.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12236,9 +12260,9 @@ DMS-REQ-0160 requirement are defined below.
 
 \paragraph{Hardware}
 As noted in Verification Configuration, the systems required to carry
-out the tests include both an "inside" test execution platform - the
+out the tests include both an ``inside'' test execution platform - the
 ability to execute test notebooks within the Science Platform Notebook
-Aspect - and an "outside" test execution platform with connectivity to
+Aspect - and an ``outside'' test execution platform with connectivity to
 the Science Platform instance under test that is comparable to that
 available to offsite science users.
 
@@ -12284,7 +12308,7 @@ polygons), field sizes, filter bands, and temporal epochs for the tests
 that are consistent with the known content of the test dataset, whether
 precursor or LSST commissioning data.\\
 Establishing sky positions should include pre-determining the
-corresponding LSST "tract and patch" identifiers.\\
+corresponding LSST ``tract and patch'' identifiers.\\
 If the plan to not keep all calibrated single-epoch images on disk is
 still in place at the time of the test, identify for use in the test
 both images that are, and are not, on disk.\\
@@ -12416,12 +12440,12 @@ correct to the accuracy supported by the data.
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{Comment:}\\
 The following API Aspect test steps should be carried out on the
-required "offsite-like" test platform, to ensure that their success does
-not reflect any privileged access given to processes inside the Data
-Access Center or other Science Platform instance. ~However, at least a
-small sampling of them should \emph{also} be carried out \emph{within}
-the Science Platform environment, i.e., in the Notebook Aspect, and the
-results compared.
+required ``offsite-like'' test platform, to ensure that their success
+does not reflect any privileged access given to processes inside the
+Data Access Center or other Science Platform instance. ~However, at
+least a small sampling of them should \emph{also} be carried out
+\emph{within} the Science Platform environment, i.e., in the Notebook
+Aspect, and the results compared.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -12437,7 +12461,7 @@ results compared.
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{API Aspect image access:}\\
 Using IVOA services such as the Registry and ObsTAP, from the
-"offsite-like" test platform, verify that the existence of the classes
+``offsite-like'' test platform, verify that the existence of the classes
 of image data products foreseen in the DPDD can be determined.\\
 Verify that ObsTAP and/or SIAv2 can be used to find the same images and
 lists of images for the established test coordinates that were retrieved
@@ -12520,7 +12544,7 @@ well.
             \multirow{3}{*}{ 11 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{Portal Aspect image access:}\\
-Verify that the Portal Aspect allows both the retrieval of "original"
+Verify that the Portal Aspect allows both the retrieval of ``original''
 image data, i.e., in its native LSST pixel projection and with full
 metadata, as well as retrieval of on-demand UI cutouts of coadded image
 data for selected locations.
@@ -12561,8 +12585,8 @@ catalog data.)
             \begin{minipage}[t]{13cm}{\footnotesize
             \textbf{Comment:}\\
 The Portal Aspect tests below should be carried out from a web browser
-on an "offsite-like" test platform, to ensure that no privileged access
-provided to intra-data-center clients is relied upon.
+on an ``offsite-like'' test platform, to ensure that no privileged
+access provided to intra-data-center clients is relied upon.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -12597,16 +12621,17 @@ Portal is displayed, as well as to the User Workspace.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-127}{LVV-127} - DMS-REQ-0296-V-01: Pre-cursor, and Real Data
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12616,7 +12641,7 @@ and organized for access through the Data Butler Access Client. ~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12654,16 +12679,18 @@ and organized for access through the Data Butler Access Client. ~
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-182}{LVV-182} - DMS-REQ-0351-V-01: Provide Beam Projector Coordinate Calculation Software
+\item \href{https://jira.lsstcorp.org/browse/LVV-182}{LVV-182} - DMS-REQ-0351-V-01: Provide Beam Projector Coordinate Calculation
+Software
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12671,7 +12698,7 @@ Science Primitives~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12709,16 +12736,17 @@ Science Primitives~
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-27}{LVV-27} - DMS-REQ-0065-V-01: Provide Image Access Services
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12729,7 +12757,7 @@ users.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12770,16 +12798,17 @@ SODA to which the tests can be applied.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-60}{LVV-60} - DMS-REQ-0155-V-01: Provide Data Access Services
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12787,7 +12816,7 @@ This is a composite requirement in the SysML model.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12825,16 +12854,17 @@ This is a composite requirement in the SysML model.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-129}{LVV-129} - DMS-REQ-0298-V-01: Data Product and Raw Data Access
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12842,7 +12872,7 @@ Verify that available data products can be listed and retrieved.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12880,16 +12910,17 @@ Verify that available data products can be listed and retrieved.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-130}{LVV-130} - DMS-REQ-0299-V-01: Data Product Ingest
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12897,7 +12928,7 @@ Verify that data products can be ingested.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -12935,16 +12966,17 @@ Verify that data products can be ingested.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-131}{LVV-131} - DMS-REQ-0300-V-01: Bulk Download Service
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -12952,7 +12984,7 @@ Bulk Download
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13013,16 +13045,17 @@ compromise normal nightly operations.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-61}{LVV-61} - DMS-REQ-0156-V-01: Provide Pipeline Execution Services
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13030,7 +13063,7 @@ Batch Production, Workload and Orchestration~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13068,16 +13101,17 @@ Batch Production, Workload and Orchestration~
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-133}{LVV-133} - DMS-REQ-0302-V-01: Production Orchestration
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13086,7 +13120,7 @@ production on LSST compute platform(s).
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13124,16 +13158,17 @@ production on LSST compute platform(s).
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-134}{LVV-134} - DMS-REQ-0303-V-01: Production Monitoring
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13142,7 +13177,7 @@ execution and production systems usage/load.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13180,16 +13215,17 @@ execution and production systems usage/load.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-135}{LVV-135} - DMS-REQ-0304-V-01: Production Fault Tolerance
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13200,7 +13236,7 @@ ready for subsequent use, and/or reset and repeat production attempts.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13238,16 +13274,17 @@ ready for subsequent use, and/or reset and repeat production attempts.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-62}{LVV-62} - DMS-REQ-0158-V-01: Provide Pipeline Construction Services
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13255,7 +13292,7 @@ This is a composite requirement in the SysML model
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13293,16 +13330,17 @@ This is a composite requirement in the SysML model
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-136}{LVV-136} - DMS-REQ-0305-V-01: Task Specification
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13311,7 +13349,7 @@ pipeline task without recompilation.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13366,16 +13404,17 @@ subtraction, and photometric-redshift estimation.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-137}{LVV-137} - DMS-REQ-0306-V-01: Task Configuration
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13384,7 +13423,7 @@ override, and verify the configuration for a DMS Task.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13455,16 +13494,17 @@ runs through difference in recorded provenance and in results.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-128}{LVV-128} - DMS-REQ-0297-V-01: DMS Initialization Component
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13473,7 +13513,7 @@ not allow data corruption/loss.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13511,16 +13551,17 @@ not allow data corruption/loss.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-132}{LVV-132} - DMS-REQ-0301-V-01: Control of Level-1 Production
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13529,7 +13570,7 @@ facilities.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13567,16 +13608,17 @@ facilities.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-138}{LVV-138} - DMS-REQ-0307-V-01: Unique Processing Coverage
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13585,7 +13627,7 @@ record in a table exactly once.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13624,16 +13666,17 @@ rows even in the presence of failures
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-33}{LVV-33} - DMS-REQ-0075-V-01: Catalog Queries
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13641,7 +13684,7 @@ Verify that SQL can be used to query catalogs.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13679,16 +13722,17 @@ Verify that SQL can be used to query catalogs.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-34}{LVV-34} - DMS-REQ-0077-V-01: Maintain Archive Publicly Accessible
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13696,7 +13740,7 @@ Verify that prior data releases remain accessible.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13734,16 +13778,17 @@ Verify that prior data releases remain accessible.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-35}{LVV-35} - DMS-REQ-0078-V-01: Catalog Export Formats
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13752,7 +13797,7 @@ community-standard formats.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13790,16 +13835,17 @@ community-standard formats.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Eric Bellm
+Test & Eric Bellm
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-37}{LVV-37} - DMS-REQ-0094-V-01: Keep Historical Alert Archive
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13808,7 +13854,7 @@ reference and for false alert analyses
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13846,16 +13892,17 @@ reference and for false alert analyses
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-44}{LVV-44} - DMS-REQ-0102-V-01: Provide Engineering \& Facility Database Archive
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13865,7 +13912,7 @@ available for public access within L1PublicT (24 hours).~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13904,16 +13951,17 @@ in time
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-140}{LVV-140} - DMS-REQ-0309-V-01: Raw Data Archiving Reliability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13921,7 +13969,7 @@ Verify that raw images are reliably archived.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -13960,16 +14008,17 @@ estimated reliability
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-141}{LVV-141} - DMS-REQ-0310-V-01: Un-Archived Data Product Cache
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -13979,7 +14028,7 @@ hand.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14017,16 +14066,17 @@ hand.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Simon Krughoff
+Test & Simon Krughoff
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-142}{LVV-142} - DMS-REQ-0311-V-01: Regenerate Un-archived Data Products
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14037,7 +14087,7 @@ from an archived data release after the fact.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14105,16 +14155,17 @@ re-processing and compare results with previously unarchived products.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-143}{LVV-143} - DMS-REQ-0312-V-01: Level 1 Data Product Access
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14122,7 +14173,7 @@ Verify that Level 1 Data Products are accessible by science users.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14160,16 +14211,17 @@ Verify that Level 1 Data Products are accessible by science users.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-144}{LVV-144} - DMS-REQ-0313-V-01: Level 1 \& 2 Catalog Access
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14177,7 +14229,7 @@ Verify that Data Release Products are accessible by science users.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14215,16 +14267,18 @@ Verify that Data Release Products are accessible by science users.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Simon Krughoff
+Test & Simon Krughoff
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-167}{LVV-167} - DMS-REQ-0336-V-01: Regenerating Data Products from Previous Data Releases
+\item \href{https://jira.lsstcorp.org/browse/LVV-167}{LVV-167} - DMS-REQ-0336-V-01: Regenerating Data Products from Previous Data
+Releases
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14233,7 +14287,7 @@ generated using through the LSST Science Platform.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14271,16 +14325,17 @@ generated using through the LSST Science Platform.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-172}{LVV-172} - DMS-REQ-0341-V-01: Providing a Precovery Service
+\item \href{https://jira.lsstcorp.org/browse/LVV-172}{LVV-172} - DMS-REQ-0341-V-01: Max elapsed time for precovery results
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14292,7 +14347,7 @@ datasets.\\
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14366,7 +14421,7 @@ sources for precovery quasars from
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
             Examine the results. ~Compare the results for the period where there is
-overlap with precovery run... and quasar photometry with those from
+overlap with precovery run\ldots{} and quasar photometry with those from
 \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T80}{LVV-T80}
 to verify user service performs as production services.
 
@@ -14386,16 +14441,17 @@ to verify user service performs as production services.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-176}{LVV-176} - DMS-REQ-0345-V-01: Logging of catalog queries
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14405,7 +14461,7 @@ the user that made the query.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14443,16 +14499,17 @@ the user that made the query.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-189}{LVV-189} - DMS-REQ-0363-V-01: Access to Previous Data Releases
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14468,7 +14525,7 @@ LSP Web APIs, Parallel Distributed Database)
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14541,16 +14598,17 @@ relevant Data Release Sets are found.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-190}{LVV-190} - DMS-REQ-0364-V-01: Data Access Services
+\item \href{https://jira.lsstcorp.org/browse/LVV-190}{LVV-190} - DMS-REQ-0364-V-01: Total number of data releases
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14559,7 +14617,7 @@ data from nDRTot (11) data releases over a surveyYears (10) year survey.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14597,16 +14655,17 @@ data from nDRTot (11) data releases over a surveyYears (10) year survey.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-191}{LVV-191} - DMS-REQ-0365-V-01: Operations Subsets
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14617,7 +14676,7 @@ Portal, LSP JupyterLab, LSP Web APIs, Parallel Distributed Database)
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14655,16 +14714,17 @@ Portal, LSP JupyterLab, LSP Web APIs, Parallel Distributed Database)
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Lupton
+Test & Robert Lupton
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-192}{LVV-192} - DMS-REQ-0366-V-01: Subsets Support
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14673,7 +14733,7 @@ Releases.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14711,16 +14771,17 @@ Releases.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-193}{LVV-193} - DMS-REQ-0367-V-01: Access Services Performance
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14729,7 +14790,7 @@ long-time views of system performance and usage.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14767,16 +14828,17 @@ long-time views of system performance and usage.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-194}{LVV-194} - DMS-REQ-0368-V-01: Implementation Provisions
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14788,7 +14850,7 @@ provisioned to meet those requirements.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14826,16 +14888,17 @@ provisioned to meet those requirements.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-195}{LVV-195} - DMS-REQ-0369-V-01: Evolution
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14845,7 +14908,7 @@ another.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14883,16 +14946,17 @@ another.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-196}{LVV-196} - DMS-REQ-0370-V-01: Older Release Behavior
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14908,7 +14972,7 @@ LSP Web APIs, Parallel Distributed Database)
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -14946,16 +15010,17 @@ LSP Web APIs, Parallel Distributed Database)
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-197}{LVV-197} - DMS-REQ-0371-V-01: Query Availability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -14963,7 +15028,7 @@ Verify that queries continue to be successfully executable over time.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15001,16 +15066,17 @@ Verify that queries continue to be successfully executable over time.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-5}{LVV-5} - DMS-REQ-0008-V-01: Pipeline Availability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15027,7 +15093,7 @@ Monitoring.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15067,16 +15133,18 @@ pre-production systems
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-64}{LVV-64} - DMS-REQ-0161-V-01: Optimization of Cost, Reliability and Availability in Order
+\item \href{https://jira.lsstcorp.org/browse/LVV-64}{LVV-64} - DMS-REQ-0161-V-01: Optimization of Cost, Reliability and Availability in
+Order
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15090,7 +15158,7 @@ monitoring.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15128,16 +15196,17 @@ monitoring.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-65}{LVV-65} - DMS-REQ-0162-V-01: Pipeline Throughput
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15147,7 +15216,7 @@ nRawExpNightMax (2800) science exposures within a (24-nightDurationMax)
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15186,26 +15255,27 @@ in time
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-66}{LVV-66} - DMS-REQ-0163-V-01: Re-processing Capacity
+
 \end{itemize}
 
 \subsubsection{Test Items}
 Verify that the DMS has sufficient processing, storage, and network to
-reprocess all data within "drProcessingPeriod" (1 year) while
+reprocess all data within ``drProcessingPeriod'' (1 year) while
 maintaining full Prompt Processing capability.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15243,16 +15313,17 @@ maintaining full Prompt Processing capability.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-67}{LVV-67} - DMS-REQ-0164-V-01: Temporary Storage for Communications Links
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15267,7 +15338,7 @@ hours, baseToArchNetMTTR = 48 hours, ~archToDacNetMTTR = 48 hours).
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15305,16 +15376,17 @@ hours, baseToArchNetMTTR = 48 hours, ~archToDacNetMTTR = 48 hours).
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-68}{LVV-68} - DMS-REQ-0165-V-01: Infrastructure Sizing for "catching up"
+\item \href{https://jira.lsstcorp.org/browse/LVV-68}{LVV-68} - DMS-REQ-0165-V-01: Infrastructure Sizing for ``catching up''
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15326,7 +15398,7 @@ this is very similar to
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15365,16 +15437,17 @@ failure, observe data products generated in time
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-69}{LVV-69} - DMS-REQ-0166-V-01: Incorporate Fault-Tolerance
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15390,7 +15463,7 @@ failures is covered in
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15429,16 +15502,17 @@ failures, observe recovery without loss of data
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-70}{LVV-70} - DMS-REQ-0167-V-01: Incorporate Autonomics
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15448,7 +15522,7 @@ of partial products for triage.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15487,16 +15561,17 @@ failures, observe automated recovery and continuation of processing
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-145}{LVV-145} - DMS-REQ-0314-V-01: Compute Platform Heterogeneity
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15506,7 +15581,7 @@ hardware provisioning).
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15545,16 +15620,17 @@ functioning
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-149}{LVV-149} - DMS-REQ-0318-V-01: Data Management Unscheduled Downtime
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15569,7 +15645,7 @@ Service Management and Monitoring.~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15608,16 +15684,17 @@ unplanned downtime
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-71}{LVV-71} - DMS-REQ-0168-V-01: Summit Facility Data Communications
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15626,7 +15703,7 @@ base, along with monitoring systems exist and perform adequately.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15664,16 +15741,17 @@ base, along with monitoring systems exist and perform adequately.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-72}{LVV-72} - DMS-REQ-0170-V-01: Prefer Computing and Storage Down
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15683,7 +15761,7 @@ networking downtimes.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15721,16 +15799,17 @@ networking downtimes.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gregory Dubois-Felsmann
+Test & Gregory Dubois-Felsmann
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-146}{LVV-146} - DMS-REQ-0315-V-01: DMS Communication with OCS
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15740,7 +15819,7 @@ Early Integration activities and during AuxTel commissioning.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15778,16 +15857,17 @@ Early Integration activities and during AuxTel commissioning.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-73}{LVV-73} - DMS-REQ-0171-V-01: Summit to Base Network
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15797,7 +15877,7 @@ than summToBaseMaxTransferTime (2 seconds).
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15835,16 +15915,17 @@ than summToBaseMaxTransferTime (2 seconds).
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-74}{LVV-74} - DMS-REQ-0172-V-01: Summit to Base Network Availability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15853,7 +15934,7 @@ failures is less than summToBaseNetMTBF (90 days) over 1 year.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15891,16 +15972,17 @@ failures is less than summToBaseNetMTBF (90 days) over 1 year.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-75}{LVV-75} - DMS-REQ-0173-V-01: Summit to Base Network Reliability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15909,7 +15991,7 @@ repair is less than summToBaseNetMTTR (24 hours) over a 1-year period.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -15947,16 +16029,17 @@ repair is less than summToBaseNetMTTR (24 hours) over a 1-year period.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-76}{LVV-76} - DMS-REQ-0174-V-01: Summit to Base Network Secondary Link
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -15967,7 +16050,7 @@ exposures) within summToBaseNet2TransMax (72 hours). ~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16005,16 +16088,17 @@ exposures) within summToBaseNet2TransMax (72 hours). ~
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-77}{LVV-77} - DMS-REQ-0175-V-01: Summit to Base Network Ownership and Operation
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16023,7 +16107,7 @@ by LSST and/or the operations entity.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16061,16 +16145,17 @@ by LSST and/or the operations entity.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-78}{LVV-78} - DMS-REQ-0176-V-01: Base Facility Infrastructure
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16081,7 +16166,7 @@ Commissioning.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16119,16 +16204,17 @@ Commissioning.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-80}{LVV-80} - DMS-REQ-0178-V-01: Base Facility Co-Location with Existing Facility
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16137,7 +16223,7 @@ facility.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16175,16 +16261,17 @@ facility.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-147}{LVV-147} - DMS-REQ-0316-V-01: Commissioning Cluster
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16193,7 +16280,7 @@ at the Base Facility to support Commissioning.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16231,16 +16318,17 @@ at the Base Facility to support Commissioning.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-183}{LVV-183} - DMS-REQ-0352-V-01: Base Wireless LAN (WiFi)
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16249,7 +16337,7 @@ Facility supports minBaseWiFi bandwidth.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16287,16 +16375,17 @@ Facility supports minBaseWiFi bandwidth.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-81}{LVV-81} - DMS-REQ-0180-V-01: Base to Archive Network
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16305,7 +16394,7 @@ Archive Center in baseToArchiveMaxTransferTime.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16343,16 +16432,17 @@ Archive Center in baseToArchiveMaxTransferTime.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-82}{LVV-82} - DMS-REQ-0181-V-01: Base to Archive Network Availability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16360,7 +16450,7 @@ Verify Network uptime between Base Facility and Archive Facility.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16398,16 +16488,17 @@ Verify Network uptime between Base Facility and Archive Facility.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-83}{LVV-83} - DMS-REQ-0182-V-01: Base to Archive Network Reliability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16415,7 +16506,7 @@ Verify uptime of the Base Facility to Archive Facility network.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16453,16 +16544,17 @@ Verify uptime of the Base Facility to Archive Facility network.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-84}{LVV-84} - DMS-REQ-0183-V-01: Base to Archive Network Secondary Link
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16471,7 +16563,7 @@ operations support and catching up after outages.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16509,16 +16601,17 @@ operations support and catching up after outages.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-85}{LVV-85} - DMS-REQ-0185-V-01: Archive Center
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16527,7 +16620,7 @@ prompt processing, DRP, and data access needs.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16565,16 +16658,17 @@ prompt processing, DRP, and data access needs.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-86}{LVV-86} - DMS-REQ-0186-V-01: Archive Center Disaster Recovery
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16582,7 +16676,7 @@ Verify disaster recovery plan for Archive Center.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16621,16 +16715,17 @@ recovery
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-87}{LVV-87} - DMS-REQ-0187-V-01: Archive Center Co-Location with Existing Facility
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16638,7 +16733,7 @@ Verify the Archive Center is located at an existing supported facility.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16676,16 +16771,17 @@ Verify the Archive Center is located at an existing supported facility.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-88}{LVV-88} - DMS-REQ-0188-V-01: Archive to Data Access Center Network
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16694,7 +16790,7 @@ Centers of at least archToDacBandwidth.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16732,16 +16828,17 @@ Centers of at least archToDacBandwidth.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-89}{LVV-89} - DMS-REQ-0189-V-01: Archive to Data Access Center Network Availability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16749,7 +16846,7 @@ Test & False & Robert Gruendl
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16787,16 +16884,17 @@ Test & False & Robert Gruendl
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-90}{LVV-90} - DMS-REQ-0190-V-01: Archive to Data Access Center Network Reliability
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16805,7 +16903,7 @@ communications.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16843,16 +16941,17 @@ communications.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-91}{LVV-91} - DMS-REQ-0191-V-01: Archive to Data Access Center Network Secondary Link
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16860,7 +16959,7 @@ Inter-Site Networks~
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -16940,16 +17039,17 @@ Inter-Site Networks~
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-50}{LVV-50} - DMS-REQ-0122-V-01: Access to catalogs for external Level 3 processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -16958,7 +17058,7 @@ products to outside of the Data Access Centers.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17010,16 +17110,18 @@ products to outside of the Data Access Centers.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Robert Gruendl
+Test & Robert Gruendl
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-51}{LVV-51} - DMS-REQ-0123-V-01: Access to input catalogs for DAC-based Level 3 processing
+\item \href{https://jira.lsstcorp.org/browse/LVV-51}{LVV-51} - DMS-REQ-0123-V-01: Access to input catalogs for DAC-based Level 3
+processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17028,7 +17130,7 @@ use in Level 3 processing.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17066,16 +17168,17 @@ use in Level 3 processing.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-52}{LVV-52} - DMS-REQ-0124-V-01: Federation with external catalogs
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17083,7 +17186,7 @@ Verify that LSST-produced data can be combined with external datasets.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17122,16 +17225,17 @@ federation with other catalogs via LSP
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-54}{LVV-54} - DMS-REQ-0126-V-01: Access to images for external Level 3 processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17141,7 +17245,7 @@ the Data Access Centers.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17193,16 +17297,18 @@ the Data Access Centers.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
-\item \href{https://jira.lsstcorp.org/browse/LVV-55}{LVV-55} - DMS-REQ-0127-V-01: Access to input images for DAC-based Level 3 processing
+\item \href{https://jira.lsstcorp.org/browse/LVV-55}{LVV-55} - DMS-REQ-0127-V-01: Access to input images for DAC-based Level 3
+processing
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17211,7 +17317,7 @@ for Level 3 processing at the DACs.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17263,16 +17369,17 @@ for Level 3 processing at the DACs.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Analysis & False & Kian-Tat Lim
+Analysis & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-92}{LVV-92} - DMS-REQ-0193-V-01: Data Access Centers
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17281,7 +17388,7 @@ resources necessary to support end-user access to LSST Data Products.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17319,16 +17426,17 @@ resources necessary to support end-user access to LSST Data Products.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Kian-Tat Lim
+Test & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-93}{LVV-93} - DMS-REQ-0194-V-01: Data Access Center Simultaneous Connections
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17337,7 +17445,7 @@ simultaneously
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17389,16 +17497,17 @@ simultaneously
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Analysis & False & Kian-Tat Lim
+Analysis & Kian-Tat Lim
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-94}{LVV-94} - DMS-REQ-0196-V-01: Data Access Center Geographical Distribution
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17407,7 +17516,7 @@ low-latency access to data-rights community.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17445,16 +17554,17 @@ low-latency access to data-rights community.
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Colin Slater
+Test & Colin Slater
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
 \begin{itemize}
 \item \href{https://jira.lsstcorp.org/browse/LVV-95}{LVV-95} - DMS-REQ-0197-V-01: No Limit on Data Access Centers
+
 \end{itemize}
 
 \subsubsection{Test Items}
@@ -17462,7 +17572,7 @@ Verify that additional Data Access Centers can be set up.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17497,35 +17607,32 @@ functioning
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T219}{LVV-T219}
-    - Initialize Science Pipelines}\label{lvv-t219}
+    - Run Science Pipelines}\label{lvv-t219}
 
 \begin{longtable}[]{llllll}
 \toprule
-Version & Status & Priority & Verification Type & Critical Event & Owner
+Version & Status & Priority & Verification Type & Owner
 \\\midrule
 1 & Draft & Normal &
-Test & False & Gabriele Comoretto
+Test & Gabriele Comoretto
 \\\bottomrule
 \end{longtable}
 
-\subsubsection{Requirements}
+\subsubsection{Verification Elements}
     None.
 
 \subsubsection{Test Items}
-The scope of this test case is to provide general steps to initialize
-the science pipelines. This test case can be included in other test
-cases in order to have a common reference for science pipeline
-initialization.\\
-~\\
-The procedure depicted here will use newinstall.sh. A different
-procedure can be put in place using docker images.\\
-~\\
-Since this is a general purpose test case, it is not related to any
-requirements.
+The scope of this test case is to run the science pipelines and conduct
+basic verification of the outputs prior to conducting detailed science
+verification.\\
+This test case should be included as a pre-requisite in other test cases
+that require output from the LSST science pipelines as
+input.\\[2\baselineskip]This test is a general purpose pre-requisite
+test case, it is not related to any requirements.
 
 
 
-\subsubsection{Intercase Dependencies}
+\subsubsection{Predecessors}
 
 \subsubsection{Environment Needs}
 
@@ -17534,6 +17641,8 @@ requirements.
 \paragraph{Hardware}
 
 \subsubsection{Input Specification}
+The LSST science pipelines should be installed
+
 
 \subsubsection{Output Specification}
 
@@ -17563,13 +17672,10 @@ https://pipelines.lsst.io/install/prereqs/centos.html
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            create a local folder where to set-up the science pipeline:\\
-~\\
-\hspace*{0.333em} mkdir -p lsst\_sciencepipeline\\
-~\\
-and move into it\\
-~\\
-\hspace*{0.333em} cd lsst\_sciencepipeline
+            create a local folder where to set-up the science
+pipeline:\\[2\baselineskip]\hspace*{0.333em} mkdir -p
+lsst\_sciencepipeline\\[2\baselineskip]and move into
+it\\[2\baselineskip]\hspace*{0.333em} cd lsst\_sciencepipeline
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17583,19 +17689,13 @@ and move into it\\
 
             \multirow{3}{*}{ 3 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            download the newistall.sh:\\
-~\\
-\hspace*{0.333em} curl -OL
-https://raw.githubusercontent.com/lsst/lsst/\textbf{{[}X.Y{]}}/scripts/newinstall.sh\\
-~\\
-Note that \textbf{{[}X.Y{]}} need to be consistent with the version of
-the science pipeline you want to install.\\
-~\\
-and execute it:\\
-~\\
-\hspace*{0.333em} bash newinstall.sh -ct\\
-~\\
-Note that the "t" option will install binaries packages if available
+            download the newistall.sh:\\[2\baselineskip]\hspace*{0.333em} curl -OL
+https://raw.githubusercontent.com/lsst/lsst/\textbf{{[}X.Y{]}}/scripts/newinstall.sh\\[2\baselineskip]Note
+that \textbf{{[}X.Y{]}} need to be consistent with the version of the
+science pipeline you want to install.\\[2\baselineskip]and execute
+it:\\[2\baselineskip]\hspace*{0.333em} bash newinstall.sh
+-ct\\[2\baselineskip]Note that the ``t'' option will install binaries
+packages if available
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17609,9 +17709,9 @@ Note that the "t" option will install binaries packages if available
 
             \multirow{3}{*}{ 4 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Load the environment generated by the execution of newistall.sh:\\
-~\\
-\hspace*{0.333em}\hspace*{0.333em}source loadLSST.bash
+            Load the environment generated by the execution of
+newistall.sh:\\[2\baselineskip]\hspace*{0.333em}\hspace*{0.333em}source
+loadLSST.bash
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17625,15 +17725,12 @@ Note that the "t" option will install binaries packages if available
 
             \multirow{3}{*}{ 5 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Run the installation:\\
-~\\
-\hspace*{0.333em} eups distrib install -t v\textbf{{[}X\_Y{]}}
-lsst\_distrib\\
-~\\
-Note that {[}X\_Y{]} is the version of the science\_pipeline to install
-and has to be consistent with the newinstall.sh version downloaded 2
-steps above. Note also that lsst\_distrib is the top level package of
-the science\_pipeline software product.
+            Run the installation:\\[2\baselineskip]\hspace*{0.333em} eups distrib
+install -t v\textbf{{[}X\_Y{]}} lsst\_distrib\\[2\baselineskip]Note that
+{[}X\_Y{]} is the version of the science\_pipeline to install and has to
+be consistent with the newinstall.sh version downloaded 2 steps above.
+Note also that lsst\_distrib is the top level package of the
+science\_pipeline software product.
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -17647,13 +17744,225 @@ the science\_pipeline software product.
 
             \multirow{3}{*}{ 6 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Finalize the installation:\\
-~\\
-\hspace*{0.333em} curl -sSL
+            Finalize the installation:\\[2\baselineskip]\hspace*{0.333em} curl -sSL
 https://raw.githubusercontent.com/lsst/shebangtron/master/shebangtron
 \textbar{} python\\
 \hspace*{0.333em}\hspace*{0.333em}setup lsst\_distrib
 
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T376}{LVV-T376}
+    - Verify the Calculation of Ellipticity Correlations}\label{lvv-t376}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Leanne Guy
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-3404}{LVV-3404} - DMS-REQ-0362-V-01: Median residual PSF ellipticity correlations on 5
+arcmin scales
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T377}{LVV-T377}
+    - Verify Calculation of Photometric Performance Metrics}\label{lvv-t377}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Leanne Guy
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-3401}{LVV-3401} - DMS-REQ-0359-V-01: RMS photometric repeatability in uzy
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T378}{LVV-T378}
+    - Verify Calculation of Astrometric Performance Metrics}\label{lvv-t378}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Leanne Guy
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-3402}{LVV-3402} - DMS-REQ-0360-V-01: Median astrometric error on 20 arcmin scales
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T385}{LVV-T385}
+    - Verify Retrieval of a CCD-sized image from a coadd}\label{lvv-t385}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & Leanne Guy
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Verification Elements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-3394}{LVV-3394} - DMS-REQ-0377-V-01: Min number of simultaneous single-CCD coadd cutout
+image users
+
+\end{itemize}
+
+\subsubsection{Test Items}
+
+
+\subsubsection{Predecessors}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
             & Test Data &
